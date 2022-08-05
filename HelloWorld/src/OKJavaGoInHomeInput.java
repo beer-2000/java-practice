@@ -9,10 +9,14 @@ public class OKJavaGoInHomeInput{
 
     public static void main(String[] args) {
 
-        String id = JOptionPane.showInputDialog("Enter a ID");
-        Double bright = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter a bright level")
-        );
+//        String id = JOptionPane.showInputDialog("Enter a ID");
+//        Double bright = Double.parseDouble(
+//                JOptionPane.showInputDialog("Enter a bright level")
+//        );
+
+        // Use arguments
+        String id = args[0];
+        Double bright = Double.parseDouble(args[1]);
 
         // Elevator call
         Elevator myElevator = new Elevator(id);
