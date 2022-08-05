@@ -1,4 +1,4 @@
-public class AccountingArrayApp {
+public class AccountingArrayLoopApp {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
@@ -14,6 +14,16 @@ public class AccountingArrayApp {
         dividendRates[0] = 0.5;
         dividendRates[1] = 0.3;
         dividendRates[2] = 0.2;
+
+        int i = 0;
+        System.out.println("dividendRates.length : " + dividendRates.length);
+
+        while(i < dividendRates.length) {
+            System.out.println("index :" + i);
+            System.out.println("Dividend " + i + ": " + dividendRates[i]);
+
+            i = i + 1;
+        }
 
         double dividend1 = income * dividendRates[0];
         double dividend2 = income * dividendRates[1];
