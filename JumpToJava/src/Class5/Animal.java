@@ -36,14 +36,22 @@ class HouseDog extends Dog {
     }
 }
 
-class Tiger extends Animal implements Predetor {
+class Tiger extends Predetor implements Barkable {
     public String getFood() {
         return "apple";
     }
+
+    public void bark() {
+        System.out.println("어흥");
+    }
 }
 
-class Lion extends Animal implements Predetor {
+class Lion extends Predetor implements Barkable {
     public String getFood() {
         return "banana";
+    }
+
+    public void bark() {
+        System.out.println("으르렁");
     }
 }
