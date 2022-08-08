@@ -1,9 +1,8 @@
 package Class9;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class Example2 {
+public class Example4 {
     public static void main(String[] args)  {
         int limit = 20;
         ArrayList<Integer> fibonacci = new ArrayList<>();
