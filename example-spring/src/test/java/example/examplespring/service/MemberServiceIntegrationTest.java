@@ -41,7 +41,7 @@ class MemberServiceIntegrationTest {
         Member member1 = new Member();
         member1.setName("spring");
 
-        Member member2 = new Member();
+        Member member2 = new Member();s
         member2.setName("spring");
 
         //when
