@@ -1,3 +1,5 @@
+package class2;
+
 public class GuGu {
     public static void main(String[] args) {
         GuGu gugu = new GuGu();

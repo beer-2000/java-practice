@@ -1,3 +1,5 @@
+package class2;
+
 public class Sample {
     int number = 1;
 
