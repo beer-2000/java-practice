@@ -12,6 +12,6 @@ public class Sample9 {
         System.out.println(list);
         list.add("c");
         System.out.println(list);
-        list = new ArrayList<>(Arrays.asList("b"));
+//        list = new ArrayList<>(Arrays.asList("b")); // 컴파일 에러 발생!
     }
 }
