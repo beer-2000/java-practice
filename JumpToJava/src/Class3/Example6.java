@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class Example6 {
     public static void main(String[] args) {
-        ArrayList<Integer> myList = new ArrayList<>(Arrays.asList(1, 3, 5, 4, 2));
+        ArrayList<Integer> myList = List.of(1,2,3,4,5);
         System.out.println(myList);
 
         myList.sort(Comparator.reverseOrder());
