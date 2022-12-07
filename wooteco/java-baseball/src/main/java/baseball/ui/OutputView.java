@@ -6,4 +6,8 @@ public class OutputView {
     public void announceStartGame() {
         System.out.println(ANNOUNCEMENT_START_GAME);
     }
+
+    public void printResultOfTurn(String resultSentence) {
+        System.out.println(resultSentence);
+    }
 }
