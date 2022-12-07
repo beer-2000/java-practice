@@ -21,7 +21,7 @@
 
 ## Domain
 ### TargetMaker
-- [ ] 타겟 숫자 생성
+- [x] 타겟 숫자 생성
 
 ### BaseballGame
 - [ ] 게임 초기화
