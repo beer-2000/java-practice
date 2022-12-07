@@ -8,4 +8,9 @@ public class InputView {
         String inputNumberRaw = Console.readLine();
         return inputNumberRaw;
     }
+
+    public String inputRestartCommand() {
+        String inputRestartCommandRaw = Console.readLine();
+        return inputRestartCommandRaw;
+    }
 }
