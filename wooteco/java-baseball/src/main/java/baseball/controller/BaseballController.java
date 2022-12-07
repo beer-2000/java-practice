@@ -17,10 +17,14 @@ public class BaseballController {
     }
 
     public void play() {
-        outputView.announceStartGame();
-        do {
-            playGame();
-        } while (!baseballGame.isEnd());
+        try {
+            outputView.announceStartGame();
+            do {
+                playGame();
+            } while (!baseballGame.isEnd());
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
+        }
     }
 
     public void playGame() {
