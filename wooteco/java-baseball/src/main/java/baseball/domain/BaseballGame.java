@@ -30,6 +30,12 @@ public class BaseballGame {
         return new GameResult(balls, strikes);
     }
 
+    public void judgeRestart(String restartCommand) {
+        if (restartCommand.equals("2")) {
+            this.isEnd = true;
+        }
+    }
+
     public boolean isEnd() {
         return isEnd;
     }
