@@ -1,16 +1,17 @@
 package baseball.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BaseballGame {
     private List<Integer> target;
+    private boolean isEnd;
 
     public void init() {
         TargetMaker targetMaker = new TargetMaker();
         this.target = targetMaker.generateTargetNumbers();
+        this.isEnd = false;
     }
 
     public GameResult judge(String inputNumbersRaw) {
@@ -27,6 +28,10 @@ public class BaseballGame {
             }
         }
         return new GameResult(balls, strikes);
+    }
+
+    public boolean isEnd() {
+        return isEnd;
     }
 
     private List<Integer> convertInputNumber(String inputNumbersRaw) {
