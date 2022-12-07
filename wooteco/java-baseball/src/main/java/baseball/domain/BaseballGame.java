@@ -31,6 +31,7 @@ public class BaseballGame {
     }
 
     public void judgeRestart(String restartCommand) {
+        validateRestartCommand(restartCommand);
         if (restartCommand.equals("2")) {
             this.isEnd = true;
         }
@@ -54,7 +55,7 @@ public class BaseballGame {
         try {
             Integer.parseInt(inputNumbersRaw);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 세자리 수를 입력하세요.");
+            throw new IllegalArgumentException("[ERROR] 세자리의 숫자만 입력해야 합니다.");
         }
     }
 
@@ -65,5 +66,12 @@ public class BaseballGame {
         if (numbers.size() != 3) {
             throw new IllegalArgumentException("[ERROR] 세자리 수를 입력하세요.");
         }
+    }
+
+    private void validateRestartCommand(String restartCommand) {
+        if (restartCommand.equals("1") || restartCommand.equals("2")) {
+            return;
+        }
+        throw new IllegalArgumentException("[ERROR] 1 또는 2를 입력해주세요.");
     }
 }
