@@ -35,9 +35,9 @@ public class GameResult {
     }
 
     private String getSentenceOfStrikes() {
-        if (balls == 0) {
+        if (strikes == 0) {
             return "";
         }
-        return balls + STRIKE_CHARACTER;
+        return strikes + STRIKE_CHARACTER;
     }
 }

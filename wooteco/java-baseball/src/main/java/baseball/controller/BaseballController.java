@@ -29,7 +29,7 @@ public class BaseballController {
         do {
             gameResult = playTurn();
             outputView.printResultOfTurn(gameResult.getSentence());
-        } while (gameResult.isOut());
+        } while (!gameResult.isOut());
         String restartCommand = getRestartCommandFromUser();
         baseballGame.judgeRestart(restartCommand);
     }
