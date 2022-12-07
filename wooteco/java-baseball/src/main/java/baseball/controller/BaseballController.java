@@ -25,13 +25,12 @@ public class BaseballController {
 
     public void playGame() {
         baseballGame.init();
+        GameResult gameResult;
         do {
-            GameResult gameResult = playTurn();
+            gameResult = playTurn();
             outputView.printResultOfTurn(gameResult.getSentence());
-        } while (GameResult.isOut());
-        outputView.announceOut();
-        outputView.requestInputOfRestartCommand();
-        String restartCommand = inputView.inputRestartCommand();
+        } while (gameResult.isOut());
+        String restartCommand = getRestartCommandFromUser();
         baseballGame.judgeRestart(restartCommand);
     }
 
@@ -40,5 +39,12 @@ public class BaseballController {
         String inputNumbersRaw = inputView.inputNumber();
         GameResult gameResult = baseballGame.judge(inputNumbersRaw);
         return gameResult;
+    }
+
+    private String getRestartCommandFromUser() {
+        outputView.announceOut();
+        outputView.requestInputOfRestartCommand();
+        String restartCommand = inputView.inputRestartCommand();
+        return restartCommand;
     }
 }
