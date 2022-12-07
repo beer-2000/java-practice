@@ -25,4 +25,8 @@ public class OutputView {
     public void requestInputOfRestartCommand() {
         System.out.println(REQUEST_INPUT_RESTART_COMMAND);
     }
+
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
 }
