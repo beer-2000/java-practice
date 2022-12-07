@@ -20,7 +20,7 @@ public class BaseballController {
         outputView.announceStartGame();
         do {
             playGame();
-        } while (baseballGame.isEnd());
+        } while (!baseballGame.isEnd());
     }
 
     public void playGame() {
