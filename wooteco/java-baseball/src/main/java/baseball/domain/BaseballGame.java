@@ -1,5 +1,8 @@
 package baseball.domain;
 
+import static baseball.constant.RestartCommand.END;
+
+import baseball.constant.RestartCommand;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +35,7 @@ public class BaseballGame {
 
     public void judgeRestart(String restartCommand) {
         validateRestartCommand(restartCommand);
-        if (restartCommand.equals("2")) {
+        if (restartCommand.equals(END.getCommand())) {
             this.isEnd = true;
         }
     }
@@ -69,7 +72,7 @@ public class BaseballGame {
     }
 
     private void validateRestartCommand(String restartCommand) {
-        if (restartCommand.equals("1") || restartCommand.equals("2")) {
+        if (RestartCommand.RESTART.isCorrectCommand(restartCommand)) {
             return;
         }
         throw new IllegalArgumentException("[ERROR] 1 또는 2를 입력해주세요.");
