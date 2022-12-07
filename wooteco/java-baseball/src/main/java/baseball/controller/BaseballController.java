@@ -37,8 +37,8 @@ public class BaseballController {
 
     public GameResult playTurn() {
         outputView.requestInputNumber();
-        String inputNumberRaw = inputView.inputNumber();
-        GameResult gameResult = baseballGame.judge(inputNumberRaw);
+        String inputNumbersRaw = inputView.inputNumber();
+        GameResult gameResult = baseballGame.judge(inputNumbersRaw);
         return gameResult;
     }
 }
