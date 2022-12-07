@@ -17,6 +17,16 @@ public class BaseballGame {
         List<Integer> inputNumbers = convertInputNumber(inputNumbersRaw);
         int balls = 0;
         int strikes = 0;
+        for (int i = 0; i < 3; i++) {
+            if (inputNumbers.get(i) == target.get(i)) {
+                strikes += 1;
+                continue;
+            }
+            if (target.contains(inputNumbers.get(i))) {
+                balls += 1;
+            }
+        }
+        return new GameResult(balls, strikes);
     }
 
     private List<Integer> convertInputNumber(String inputNumbersRaw) {
