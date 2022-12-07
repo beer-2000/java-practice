@@ -9,7 +9,8 @@ class TargetMakerTest {
 
     @Test
     void should_3numbers_When_Generate() {
-        List<Integer> target = TargetMaker.generateTargetNumbers();
+        TargetMaker targetMaker = new TargetMaker();
+        List<Integer> target = targetMaker.generateTargetNumbers();
         System.out.println(target);
         assertThat(target).hasSize(3);
     }
