@@ -16,7 +16,7 @@ public enum RestartCommand {
         return command;
     }
 
-    public boolean isCorrectCommand(String inputRestartCommand) {
+    public static boolean isCorrectCommand(String inputRestartCommand) {
         return Arrays.stream(RestartCommand.values())
                 .anyMatch(command -> command.getCommand().equals(inputRestartCommand));
     }

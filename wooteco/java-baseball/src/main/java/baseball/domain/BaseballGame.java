@@ -72,7 +72,7 @@ public class BaseballGame {
     }
 
     private void validateRestartCommand(String restartCommand) {
-        if (RestartCommand.RESTART.isCorrectCommand(restartCommand)) {
+        if (RestartCommand.isCorrectCommand(restartCommand)) {
             return;
         }
         throw new IllegalArgumentException("[ERROR] 1 또는 2를 입력해주세요.");
