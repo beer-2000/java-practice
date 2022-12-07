@@ -5,6 +5,7 @@ public class GameResult {
     private int strikes;
     private String BALL_CHARACTER = "볼 ";
     private String STRIKE_CHARACTER = "스트라이크 ";
+    private String NOTHING = "낫싱";
 
     public GameResult(int balls, int strikes) {
         this.balls = balls;
@@ -19,6 +20,11 @@ public class GameResult {
         StringBuilder sentenceOfResult = new StringBuilder("");
         sentenceOfResult.append(getSentenceOfBalls());
         sentenceOfResult.append(getSentenceOfStrikes());
+        if (sentenceOfResult.length() == 0) {
+            return NOTHING;
+        }
+        sentenceOfResult.deleteCharAt(sentenceOfResult.length() - 1);
+        return sentenceOfResult.toString();
     }
 
     private String getSentenceOfBalls() {
