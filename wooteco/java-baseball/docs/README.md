@@ -2,7 +2,7 @@
 
 ## UI
 ### InputView
-- [ ] 숫자 입력
+- [x] 숫자 입력
 - [ ] 게임 재시작 여부 입력
 
 ### OutputView
