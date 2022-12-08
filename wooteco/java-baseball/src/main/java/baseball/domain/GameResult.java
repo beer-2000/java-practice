@@ -1,8 +1,10 @@
 package baseball.domain;
 
+import java.util.Objects;
+
 public class GameResult {
-    private int balls;
-    private int strikes;
+    private final int balls;
+    private final int strikes;
     private String BALL_CHARACTER = "볼 ";
     private String STRIKE_CHARACTER = "스트라이크 ";
     private String NOTHING = "낫싱";
@@ -12,32 +14,33 @@ public class GameResult {
         this.strikes = strikes;
     }
 
+    public int getBalls() {
+        return balls;
+    }
+
+    public int getStrikes() {
+        return strikes;
+    }
+
     public boolean isOut() {
         return this.strikes == 3;
     }
 
-    public String getSentence() {
-        StringBuilder sentenceOfResult = new StringBuilder("");
-        sentenceOfResult.append(getSentenceOfBalls());
-        sentenceOfResult.append(getSentenceOfStrikes());
-        if (sentenceOfResult.length() == 0) {
-            return NOTHING;
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
         }
-        sentenceOfResult.deleteCharAt(sentenceOfResult.length() - 1);
-        return sentenceOfResult.toString();
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final GameResult point = (GameResult) o;
+        return balls == point.balls &&
+                strikes == point.strikes;
     }
 
-    private String getSentenceOfBalls() {
-        if (balls == 0) {
-            return "";
-        }
-        return balls + BALL_CHARACTER;
-    }
-
-    private String getSentenceOfStrikes() {
-        if (strikes == 0) {
-            return "";
-        }
-        return strikes + STRIKE_CHARACTER;
+    @Override
+    public int hashCode() {
+        return Objects.hash(balls, strikes);
     }
 }
