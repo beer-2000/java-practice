@@ -19,10 +19,6 @@ public class OutputView {
         System.out.print(REQUEST_INPUT_NUMBER);
     }
 
-    public void printResultOfTurn(String resultSentence) {
-        System.out.println(resultSentence);
-    }
-
     public void announceOut() {
         System.out.println(ANNOUNCEMENT_OUT);
     }
