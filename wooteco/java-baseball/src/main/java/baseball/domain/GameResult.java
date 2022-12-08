@@ -5,9 +5,6 @@ import java.util.Objects;
 public class GameResult {
     private final int balls;
     private final int strikes;
-    private String BALL_CHARACTER = "볼 ";
-    private String STRIKE_CHARACTER = "스트라이크 ";
-    private String NOTHING = "낫싱";
 
     public GameResult(int balls, int strikes) {
         this.balls = balls;

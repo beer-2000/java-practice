@@ -32,7 +32,7 @@ public class BaseballController {
         GameResult gameResult;
         do {
             gameResult = playTurn();
-            outputView.printResultOfTurn(gameResult.getSentence());
+            outputView.printResultSentence(gameResult);
         } while (!gameResult.isOut());
         String restartCommand = getRestartCommandFromUser();
         baseballGame.judgeRestart(restartCommand);
