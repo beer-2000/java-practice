@@ -11,4 +11,8 @@ public class InputView {
     public String getTargetNumbersFromUser() {
         return Console.readLine();
     }
+
+    public String getBonusNumberFromUser() {
+        return Console.readLine();
+    }
 }
