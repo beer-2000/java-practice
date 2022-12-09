@@ -17,9 +17,14 @@ public enum WinningResult {
     }
 
     public static WinningResult match(int countMatch, boolean isContainBonusNumber) {
-        return Arrays.stream(WinningResult.values())
-                .filter(winningResult -> winningResult.countMatch == countMatch && isContainBonusNumber)
-                .findAny()
+        System.out.println("input of match: " + countMatch + " " + isContainBonusNumber);
+        WinningResult winningResult = Arrays.stream(WinningResult.values())
+                .filter(result -> result.countMatch == countMatch)
+                .findFirst()
                 .orElse(NONE);
+        if (winningResult.equals(THIRD) && isContainBonusNumber) {
+            return SECOND;
+        }
+        return winningResult;
     }
 }
