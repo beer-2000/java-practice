@@ -23,6 +23,7 @@ public class LottoController {
     public void start() {
         List<Lotto> lottos = purchaseLottos();
         ResultTable resultTable = calculateResult(lottos);
+        outputView.announceResult(resultTable);
     }
 
     private List<Lotto> purchaseLottos() {
