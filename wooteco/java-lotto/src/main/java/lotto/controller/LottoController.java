@@ -41,6 +41,7 @@ public class LottoController {
 
     private ResultTable calculateResult(List<Lotto> lottos) {
         WinningCalculator winningCalculator = generateWinningCalculator();
+        return winningCalculator.calculateResultOfLottos(lottos);
     }
 
     private WinningCalculator generateWinningCalculator() {
