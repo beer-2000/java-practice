@@ -46,6 +46,7 @@
 
 ### WinningCalculator
 
+- [x] 입력한 당첨 숫자 변환
 - [ ] 여러 장의 로또에 대한 당첨 결과 계산
 
 ### Result (Value Object)
