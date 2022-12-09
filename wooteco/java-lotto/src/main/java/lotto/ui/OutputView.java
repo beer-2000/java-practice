@@ -27,4 +27,9 @@ public class OutputView {
         System.out.println();
         System.out.println(REQUEST_INPUT_TARGET_NUMBERS);
     }
+
+    public void announceInputBonusNumber() {
+        System.out.println();
+        System.out.println(REQUEST_INPUT_BONUS_NUMBER);
+    }
 }
