@@ -16,6 +16,7 @@ public class OutputView {
     private String ANNOUNCEMENT_WINNING_THIRD = "5개 일치 (1,500,000원) - %d개" + LINE_SEPARATOR;
     private String ANNOUNCEMENT_WINNING_SECOND = "5개 일치, 보너스 볼 일치 (30,000,000원) - %d개" + LINE_SEPARATOR;
     private String ANNOUNCEMENT_WINNING_FIRST = "6개 일치 (2,000,000,000원) - %d개" + LINE_SEPARATOR;
+    private String ANNOUNCEMENT_YIELD = "총 수익률은 %s%%입니다.";
 
     public void announceInputMoney() {
         System.out.println(REQUEST_INPUT_AMOUNT);
@@ -45,7 +46,7 @@ public class OutputView {
         System.out.println(ANNOUNCEMENT_WINNING_STATICS);
         System.out.println(LINE_FOR_SEPARATE);
         announceWinningResult(resultTable);
-//        announceYield(resultTable);
+        System.out.printf(ANNOUNCEMENT_YIELD, resultTable.getYield());
     }
 
     private void announceWinningResult(ResultTable resultTable) {
