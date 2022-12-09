@@ -22,7 +22,7 @@ public class LottoController {
 
     public void start() {
         List<Lotto> lottos = purchaseLottos();
-//        ResultTable resultTable = calculateResult(lottos);
+        ResultTable resultTable = calculateResult(lottos);
     }
 
     private List<Lotto> purchaseLottos() {
@@ -37,5 +37,18 @@ public class LottoController {
                     lottos.add(new Lotto(numbers));
                 });
         return lottos;
+    }
+
+    private ResultTable calculateResult(List<Lotto> lottos) {
+        WinningCalculator winningCalculator = generateWinningCalculator();
+    }
+
+    private WinningCalculator generateWinningCalculator() {
+        outputView.announceInputTargetNumbers();
+        String targetNumbersRaw = inputView.getTargetNumbersFromUser();
+        outputView.announceInputBonusNumber();
+        String bonusNumberRaw = inputView.getBonusNumberFromUser();
+        WinningCalculator winningCalculator = new WinningCalculator(targetNumbersRaw, bonusNumberRaw);
+        return winningCalculator;
     }
 }
