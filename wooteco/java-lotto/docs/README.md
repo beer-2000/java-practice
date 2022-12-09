@@ -45,6 +45,7 @@
 ### Cashier
 
 - [x] 구입금액에 해당하는 로또 개수 계산
+- [x] 유효성 검사 : 구입금액
 
 ### WinningCalculator
 

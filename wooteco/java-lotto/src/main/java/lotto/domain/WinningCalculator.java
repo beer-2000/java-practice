@@ -1,16 +1,25 @@
 package lotto.domain;
 
-import java.util.Arrays;
+import static lotto.constant.LottoRule.COUNT_OF_NUMBERS;
+import static lotto.constant.LottoRule.MAXIMUM_NUMBER;
+import static lotto.constant.LottoRule.MINIMUM_NUMBER;
+
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 public class WinningCalculator {
     private List<Integer> targetNumbers;
     private int bonusNumber;
 
-    public WinningCalculator(String targetNumbersRaw, String bonusNumberRaw) {
-        this.targetNumbers = convertNumbersRaw(targetNumbersRaw);
-        this.bonusNumber = Integer.parseInt(bonusNumberRaw);
+    public void setTargetNumbers(List<Integer> targetNumbers) {
+        validateTargetNumbers(targetNumbers);
+        this.targetNumbers = targetNumbers;
+    }
+
+    public void setBonusNumber(int bonusNumber) {
+        validateBonusNumber(bonusNumber);
+        this.bonusNumber = bonusNumber;
     }
 
     public ResultTable calculateResultOfLottos(List<Lotto> lottos) {
@@ -24,12 +33,6 @@ public class WinningCalculator {
         return resultTable;
     }
 
-    private List<Integer> convertNumbersRaw(String targetNumbersRaw) {
-        return Arrays.stream(targetNumbersRaw.split(","))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-    }
-
     private int calculateCountMatch(Lotto lotto) {
         int countMatch = 0;
         for (int number : targetNumbers) {
@@ -38,5 +41,50 @@ public class WinningCalculator {
             }
         }
         return countMatch;
+    }
+
+    private void validateTargetNumbers(List<Integer> targetNumbers) {
+        checkSize(targetNumbers);
+        checkRangeOfNumbers(targetNumbers);
+        checkDuplication(targetNumbers);
+    }
+
+    private void validateBonusNumber(int bonusNumber) {
+        checkRange(bonusNumber);
+        checkAlreadyInTarget(bonusNumber);
+    }
+
+    private void checkSize(List<Integer> targetNumbers) {
+        if (targetNumbers.size() != COUNT_OF_NUMBERS) {
+            throw new IllegalArgumentException("[ERROR] 6개의 숫자를 입력해야합니다. ex: 1,2,3,4,5,6");
+        }
+    }
+
+    private void checkRangeOfNumbers(List<Integer> targetNumbers) {
+        targetNumbers.stream()
+                .forEach(number -> {
+                    checkRange(number);
+                });
+    }
+
+    private void checkRange(int number) {
+        if (MINIMUM_NUMBER <= number && number <= MAXIMUM_NUMBER) {
+            return;
+        }
+        throw new IllegalArgumentException("[ERROR] 1과 45 사이의 수를 입력해야 합니다.");
+    }
+
+    private void checkDuplication(List<Integer> targetNumbers) {
+        Set numbersDeleteDuplication = new HashSet(targetNumbers);
+        if (numbersDeleteDuplication.size() == targetNumbers.size()) {
+            return;
+        }
+        throw new IllegalArgumentException("[ERROR] 중복 없는 6개의 숫자를 입력해주세요.");
+    }
+
+    private void checkAlreadyInTarget(int bonusNumber) {
+        if (targetNumbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException("[ERROR] 당첨 숫자 리스트에 없는 숫자를 입력해주세요.");
+        }
     }
 }

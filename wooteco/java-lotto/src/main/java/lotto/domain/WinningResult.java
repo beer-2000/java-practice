@@ -23,7 +23,6 @@ public enum WinningResult {
     }
 
     public static WinningResult match(int countMatch, boolean isContainBonusNumber) {
-        System.out.println("input of match: " + countMatch + " " + isContainBonusNumber);
         WinningResult winningResult = Arrays.stream(WinningResult.values())
                 .filter(result -> result.countMatch == countMatch)
                 .findFirst()

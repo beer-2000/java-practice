@@ -21,9 +21,13 @@ public class LottoController {
     }
 
     public void start() {
-        List<Lotto> lottos = purchaseLottos();
-        ResultTable resultTable = calculateResult(lottos);
-        outputView.announceResult(resultTable);
+        try {
+            List<Lotto> lottos = purchaseLottos();
+            ResultTable resultTable = calculateResult(lottos);
+            outputView.announceResult(resultTable);
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
+        }
     }
 
     private List<Lotto> purchaseLottos() {
@@ -46,11 +50,13 @@ public class LottoController {
     }
 
     private WinningCalculator generateWinningCalculator() {
+        WinningCalculator winningCalculator = new WinningCalculator();
         outputView.announceInputTargetNumbers();
-        String targetNumbersRaw = inputView.getTargetNumbersFromUser();
+        List<Integer> targetNumbers = inputView.getTargetNumbersFromUser();
+        winningCalculator.setTargetNumbers(targetNumbers);
         outputView.announceInputBonusNumber();
-        String bonusNumberRaw = inputView.getBonusNumberFromUser();
-        WinningCalculator winningCalculator = new WinningCalculator(targetNumbersRaw, bonusNumberRaw);
+        int bonusNumber = inputView.getBonusNumberFromUser();
+        winningCalculator.setBonusNumber(bonusNumber);
         return winningCalculator;
     }
 }

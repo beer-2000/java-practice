@@ -49,6 +49,10 @@ public class OutputView {
         System.out.printf(ANNOUNCEMENT_YIELD, resultTable.getYield());
     }
 
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
+
     private void announceWinningResult(ResultTable resultTable) {
         System.out.printf(ANNOUNCEMENT_WINNING_FIFTH, resultTable.getCountOfFifth());
         System.out.printf(ANNOUNCEMENT_WINNING_FOURTH, resultTable.getCountOfFourth());

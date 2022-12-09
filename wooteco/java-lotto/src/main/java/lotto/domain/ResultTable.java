@@ -58,7 +58,7 @@ public class ResultTable {
             amount += table.get(winningResult) * winningResult.getPrize();
         }
         double purchaseMoney = countAll * PRICE;
-        double yield = amount / purchaseMoney;
+        double yield = amount / purchaseMoney * 100;
         NumberFormat formatter = new DecimalFormat("#,##0.0");
         return formatter.format(yield);
     }
