@@ -56,7 +56,8 @@
 
 ### WinningResult (Enum)
 
-- [ ] 구현
+- [x] 구현
+- [x] 알맞은 결과 반환
 
 ## Constant
 
