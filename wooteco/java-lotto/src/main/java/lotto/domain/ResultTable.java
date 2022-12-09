@@ -15,4 +15,9 @@ public class ResultTable {
                 });
         this.table = table;
     }
+
+    public void add(WinningResult winningResult) {
+        int count = table.get(winningResult);
+        table.put(winningResult, count + 1);
+    }
 }

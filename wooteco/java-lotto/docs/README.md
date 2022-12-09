@@ -47,11 +47,12 @@
 ### WinningCalculator
 
 - [x] 입력한 당첨 숫자 변환
-- [ ] 여러 장의 로또에 대한 당첨 결과 계산
+- [x] 여러 장의 로또에 대한 당첨 결과 계산
     - [x] 당첨 숫자를 포함하는 개수 계산
 
-### Result (Value Object)
+### ResultTable (Value Object)
 
+- [x] 당첨 결과 개수 더하기
 - [ ] 수익률 계산
 
 ### WinningResult (Enum)
