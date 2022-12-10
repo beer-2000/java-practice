@@ -30,8 +30,8 @@ public class RacingController {
 
     private void playRacing() {
         outputView.requestRacingTimes();
-        outputView.announcePlayResult();
         int racingTimes = inputView.readRacingTimes();
+        outputView.announcePlayResult();
         IntStream.range(0, racingTimes).forEach(number -> {
             playTurn();
         });
