@@ -1,11 +1,15 @@
 package bridge.ui;
 
+import static bridge.constant.BridgeRule.LOWER_SIDE;
+import static bridge.constant.BridgeRule.UPPER_SIDE;
+
 /**
  * 사용자에게 게임 진행 상황과 결과를 출력하는 역할을 한다.
  */
 public class OutputView {
     private final String ANNOUNCEMENT_START_GAME = "다리 건너기 게임을 시작합니다.";
     private final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
+    private final String REQUEST_MOVING = "이동할 칸을 선택해주세요. (위: %s, 아래: %s)";
 
     public void announceStartGame() {
         System.out.println(ANNOUNCEMENT_START_GAME);
@@ -18,6 +22,11 @@ public class OutputView {
     }
 
     public void printLineSeparator() {
+        System.out.println();
+    }
+
+    public void requestMoving() {
+        System.out.printf(REQUEST_MOVING, UPPER_SIDE, LOWER_SIDE);
         System.out.println();
     }
 
