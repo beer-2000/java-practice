@@ -13,4 +13,13 @@ public class RacingGame {
         });
         this.cars = cars;
     }
+
+    public List<CarStatus> playTurn() {
+        List<CarStatus> carStatuses = new ArrayList<>();
+        cars.stream().forEach(car -> {
+            car.move();
+            carStatuses.add(car.getStatus);
+        });
+        return carStatuses;
+    }
 }

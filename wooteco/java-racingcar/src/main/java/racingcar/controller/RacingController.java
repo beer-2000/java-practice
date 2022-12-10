@@ -38,7 +38,7 @@ public class RacingController {
     }
 
     private void playTurn() {
-        List<CarStatus> carStatuses = racingGame.move();
+        List<CarStatus> carStatuses = racingGame.playTurn();
         outputView.printRacingStatus(carStatuses);
     }
 }
