@@ -22,7 +22,8 @@ public class BridgeController {
         generateBridgeGame();
         MovingStatus movingStatus;
         do {
-            movingStatus = bridgeGame.move();
+            outputView.requestMoving();
+            movingStatus = bridgeGame.move(inputView.readMoving());
             outputView.printMap(movingStatus);
             if (movingStatus.isFail()) {
                 checkRetry();
