@@ -44,7 +44,9 @@
 
 ### MovingStatus (Value Object)
 
-- [ ] 구현
+- [x] 실패 여부 설정
+- [x] 실패 여부 반환
+- [x] 이동 기록 반환
 
 ### BridgeMaker
 
