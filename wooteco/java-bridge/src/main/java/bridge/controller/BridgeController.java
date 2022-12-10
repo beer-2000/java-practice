@@ -34,11 +34,20 @@ public class BridgeController {
 
     private void generateBridgeGame() {
         outputView.announceStartGame();
-        outputView.requestBridgeSize();
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
-        List<String> bridge = bridgeMaker.makeBridge(inputView.readBridgeSize());
+        List<String> bridge;
+        do {
+            try {
+                outputView.requestBridgeSize();
+                bridge = bridgeMaker.makeBridge(inputView.readBridgeSize());
+                this.bridgeGame = new BridgeGame(bridge);
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+                outputView.printLineSeparator();
+            }
+        } while (true);
         outputView.printLineSeparator();
-        this.bridgeGame = new BridgeGame(bridge);
     }
 
     private void checkRetry() {

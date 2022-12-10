@@ -63,6 +63,10 @@ public class OutputView {
         System.out.printf(ANNOUNCEMENT_TRY_COUNT, tryCount);
     }
 
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
+
     private void drawSuccess(StringBuilder upperSidePicture, StringBuilder lowerSidePicture, String moving) {
         upperSidePicture.append(getDrawingOfUpper(moving));
         lowerSidePicture.append(getDrawingOfLower(moving));
