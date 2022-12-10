@@ -47,8 +47,8 @@ public class BridgeGame {
     public void retry() {
     }
 
-    public boolean isStop() {
-        return !progressStatus.equals(ON_WAY);
+    public boolean isOnWay() {
+        return progressStatus.equals(ON_WAY);
     }
 
     private boolean isCorrectMoving(String moving) {

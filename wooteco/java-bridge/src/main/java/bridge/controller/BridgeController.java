@@ -28,7 +28,7 @@ public class BridgeController {
             if (movingStatus.isFail()) {
                 checkRetry();
             }
-        } while (bridgeGame.isStop());
+        } while (bridgeGame.isOnWay());
         outputView.printResult(movingStatus);
     }
 

@@ -6,6 +6,7 @@ public class BridgeCalculator {
     private List<String> bridge;
 
     public BridgeCalculator(List<String> bridge) {
+        System.out.println(bridge);
         this.bridge = bridge;
     }
 
