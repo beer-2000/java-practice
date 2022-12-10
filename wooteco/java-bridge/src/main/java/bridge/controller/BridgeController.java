@@ -29,7 +29,7 @@ public class BridgeController {
                 checkRetry();
             }
         } while (bridgeGame.isOnWay());
-        outputView.printResult(movingStatus);
+        outputView.printResult(movingStatus, bridgeGame.isSuccess(), bridgeGame.getTryCount());
     }
 
     private void generateBridgeGame() {

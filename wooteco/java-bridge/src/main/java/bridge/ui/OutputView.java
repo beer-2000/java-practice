@@ -14,6 +14,9 @@ public class OutputView {
     private final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
     private final String REQUEST_MOVING = "이동할 칸을 선택해주세요. (위: %s, 아래: %s)";
     private final String REQUEST_GAME_COMMAND = "게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)";
+    private final String ANNOUNCEMENT_END_GAME = "최종 게임 결과";
+    private final String ANNOUNCEMENT_WHETHER_SUCCESS = "게임 성공 여부: %s";
+    private final String ANNOUNCEMENT_TRY_COUNT = "총 시도한 횟수: %d";
 
     public void announceStartGame() {
         System.out.println(ANNOUNCEMENT_START_GAME);
@@ -37,11 +40,6 @@ public class OutputView {
         System.out.println(REQUEST_GAME_COMMAND);
     }
 
-    /**
-     * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
-     * <p>
-     * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
-     */
     public void printMap(MovingStatus movingStatus) {
         List<String> history = movingStatus.getHistory();
         StringBuilder upperSidePicture = new StringBuilder("[");
@@ -55,6 +53,14 @@ public class OutputView {
         System.out.println(upperSidePicture);
         System.out.println(lowerSidePicture);
         System.out.println();
+    }
+
+    public void printResult(MovingStatus movingStatus, boolean isSuccess, int tryCount) {
+        System.out.println(ANNOUNCEMENT_END_GAME);
+        printMap(movingStatus);
+        System.out.printf(ANNOUNCEMENT_WHETHER_SUCCESS, getTextOf(isSuccess));
+        System.out.println();
+        System.out.printf(ANNOUNCEMENT_TRY_COUNT, tryCount);
     }
 
     private void drawSuccess(StringBuilder upperSidePicture, StringBuilder lowerSidePicture, String moving) {
@@ -75,15 +81,6 @@ public class OutputView {
         String lastMoving = movingStatus.getLastMoving();
         upperSidePicture.append(getFailDrawingOfUpper(lastMoving));
         lowerSidePicture.append(getFailDrawingOfLower(lastMoving));
-    }
-
-    /**
-     * 게임의 최종 결과를 정해진 형식에 맞춰 출력한다.
-     * <p>
-     * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
-     */
-    public void printResult(MovingStatus movingStatus) {
-        System.out.println(movingStatus.getHistory());
     }
 
     private String getDrawingOfUpper(String moving) {
@@ -112,5 +109,12 @@ public class OutputView {
             return " X |";
         }
         return "   |";
+    }
+
+    private String getTextOf(boolean isSuccess) {
+        if (isSuccess) {
+            return "성공";
+        }
+        return "실패";
     }
 }
