@@ -9,6 +9,10 @@ public class BridgeCalculator {
         this.bridge = bridge;
     }
 
+    public boolean isCorrectMoving(String moving, int location) {
+        return moving.equals(bridge.get(location));
+    }
+
     public int getSizeOfBridge() {
         return bridge.size();
     }

@@ -1,6 +1,5 @@
 package bridge.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MovingStatus {
@@ -8,8 +7,8 @@ public class MovingStatus {
     private boolean isFail;
     private int bridgeSize;
 
-    public MovingStatus(int bridgeSize) {
-        this.history = new ArrayList<>();
+    public MovingStatus(List<String> history, int bridgeSize) {
+        this.history = history;
         this.isFail = false;
         this.bridgeSize = bridgeSize;
     }

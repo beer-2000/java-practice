@@ -1,6 +1,7 @@
 package bridge.domain;
 
 import static bridge.constant.ProgressStatus.ON_WAY;
+import static bridge.constant.ProgressStatus.SUCCESS;
 
 import bridge.constant.ProgressStatus;
 import java.util.ArrayList;
@@ -28,7 +29,14 @@ public class BridgeGame {
      * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public MovingStatus move(String moving) {
+        movingHistory.add(moving);
         MovingStatus movingStatus = generateMovingStatus();
+        if (isCorrectMoving(moving)) {
+            checkSuccess();
+            return movingStatus;
+        }
+        movingStatus.setFail();
+        return movingStatus;
     }
 
     /**
@@ -39,7 +47,18 @@ public class BridgeGame {
     public void retry() {
     }
 
+    private boolean isCorrectMoving(String moving) {
+        int location = movingHistory.size() - 1;
+        return bridgeCalculator.isCorrectMoving(moving, location);
+    }
+
     private MovingStatus generateMovingStatus() {
-        return new MovingStatus(bridgeCalculator.getSizeOfBridge());
+        return new MovingStatus(movingHistory, bridgeCalculator.getSizeOfBridge());
+    }
+
+    private void checkSuccess() {
+        if (movingHistory.size() == bridgeCalculator.getSizeOfBridge()) {
+            progressStatus = SUCCESS;
+        }
     }
 }
