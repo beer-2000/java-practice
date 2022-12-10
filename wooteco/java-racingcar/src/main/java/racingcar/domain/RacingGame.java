@@ -25,12 +25,13 @@ public class RacingGame {
 
     public List<CarStatus> getWinners() {
         int maxPosition = getMaxPosition();
-        List<CarStatus> winners = new ArrayList<>();
+        List<CarStatus> winnerCarStatuses = new ArrayList<>();
         cars.stream().forEach(car -> {
             if (car.isOn(maxPosition)) {
-                winners.add(car.getStatus());
+                winnerCarStatuses.add(car.getStatus());
             }
         });
+        return winnerCarStatuses;
     }
 
     private int getMaxPosition() {
