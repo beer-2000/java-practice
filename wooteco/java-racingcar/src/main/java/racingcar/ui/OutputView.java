@@ -8,6 +8,8 @@ public class OutputView {
     private final String REQUEST_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final String REQUEST_RACING_TIMES = "시도할 회수는 몇회인가요?";
     private final String ANNOUNCEMENT_PLAY_RESULT = "실행 결과";
+    private final String COLONANDSPACES = " : ";
+    private final String DASH = "-";
 
     public void requestCarNames() {
         System.out.println(REQUEST_CAR_NAMES);
@@ -31,9 +33,9 @@ public class OutputView {
 
     private void printCarStatus(CarStatus carStatus) {
         System.out.print(carStatus.getName());
-        System.out.print(" : ");
+        System.out.print(COLONANDSPACES);
         IntStream.range(0, carStatus.getPosition()).forEach(number -> {
-            System.out.print("-");
+            System.out.print(DASH);
         });
         System.out.println();
     }
