@@ -38,12 +38,11 @@ public class BridgeGame {
     public MovingStatus move(String moving) {
         validateMoving(moving);
         movingHistory.add(moving);
-        MovingStatus movingStatus = generateMovingStatus();
-        if (isCorrectMoving(moving)) {
+        boolean isCorrectMoving = isCorrectMoving(moving);
+        MovingStatus movingStatus = generateMovingStatus(!isCorrectMoving);
+        if (isCorrectMoving) {
             checkSuccess();
-            return movingStatus;
         }
-        movingStatus.setFail();
         return movingStatus;
     }
 
@@ -95,8 +94,8 @@ public class BridgeGame {
         return bridgeCalculator.isCorrectMoving(moving, location);
     }
 
-    private MovingStatus generateMovingStatus() {
-        return new MovingStatus(movingHistory, bridgeCalculator.getSizeOfBridge());
+    private MovingStatus generateMovingStatus(boolean isFail) {
+        return new MovingStatus(movingHistory, isFail, bridgeCalculator.getSizeOfBridge());
     }
 
     private void checkSuccess() {

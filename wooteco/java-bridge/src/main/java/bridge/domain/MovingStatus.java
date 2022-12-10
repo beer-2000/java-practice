@@ -7,9 +7,9 @@ public class MovingStatus {
     private boolean isFail;
     private int bridgeSize;
 
-    public MovingStatus(List<String> history, int bridgeSize) {
+    public MovingStatus(List<String> history, boolean isFail, int bridgeSize) {
         this.history = history;
-        this.isFail = false;
+        this.isFail = isFail;
         this.bridgeSize = bridgeSize;
     }
 
@@ -19,10 +19,6 @@ public class MovingStatus {
 
     public boolean isFail() {
         return isFail;
-    }
-
-    public void setFail() {
-        this.isFail = true;
     }
 
     public String getLastMoving() {
