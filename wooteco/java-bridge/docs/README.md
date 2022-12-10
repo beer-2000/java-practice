@@ -5,6 +5,7 @@
 ### InputView
 
 - [x] 다리 길이 입력
+  - [ ] (예외 처리) 숫자 여부 판별
 - [ ] 이동할 칸 입력
 - [ ] 게임 재시작 여부 입력
 
@@ -42,6 +43,7 @@
 ### BridgeCalculator
 
 - [ ] 이동 방향이 맞는지 확인
+- [ ] (예외 처리) 다리 길이 
 
 ### MovingStatus (Value Object)
 
@@ -60,5 +62,9 @@
 ## Constant
 
 ### BridgeRule
+
+- [x] 구현
+
+### ProgressStatus
 
 - [x] 구현
