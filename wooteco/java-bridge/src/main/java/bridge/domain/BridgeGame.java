@@ -1,6 +1,8 @@
 package bridge.domain;
 
 import static bridge.constant.BridgeRule.COMMAND_QUIT;
+import static bridge.constant.BridgeRule.LOWER_SIDE;
+import static bridge.constant.BridgeRule.UPPER_SIDE;
 import static bridge.constant.ProgressStatus.FAIL;
 import static bridge.constant.ProgressStatus.ON_WAY;
 import static bridge.constant.ProgressStatus.SUCCESS;
@@ -17,6 +19,7 @@ public class BridgeGame {
     private int tryCount;
     private ProgressStatus progressStatus;
     private BridgeCalculator bridgeCalculator;
+    private final String ERROR_MESSAGE_WRONG_MOVING = "[ERROR] %s 또는 %s를 입력해주세요.";
 
     public BridgeGame(List<String> bridge) {
         this.movingHistory = new ArrayList<>();
@@ -31,6 +34,7 @@ public class BridgeGame {
      * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public MovingStatus move(String moving) {
+        validateMoving(moving);
         movingHistory.add(moving);
         MovingStatus movingStatus = generateMovingStatus();
         if (isCorrectMoving(moving)) {
@@ -65,6 +69,14 @@ public class BridgeGame {
 
     public int getTryCount() {
         return tryCount;
+    }
+
+    private void validateMoving(String moving) {
+        if (moving.equals(UPPER_SIDE) || moving.equals(LOWER_SIDE)) {
+            return;
+        }
+        throw new IllegalArgumentException(
+                String.format(ERROR_MESSAGE_WRONG_MOVING, UPPER_SIDE, LOWER_SIDE));
     }
 
     private boolean isCorrectMoving(String moving) {

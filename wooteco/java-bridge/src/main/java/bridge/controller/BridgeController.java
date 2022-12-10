@@ -23,13 +23,24 @@ public class BridgeController {
         MovingStatus movingStatus;
         do {
             outputView.requestMoving();
-            movingStatus = bridgeGame.move(inputView.readMoving());
+            movingStatus = move();
             outputView.printMap(movingStatus);
             if (movingStatus.isFail()) {
                 checkRetry();
             }
         } while (bridgeGame.isOnWay());
         outputView.printResult(movingStatus, bridgeGame.isSuccess(), bridgeGame.getTryCount());
+    }
+
+    private MovingStatus move() {
+        while (true) {
+            try {
+                MovingStatus movingStatus = bridgeGame.move(inputView.readMoving());
+                return movingStatus;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void generateBridgeGame() {
