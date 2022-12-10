@@ -1,5 +1,8 @@
 package bridge.domain;
 
+import static bridge.constant.ProgressStatus.ON_WAY;
+
+import bridge.constant.ProgressStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +12,13 @@ import java.util.List;
 public class BridgeGame {
     private List<String> movingHistory;
     private int tryCount;
+    private ProgressStatus progressStatus;
     private BridgeCalculator bridgeCalculator;
 
     public BridgeGame(List<String> bridge) {
         this.movingHistory = new ArrayList<>();
         this.tryCount = 1;
+        this.progressStatus = ON_WAY;
         this.bridgeCalculator = new BridgeCalculator(bridge);
     }
 

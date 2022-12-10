@@ -20,6 +20,15 @@ public class BridgeController {
 
     public void start() {
         generateBridgeGame();
+        MovingStatus movingStatus;
+        do {
+            movingStatus = bridgeGame.move();
+            outputView.printMap(movingStatus);
+            if (movingStatus.isFail()) {
+                checkRetry();
+            }
+        } while (bridgeGame.isStop());
+        outputView.printResult(movingStatus);
     }
 
     private void generateBridgeGame() {
@@ -29,5 +38,10 @@ public class BridgeController {
         List<String> bridge = bridgeMaker.makeBridge(inputView.readBridgeSize());
         outputView.printLineSeparator();
         this.bridgeGame = new BridgeGame(bridge);
+    }
+
+    private void checkRetry() {
+        outputView.requestGameCommand();
+        bridgeGame.retry(inputView.readGameCommand());
     }
 }
