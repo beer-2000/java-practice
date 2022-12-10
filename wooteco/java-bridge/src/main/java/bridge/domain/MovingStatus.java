@@ -24,4 +24,8 @@ public class MovingStatus {
     public void setFail() {
         this.isFail = true;
     }
+
+    public String getLastMoving() {
+        return history.get(history.size() - 1);
+    }
 }

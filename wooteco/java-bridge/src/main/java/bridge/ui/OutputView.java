@@ -4,6 +4,7 @@ import static bridge.constant.BridgeRule.LOWER_SIDE;
 import static bridge.constant.BridgeRule.UPPER_SIDE;
 
 import bridge.domain.MovingStatus;
+import java.util.List;
 
 /**
  * 사용자에게 게임 진행 상황과 결과를 출력하는 역할을 한다.
@@ -42,7 +43,38 @@ public class OutputView {
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public void printMap(MovingStatus movingStatus) {
-        System.out.println(movingStatus.getHistory());
+        List<String> history = movingStatus.getHistory();
+        StringBuilder upperSidePicture = new StringBuilder("[");
+        StringBuilder lowerSidePicture = new StringBuilder("[");
+        history.stream()
+                .forEach(moving -> drawSuccess(upperSidePicture, lowerSidePicture, moving));
+        if (movingStatus.isFail()) {
+            drawFail(movingStatus, upperSidePicture, lowerSidePicture);
+        }
+        closeBracket(upperSidePicture, lowerSidePicture);
+        System.out.println(upperSidePicture);
+        System.out.println(lowerSidePicture);
+        System.out.println();
+    }
+
+    private void drawSuccess(StringBuilder upperSidePicture, StringBuilder lowerSidePicture, String moving) {
+        upperSidePicture.append(getDrawingOfUpper(moving));
+        lowerSidePicture.append(getDrawingOfLower(moving));
+    }
+
+    private static void closeBracket(StringBuilder upperSidePicture, StringBuilder lowerSidePicture) {
+        upperSidePicture.delete(upperSidePicture.length() - 1, upperSidePicture.length());
+        lowerSidePicture.delete(lowerSidePicture.length() - 1, lowerSidePicture.length());
+        upperSidePicture.append("]");
+        lowerSidePicture.append("]");
+    }
+
+    private void drawFail(MovingStatus movingStatus, StringBuilder upperSidePicture, StringBuilder lowerSidePicture) {
+        upperSidePicture.delete(upperSidePicture.length() - 4, upperSidePicture.length());
+        lowerSidePicture.delete(lowerSidePicture.length() - 4, lowerSidePicture.length());
+        String lastMoving = movingStatus.getLastMoving();
+        upperSidePicture.append(getFailDrawingOfUpper(lastMoving));
+        lowerSidePicture.append(getFailDrawingOfLower(lastMoving));
     }
 
     /**
@@ -52,5 +84,33 @@ public class OutputView {
      */
     public void printResult(MovingStatus movingStatus) {
         System.out.println(movingStatus.getHistory());
+    }
+
+    private String getDrawingOfUpper(String moving) {
+        if (moving.equals(UPPER_SIDE)) {
+            return " O |";
+        }
+        return "   |";
+    }
+
+    private String getDrawingOfLower(String moving) {
+        if (moving.equals(LOWER_SIDE)) {
+            return " O |";
+        }
+        return "   |";
+    }
+
+    private String getFailDrawingOfUpper(String moving) {
+        if (moving.equals(UPPER_SIDE)) {
+            return " X |";
+        }
+        return "   |";
+    }
+
+    private String getFailDrawingOfLower(String moving) {
+        if (moving.equals(LOWER_SIDE)) {
+            return " X |";
+        }
+        return "   |";
     }
 }
