@@ -12,4 +12,9 @@ public class InputView {
                 .collect(Collectors.toList());
 
     }
+
+    public int readRacingTimes() {
+        String racingTimesRaw = Console.readLine();
+        return Integer.parseInt(racingTimesRaw);
+    }
 }
