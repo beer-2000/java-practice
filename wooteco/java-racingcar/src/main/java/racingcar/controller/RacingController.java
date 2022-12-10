@@ -20,6 +20,7 @@ public class RacingController {
     public void start() {
         generateGame();
         playRacing();
+        announceWinner();
     }
 
     private void generateGame() {
@@ -40,5 +41,10 @@ public class RacingController {
     private void playTurn() {
         List<CarStatus> carStatuses = racingGame.playTurn();
         outputView.printRacingStatus(carStatuses);
+    }
+
+    private void announceWinner() {
+        List<String> winners = racingGame.getWinners();
+        outputView.announceWinner(winners);
     }
 }
