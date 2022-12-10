@@ -50,4 +50,8 @@ public class OutputView {
         System.out.println(ANNOUNCEMENT_WINNERS);
         System.out.println(String.join(", ", winners));
     }
+
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
 }

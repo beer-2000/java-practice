@@ -25,8 +25,14 @@ public class RacingController {
 
     private void generateGame() {
         outputView.requestCarNames();
-        List<String> carNames = inputView.readCarNames();
-        this.racingGame = new RacingGame(carNames);
+        while (true) {
+            try {
+                List<String> carNames = inputView.readCarNames();
+                this.racingGame = new RacingGame(carNames);
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void playRacing() {
