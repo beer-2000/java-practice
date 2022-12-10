@@ -16,7 +16,7 @@
 ## Controller
 ### RacingController
 - [x] 자동차 등록
-- [ ] 경주 실행
+- [x] 경주 실행
 - [ ] 최종 결과 출력
 ---
 
