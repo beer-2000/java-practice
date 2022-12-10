@@ -47,11 +47,12 @@ public class OutputView {
         winnerCarStatuses.stream().forEach(carStatus -> {
             winners.add(carStatus.getName());
         });
-        System.out.println(ANNOUNCEMENT_WINNERS);
+        System.out.print(ANNOUNCEMENT_WINNERS);
         System.out.println(String.join(", ", winners));
     }
 
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
+        System.out.println();
     }
 }
