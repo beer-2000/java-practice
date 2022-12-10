@@ -25,4 +25,8 @@ public class Car {
     public CarStatus getStatus() {
         return new CarStatus(name, position);
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
