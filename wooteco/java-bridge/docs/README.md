@@ -32,6 +32,7 @@
 
 ### BridgeCalculator
 - [ ] 이동 방향이 맞는지 확인
+- [x] 다리 길이 반환
 - [ ] (예외 처리) 다리 길이 
 
 ### MovingStatus (Value Object)

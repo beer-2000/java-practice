@@ -8,4 +8,8 @@ public class BridgeCalculator {
     public BridgeCalculator(List<String> bridge) {
         this.bridge = bridge;
     }
+
+    public int getSizeOfBridge() {
+        return bridge.size();
+    }
 }
