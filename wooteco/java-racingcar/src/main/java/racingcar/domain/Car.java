@@ -21,4 +21,8 @@ public class Car {
             position += MOVING_DISTANCE;
         }
     }
+
+    public CarStatus getStatus() {
+        return new CarStatus(name, position);
+    }
 }

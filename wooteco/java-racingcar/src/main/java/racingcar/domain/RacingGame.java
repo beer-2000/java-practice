@@ -18,7 +18,7 @@ public class RacingGame {
         List<CarStatus> carStatuses = new ArrayList<>();
         cars.stream().forEach(car -> {
             car.move();
-            carStatuses.add(car.getStatus);
+            carStatuses.add(car.getStatus());
         });
         return carStatuses;
     }
