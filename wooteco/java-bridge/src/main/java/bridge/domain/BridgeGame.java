@@ -47,6 +47,10 @@ public class BridgeGame {
     public void retry() {
     }
 
+    public boolean isStop() {
+        return !progressStatus.equals(ON_WAY);
+    }
+
     private boolean isCorrectMoving(String moving) {
         int location = movingHistory.size() - 1;
         return bridgeCalculator.isCorrectMoving(moving, location);
