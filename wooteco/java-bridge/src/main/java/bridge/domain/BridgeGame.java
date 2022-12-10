@@ -1,6 +1,7 @@
 package bridge.domain;
 
 import static bridge.constant.BridgeRule.COMMAND_QUIT;
+import static bridge.constant.BridgeRule.COMMAND_RETRY;
 import static bridge.constant.BridgeRule.LOWER_SIDE;
 import static bridge.constant.BridgeRule.UPPER_SIDE;
 import static bridge.constant.ProgressStatus.FAIL;
@@ -19,7 +20,8 @@ public class BridgeGame {
     private int tryCount;
     private ProgressStatus progressStatus;
     private BridgeCalculator bridgeCalculator;
-    private final String ERROR_MESSAGE_WRONG_MOVING = "[ERROR] %s 또는 %s를 입력해주세요.";
+    private final String ERROR_MESSAGE_WRONG_MOVING = "[ERROR] 위로 이동하려면 %s, 아래로 이동하려면 %s를 입력해주세요.";
+    private final String ERROR_MESSAGE_WRONG_GAME_COMMAND = "[ERROR] 재시작하시려면 %s, 종료하시려면 %s를 입력해주세요.";
 
     public BridgeGame(List<String> bridge) {
         this.movingHistory = new ArrayList<>();
@@ -51,6 +53,7 @@ public class BridgeGame {
      * 재시작을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public void retry(String gameCommand) {
+        validateGameCommand(gameCommand);
         if (gameCommand.equals(COMMAND_QUIT)) {
             progressStatus = FAIL;
             return;
@@ -77,6 +80,14 @@ public class BridgeGame {
         }
         throw new IllegalArgumentException(
                 String.format(ERROR_MESSAGE_WRONG_MOVING, UPPER_SIDE, LOWER_SIDE));
+    }
+
+    private void validateGameCommand(String gameCommand) {
+        if (gameCommand.equals(COMMAND_QUIT) || gameCommand.equals(COMMAND_RETRY)) {
+            return;
+        }
+        throw new IllegalArgumentException(
+                String.format(ERROR_MESSAGE_WRONG_GAME_COMMAND, COMMAND_QUIT, COMMAND_RETRY));
     }
 
     private boolean isCorrectMoving(String moving) {

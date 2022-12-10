@@ -63,6 +63,13 @@ public class BridgeController {
 
     private void checkRetry() {
         outputView.requestGameCommand();
-        bridgeGame.retry(inputView.readGameCommand());
+        while (true) {
+            try {
+                bridgeGame.retry(inputView.readGameCommand());
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 }
