@@ -59,6 +59,14 @@ public class BridgeGame {
         return progressStatus.equals(ON_WAY);
     }
 
+    public boolean isSuccess() {
+        return progressStatus.equals(SUCCESS);
+    }
+
+    public int getTryCount() {
+        return tryCount;
+    }
+
     private boolean isCorrectMoving(String moving) {
         int location = movingHistory.size() - 1;
         return bridgeCalculator.isCorrectMoving(moving, location);
