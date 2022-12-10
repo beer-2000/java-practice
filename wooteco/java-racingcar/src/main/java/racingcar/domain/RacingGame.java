@@ -22,4 +22,24 @@ public class RacingGame {
         });
         return carStatuses;
     }
+
+    public List<CarStatus> getWinners() {
+        int maxPosition = getMaxPosition();
+        List<CarStatus> winners = new ArrayList<>();
+        cars.stream().forEach(car -> {
+            if (car.isOn(maxPosition)) {
+                winners.add(car.getStatus());
+            }
+        });
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (maxPosition < car.getPosition()) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
 }
