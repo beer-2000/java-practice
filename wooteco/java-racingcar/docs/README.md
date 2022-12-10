@@ -39,4 +39,4 @@
 
 ## Constant
 ### RacingRule
-- [ ] 구현
+- [x] 구현
