@@ -5,9 +5,15 @@ package bridge.ui;
  */
 public class OutputView {
     private final String ANNOUNCEMENT_START_GAME = "다리 건너기 게임을 시작합니다.";
+    private final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
 
     public void announceStartGame() {
         System.out.println(ANNOUNCEMENT_START_GAME);
+        System.out.println();
+    }
+
+    public void requestBridgeSize() {
+        System.out.println(REQUEST_BRIDGE_SIZE);
         System.out.println();
     }
 
