@@ -48,7 +48,7 @@
 
 ### BridgeMaker
 
-- [ ] 다리 생성
+- [x] 다리 생성
 
 ### BridgeRandomNumberGenerator
 
@@ -58,4 +58,4 @@
 
 ### BridgeRule
 
-- [ ] 구현
+- [x] 구현
