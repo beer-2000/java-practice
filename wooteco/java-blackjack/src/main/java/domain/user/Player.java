@@ -1,7 +1,6 @@
 package domain.user;
 
 import domain.card.Card;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +21,7 @@ public class Player {
         cards.add(card);
     }
 
-    // TODO 추가 기능 구현
-
+    public String getName() {
+        return name;
+    }
 }

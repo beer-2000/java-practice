@@ -49,6 +49,13 @@ public class BlackjackController {
         printCardsOfEachPlayers();
     }
 
+    private List<String> getPlayerNames() {
+        List<String> playerNames = new ArrayList<>();
+        players.stream().forEach(player -> {
+            playerNames.add(player.getName());
+        });
+    }
+
     private void addCardToEachPlayers() {
         players.stream().forEach(player -> {
             player.addCard(blackjack.getNewCard());
