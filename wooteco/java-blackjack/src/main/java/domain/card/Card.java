@@ -1,5 +1,7 @@
 package domain.card;
 
+import static domain.card.Symbol.ACE;
+
 import java.util.Objects;
 
 /**
@@ -19,7 +21,9 @@ public class Card {
         return value;
     }
 
-    // TODO Card 관련 추가 기능 구현
+    public boolean isAce() {
+        return symbol.equals(ACE);
+    }
 
     @Override
     public boolean equals(Object o) {
