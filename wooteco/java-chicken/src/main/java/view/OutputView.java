@@ -15,6 +15,7 @@ public class OutputView {
             + "2 - 결제하기" + System.lineSeparator()
             + "3 - 프로그램 종료";
     private static final String ANNOUNCEMENT_ORDER_SHEET = "## 주문 내역" + System.lineSeparator() + "메뉴 수량 금액";
+    private static final String ANNOUNCEMENT_FINAL_PRICE = "## 최종 결제할 금액" + System.lineSeparator() + "%d원";
 
     public static void printTables(final List<Table> tables) {
         System.out.println(ANNOUNCEMENT_TABLE_LIST);
@@ -64,5 +65,12 @@ public class OutputView {
                                 Integer.toString(count * menu.getPrice())));
                     }
                 });
+    }
+
+    public static void printTotalPrice(int totalPrice) {
+        System.out.println();
+        System.out.printf(ANNOUNCEMENT_FINAL_PRICE, totalPrice);
+        System.out.println();
+        System.out.println();
     }
 }
