@@ -13,7 +13,7 @@ import view.InputView;
 import view.OutputView;
 
 public class HofController {
-    private final String ERROR_MESSAGE_WRONG_FUNCTION_COMMAND = "[ERROR] 원하는 기능의 번호를 입력해주세요";
+    private final String ERROR_MESSAGE_WRONG_FUNCTION_COMMAND = "[ERROR] 원하는 기능의 번호를 입력해주세요" + System.lineSeparator();
 
     public void start() {
         String function;

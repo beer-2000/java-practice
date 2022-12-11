@@ -27,9 +27,11 @@ public class TableRepository {
     }
 
     public static Table getTableByNumber(int tableNumber) {
-        return tables.stream()
-                .filter(table -> table.isNumberOf(tableNumber))
-                .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+        for (Table table : tables) {
+            if (table.isNumberOf(tableNumber)) {
+                return table;
+            }
+        }
+        throw new IllegalArgumentException("[ERROR] 존재하지 않는 테이블 번호입니다.");
     }
 }
