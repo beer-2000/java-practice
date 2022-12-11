@@ -45,7 +45,7 @@ public class BlackjackController {
             dealer.addCard(blackjack.getNewCard());
             addCardToEachPlayers();
         });
-        outputView.printCards(dealer.getCardsToPrint());
+        outputView.printCardsOfDealer(dealer.getCardsToPrint());
         printCardsOfEachPlayers();
     }
 
@@ -64,7 +64,7 @@ public class BlackjackController {
 
     private void printCardsOfEachPlayers() {
         players.stream().forEach(player -> {
-            outputView.printCards(player.getCardsToPring());
+            outputView.printCards(player.getCardsToPrint());
         });
     }
 }
