@@ -1,6 +1,7 @@
 package domain.user;
 
 import static constant.BlackjackRule.BLACKJACK_NUMBER;
+import static constant.BlackjackRule.DEALER_STANDARD;
 import static constant.BlackjackRule.MINIMUM_COUNT_OF_CARDS;
 
 import domain.card.Card;
@@ -33,6 +34,10 @@ public class Dealer {
             return true;
         }
         return false;
+    }
+
+    public boolean isUnderStandard() {
+        return getScore() <= DEALER_STANDARD;
     }
 
     public int getScore() {
