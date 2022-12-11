@@ -81,4 +81,8 @@ public class Player {
     public double getMoney() {
         return money;
     }
+
+    public int getScore() {
+        return cards.getScoreSum();
+    }
 }
