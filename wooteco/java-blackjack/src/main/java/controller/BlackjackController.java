@@ -120,6 +120,7 @@ public class BlackjackController {
     private void printResult() {
         printStatus();
         outputView.announceFinalRevenue();
+//        double dealerMoney = players.
         outputView.printRevenueOfDealer(dealer.getMoney());
         players.forEach(player -> {
             outputView.printRevenue(player.getName(), player.getMoney());

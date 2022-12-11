@@ -77,4 +77,8 @@ public class Player {
             money = 0;
         }
     }
+
+    public double getMoney() {
+        return money;
+    }
 }
