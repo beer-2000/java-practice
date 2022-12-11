@@ -47,7 +47,9 @@ public class HofController {
 
     private void pay() {
         printTables();
-        Table table = TableRepository.getTableByNumber(InputView.inputTableNumber());
+        int tableNumber = InputView.inputTableNumber();
+        Table table = TableRepository.getTableByNumber(tableNumber);
         OutputView.printOrderSheet(table.getOrderSheet());
+        int payType = InputView.inputPayType(tableNumber);
     }
 }
