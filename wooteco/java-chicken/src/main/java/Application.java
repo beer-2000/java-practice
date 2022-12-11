@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import domain.Menu;
 import domain.MenuRepository;
 import domain.Table;
@@ -17,5 +18,13 @@ public class Application {
 
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
+=======
+import controller.HofController;
+
+public class Application {
+    public static void main(String[] args) {
+        HofController hofController = new HofController();
+        hofController.start();
+>>>>>>> horsehair
     }
 }
