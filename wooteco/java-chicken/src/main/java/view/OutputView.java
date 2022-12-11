@@ -9,7 +9,9 @@ public class OutputView {
     private static final String ANNOUNCEMENT_TABLE_LIST = System.lineSeparator() + "## 테이블 목록";
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
-    private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String BOTTOM_LINE = "└ %s ┘";
+    private static final String MARK_OF_ORDER = "#";
+    private static final String MARK_OF_NO_ORDER = "-";
     private static final String ANNOUNCEMENT_FUNCTIONS = "## 메인화면" + System.lineSeparator()
             + "1 - 주문등록" + System.lineSeparator()
             + "2 - 결제하기" + System.lineSeparator()
@@ -20,9 +22,9 @@ public class OutputView {
     public static void printTables(final List<Table> tables) {
         System.out.println(ANNOUNCEMENT_TABLE_LIST);
         final int size = tables.size();
-        printLine(TOP_LINE, size);
+        printLine(TOP_LINE, tables);
         printTableNumbers(tables);
-        printLine(BOTTOM_LINE, size);
+        printLine(BOTTOM_LINE, tables);
     }
 
     public static void printMenus(final List<Menu> menus) {
@@ -32,9 +34,13 @@ public class OutputView {
         }
     }
 
-    private static void printLine(final String line, final int count) {
-        for (int index = 0; index < count; index++) {
-            System.out.print(line);
+    private static void printLine(final String line, final List<Table> tables) {
+        for (final Table table : tables) {
+            if (table.haveOrder()) {
+                System.out.printf(line, MARK_OF_ORDER);
+                continue;
+            }
+            System.out.printf(line, MARK_OF_NO_ORDER);
         }
         System.out.println();
     }

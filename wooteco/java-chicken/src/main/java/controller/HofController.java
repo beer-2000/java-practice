@@ -17,9 +17,7 @@ public class HofController {
         String function;
         do {
             OutputView.printFunctions();
-            System.out.println("check");
             function = InputView.readFunctionCommand();
-            System.out.println("check2");
             if (function.equals(COMMAND_ORDER)) {
                 order();
             }
