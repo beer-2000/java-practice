@@ -23,4 +23,8 @@ public class OutputView {
         System.out.printf(ANNOUNCEMENT_DISTRIBUTION, playerNamesJoined);
         System.out.println();
     }
+
+    public void printCards(String cardValues) {
+        System.out.println(cardValues);
+    }
 }

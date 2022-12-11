@@ -54,6 +54,7 @@ public class BlackjackController {
         players.stream().forEach(player -> {
             playerNames.add(player.getName());
         });
+        return playerNames;
     }
 
     private void addCardToEachPlayers() {
