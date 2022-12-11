@@ -62,4 +62,19 @@ public class Player {
         }
         return false;
     }
+
+    public void calculateResultWithDealerScore(int dealerScore) {
+        if (isBlackJack()) {
+            money = money * 1.5;
+            return;
+        }
+        int score = cards.getScoreSum();
+        if (score < dealerScore) {
+            money = (-1) * money;
+            return;
+        }
+        if (score == dealerScore) {
+            money = 0;
+        }
+    }
 }
