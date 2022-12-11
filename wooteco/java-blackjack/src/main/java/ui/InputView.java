@@ -18,4 +18,10 @@ public class InputView {
         double bettingMoney = scanner.nextDouble();
         return bettingMoney;
     }
+
+    public String readGetCardCommand() {
+        Scanner scanner = new Scanner(System.in);
+        String getCardCommand = scanner.nextLine();
+        return getCardCommand;
+    }
 }
