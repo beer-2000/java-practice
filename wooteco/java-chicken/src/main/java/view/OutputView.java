@@ -2,13 +2,17 @@ package view;
 
 import domain.Menu;
 import domain.Table;
-
 import java.util.List;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String ANNOUNCEMENT_FUNCTIONS = "## 메인화면" + System.lineSeparator()
+            + "1 - 주문등록" + System.lineSeparator()
+            + "2 - 결제하기" + System.lineSeparator()
+            + "3 - 프로그램 종료";
+    private static final String REQUEST_FUNCTION = "## 원하는 기능을 선택하세요.";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
@@ -36,5 +40,14 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, table);
         }
         System.out.println();
+    }
+
+    public static void printFunctions() {
+        System.out.println(ANNOUNCEMENT_FUNCTIONS);
+    }
+
+    public static void requestFunction() {
+        System.out.println();
+        System.out.println(REQUEST_FUNCTION);
     }
 }
