@@ -12,10 +12,7 @@ public class Order {
     private Map<Menu, Integer> sheet;
 
     public Order(List<Menu> menus) {
-        sheet = new LinkedHashMap<Menu, Integer>();
-        menus.forEach(menu -> {
-            sheet.put(menu, 0);
-        });
+        reset(menus);
     }
 
     public void add(Menu menu, int menuCount) {
@@ -62,5 +59,12 @@ public class Order {
                     return menu.getPrice() * sheet.get(menu);
                 })
                 .sum();
+    }
+
+    public void reset(List<Menu> menus) {
+        sheet = new LinkedHashMap<Menu, Integer>();
+        menus.forEach(menu -> {
+            sheet.put(menu, 0);
+        });
     }
 }

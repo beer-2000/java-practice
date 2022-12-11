@@ -51,5 +51,6 @@ public class HofController {
         int payType = InputView.inputPayType(tableNumber);
         int totalPrice = table.calculateTotalPrice(payType);
         OutputView.printTotalPrice(totalPrice);
+        table.resetOrder();
     }
 }

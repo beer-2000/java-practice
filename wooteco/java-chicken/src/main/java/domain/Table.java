@@ -36,4 +36,8 @@ public class Table {
     public int calculateTotalPrice(int payType) {
         return order.calculateTotalPrice(payType);
     }
+
+    public void resetOrder() {
+        order.reset(MenuRepository.menus());
+    }
 }
