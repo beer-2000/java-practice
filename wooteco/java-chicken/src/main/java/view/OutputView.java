@@ -44,9 +44,4 @@ public class OutputView {
     public static void printFunctions() {
         System.out.println(ANNOUNCEMENT_FUNCTIONS);
     }
-
-    public static void requestFunction() {
-        System.out.println();
-        System.out.println(REQUEST_FUNCTION);
-    }
 }
