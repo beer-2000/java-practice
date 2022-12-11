@@ -12,7 +12,6 @@ public class OutputView {
             + "1 - 주문등록" + System.lineSeparator()
             + "2 - 결제하기" + System.lineSeparator()
             + "3 - 프로그램 종료";
-    private static final String REQUEST_FUNCTION = "## 원하는 기능을 선택하세요.";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
