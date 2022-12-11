@@ -9,6 +9,8 @@ public class OutputView {
     }
 
     public void requestBettingMoney(String name) {
+        System.out.println();
         System.out.printf(REQUEST_BETTING_MONEY, name);
+        System.out.println();
     }
 }

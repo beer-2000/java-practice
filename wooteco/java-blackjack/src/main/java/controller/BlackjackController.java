@@ -3,6 +3,7 @@ package controller;
 import domain.Blackjack;
 import domain.user.Dealer;
 import domain.user.Player;
+import java.util.ArrayList;
 import java.util.List;
 import ui.InputView;
 import ui.OutputView;
@@ -19,6 +20,7 @@ public class BlackjackController {
         this.outputView = new OutputView();
         this.blackjack = new Blackjack();
         this.dealer = new Dealer();
+        this.players = new ArrayList<>();
     }
 
     public void start() {
