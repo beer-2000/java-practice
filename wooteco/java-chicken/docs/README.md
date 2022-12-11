@@ -30,17 +30,20 @@
 
 ### Table
 - [x] 테이블 번호 반환
+- [x] 주문 추가
 
 ### Order
-- [ ] 주문 추가
+- [x] 주문 추가
 ---
 
 ## Repository
 ### MenuRepository
 - [x] 전체 메뉴 정보 반환
+- [x] 메뉴 번호로 메뉴 반환
 
 ### TableRepository
 - [x] 전체 테이블 정보 반환
+- [x] 주문 추가
 ---
 
 ## Constant

@@ -1,5 +1,6 @@
 package repository;
 
+import domain.Menu;
 import domain.Table;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,5 +20,9 @@ public class TableRepository {
 
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
+    }
+
+    public static void addOrder(Table table, Menu menu, int menuCount) {
+        table.addOrder(menu, menuCount);
     }
 }

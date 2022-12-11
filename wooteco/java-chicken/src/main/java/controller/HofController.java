@@ -29,12 +29,12 @@ public class HofController {
 
     private void order() {
         printTables();
-        int tableNumber = InputView.inputTableNumber();
+        Table table = TableRepository.getTableByNumber(InputView.inputTableNumber());
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
-        int menuNumber = InputView.inputMenuNumber();
+        Menu menu = MenuRepository.getMenuByNumber(InputView.inputMenuNumber());
         int menuCount = InputView.inputMenuCount();
-        TableRepository.addOrder(tableNumber, menuNumber, menuCount);
+        TableRepository.addOrder(table, menu, menuCount);
     }
 
     private void printTables() {
