@@ -52,6 +52,7 @@
 ### MenuRepository
 - [x] 전체 메뉴 정보 반환
 - [x] 메뉴 번호로 메뉴 반환
+  - [x] (예외 처리) 없는 메뉴 번호
 
 ### TableRepository
 - [x] 전체 테이블 정보 반환

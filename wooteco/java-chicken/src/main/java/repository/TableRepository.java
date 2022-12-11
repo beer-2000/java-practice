@@ -8,6 +8,7 @@ import java.util.List;
 
 public class TableRepository {
     private static final List<Table> tables = new ArrayList<>();
+    private static final String ERROR_MESSAGE_WRONG_TABLE_NUMBER = "[ERROR] 존재하지 않는 테이블 번호입니다.";
 
     static {
         tables.add(new Table(1));
@@ -32,6 +33,6 @@ public class TableRepository {
                 return table;
             }
         }
-        throw new IllegalArgumentException("[ERROR] 존재하지 않는 테이블 번호입니다.");
+        throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_TABLE_NUMBER);
     }
 }
