@@ -23,7 +23,7 @@
 
 ## Controller
 ### HofController
-- [ ] 주문등록
+- [x] 주문등록
 - [ ] 결제
 - [ ] 프로그램 종료
 ---

@@ -2,7 +2,6 @@ package controller;
 
 import static constant.HofRule.COMMAND_EXIT;
 import static constant.HofRule.COMMAND_ORDER;
-import static constant.HofRule.COMMAND_PAY;
 
 import domain.Menu;
 import domain.Table;
@@ -22,16 +21,23 @@ public class HofController {
             if (function.equals(COMMAND_ORDER)) {
                 order();
             }
-            if (function.equals(COMMAND_PAY)) {
-                pay();
-            }
+//            if (function.equals(COMMAND_PAY)) {
+//                pay();
+//            }
         } while (!function.equals(COMMAND_EXIT));
     }
 
     private void order() {
         printTables();
+        OutputView.requestTableNumber();
+        int tableNumber = InputView.inputTableNumber();
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
+        OutputView.requestMenu();
+        int menuNumber = InputView.inputMenuNumber();
+        OutputView.requestMenuCount();
+        int menuCount = InputView.inputMenuCount();
+        TableRepository.addOrder(tableNumber, menuNumber, menuCount);
     }
 
     private void printTables() {
