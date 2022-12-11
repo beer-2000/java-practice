@@ -49,4 +49,4 @@
 
 ## Constant
 ### HofRule
-- [ ] 구현
+- [x] 구현
