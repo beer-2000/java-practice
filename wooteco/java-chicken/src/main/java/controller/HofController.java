@@ -17,7 +17,9 @@ public class HofController {
         String function;
         do {
             OutputView.printFunctions();
+            System.out.println("check");
             function = InputView.readFunctionCommand();
+            System.out.println("check2");
             if (function.equals(COMMAND_ORDER)) {
                 order();
             }
@@ -46,6 +48,6 @@ public class HofController {
     private void pay() {
         printTables();
         Table table = TableRepository.getTableByNumber(InputView.inputTableNumber());
-        Outputview.printOrderSheet(table.getOrderSheet());
+        OutputView.printOrderSheet(table.getOrderSheet());
     }
 }
