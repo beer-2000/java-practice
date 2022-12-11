@@ -13,11 +13,12 @@ import view.InputView;
 import view.OutputView;
 
 public class HofController {
+    private final String ERROR_MESSAGE_WRONG_FUNCTION_COMMAND = "[ERROR] 원하는 기능의 번호를 입력해주세요";
+
     public void start() {
         String function;
         do {
-            OutputView.printFunctions();
-            function = InputView.readFunctionCommand();
+            function = getFunction();
             if (function.equals(COMMAND_ORDER)) {
                 order();
             }
@@ -25,6 +26,27 @@ public class HofController {
                 pay();
             }
         } while (!function.equals(COMMAND_EXIT));
+    }
+
+    private String getFunction() {
+        String function;
+        while (true) {
+            try {
+                OutputView.printFunctions();
+                function = InputView.readFunctionCommand();
+                validateFunction(function);
+                return function;
+            } catch (IllegalArgumentException e) {
+                OutputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void validateFunction(String function) {
+        if (function.equals(COMMAND_ORDER) || function.equals(COMMAND_PAY) || function.equals(COMMAND_EXIT)) {
+            return;
+        }
+        throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_FUNCTION_COMMAND);
     }
 
     private void order() {
