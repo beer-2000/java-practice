@@ -12,13 +12,13 @@ import java.util.List;
  */
 public class Player {
     private final String name;
-    private final double bettingMoney;
+    private double money;
     private final Cards cards;
     private final String ANNOUNCEMENT_CARD_VALUES = "%s: %s";
 
     public Player(String name, double bettingMoney) {
         this.name = name;
-        this.bettingMoney = bettingMoney;
+        this.money = bettingMoney;
         this.cards = new Cards();
     }
 
@@ -34,6 +34,13 @@ public class Player {
         List<String> cardValues = cards.getValues();
         String cardNamesJoined = String.join(", ", cardValues);
         return String.format(ANNOUNCEMENT_CARD_VALUES, name, cardNamesJoined);
+    }
+
+    public void calculateResultWhenDealerIsBlackjack() {
+        if (isBlackJack()) {
+            return;
+        }
+        money = money * (-1);
     }
 
     public boolean isBlackJack() {

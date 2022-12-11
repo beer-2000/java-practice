@@ -27,8 +27,9 @@ public class BlackjackController {
     public void start() {
         generatePlayers();
         startGame();
-        checkBlackjack();
-        redistribute();
+        if (!checkBlackjack()) {
+            redistribute();
+        }
     }
 
     private void generatePlayers() {
@@ -71,13 +72,32 @@ public class BlackjackController {
         });
     }
 
-    private void checkBlackjack() {
-
+    private boolean checkBlackjack() {
+        if (dealer.isBlackJack()) {
+            players.stream().forEach(player -> {
+                player.calculateResultWhenDealerIsBlackjack();
+            });
+            return true;
+        }
+        return false;
     }
 
     private void redistribute() {
         players.stream().forEach(player -> {
-            player.isUnderBlackjack();
+            redistributeAfterCheck(player);
         });
+    }
+
+    private void redistributeAfterCheck(Player player) {
+        while (player.isUnderBlackjack()) {
+            outputView.requestWhetherGetCard(player.getName());
+            String getCardCommand = inputView.readGetCardCommand();
+            boolean isGetCard = player.judgeRedistribution(getCardCommand);
+            if (!isGetCard) {
+                break;
+            }
+            player.addCard(blackjack.getNewCard());
+            outputView.printCards(player.getCardsToPrint())
+        }
     }
 }
