@@ -32,6 +32,10 @@ public class Cards {
         return getScoreSumWithoutAce();
     }
 
+    public int getSize() {
+        return cards.size();
+    }
+
     private int getScoreSumWithoutAce() {
         return cards.stream().map(card -> card.getScore())
                 .mapToInt(score -> score)

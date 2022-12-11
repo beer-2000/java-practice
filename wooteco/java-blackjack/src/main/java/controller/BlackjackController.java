@@ -27,6 +27,8 @@ public class BlackjackController {
     public void start() {
         generatePlayers();
         startGame();
+        checkBlackjack();
+        redistribute();
     }
 
     private void generatePlayers() {
@@ -66,6 +68,16 @@ public class BlackjackController {
     private void printCardsOfEachPlayers() {
         players.stream().forEach(player -> {
             outputView.printCards(player.getCardsToPrint());
+        });
+    }
+
+    private void checkBlackjack() {
+
+    }
+
+    private void redistribute() {
+        players.stream().forEach(player -> {
+            player.isUnderBlackjack();
         });
     }
 }

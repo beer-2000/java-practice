@@ -1,5 +1,8 @@
 package domain.user;
 
+import static constant.BlackjackRule.BLACKJACK_NUMBER;
+import static constant.BlackjackRule.MINIMUM_COUNT_OF_CARDS;
+
 import domain.card.Card;
 import domain.card.Cards;
 import java.util.List;
@@ -23,5 +26,12 @@ public class Dealer {
         List<String> cardValues = cards.getValues();
         String cardNamesJoined = String.join(", ", cardValues);
         return String.format(ANNOUNCEMENT_CARD_VALUES, cardNamesJoined);
+    }
+
+    public boolean isBlackJack() {
+        if (cards.getScoreSum() == BLACKJACK_NUMBER && cards.getSize() == MINIMUM_COUNT_OF_CARDS) {
+            return true;
+        }
+        return false;
     }
 }
