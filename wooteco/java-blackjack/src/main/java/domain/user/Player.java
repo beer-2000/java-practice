@@ -1,6 +1,7 @@
 package domain.user;
 
 import static constant.BlackjackRule.BLACKJACK_NUMBER;
+import static constant.BlackjackRule.GET_CARD_COMMAND;
 import static constant.BlackjackRule.MINIMUM_COUNT_OF_CARDS;
 
 import domain.card.Card;
@@ -55,5 +56,12 @@ public class Player {
         System.out.println(name);
         System.out.println(score);
         return score < BLACKJACK_NUMBER;
+    }
+
+    public boolean judgeRedistribution(String getCardCommand) {
+        if (getCardCommand.equals(GET_CARD_COMMAND)) {
+            return true;
+        }
+        return false;
     }
 }

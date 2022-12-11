@@ -13,8 +13,8 @@ public class BlackjackController {
     private final InputView inputView;
     private final OutputView outputView;
     private final Blackjack blackjack;
-    private Dealer dealer;
-    private List<Player> players;
+    private final Dealer dealer;
+    private final List<Player> players;
 
     public BlackjackController() {
         this.inputView = new InputView();
@@ -54,38 +54,34 @@ public class BlackjackController {
 
     private List<String> getPlayerNames() {
         List<String> playerNames = new ArrayList<>();
-        players.stream().forEach(player -> {
+        players.forEach(player -> {
             playerNames.add(player.getName());
         });
         return playerNames;
     }
 
     private void addCardToEachPlayers() {
-        players.stream().forEach(player -> {
+        players.forEach(player -> {
             player.addCard(blackjack.getNewCard());
         });
     }
 
     private void printCardsOfEachPlayers() {
-        players.stream().forEach(player -> {
+        players.forEach(player -> {
             outputView.printCards(player.getCardsToPrint());
         });
     }
 
     private boolean checkBlackjack() {
         if (dealer.isBlackJack()) {
-            players.stream().forEach(player -> {
-                player.calculateResultWhenDealerIsBlackjack();
-            });
+            players.forEach(Player::calculateResultWhenDealerIsBlackjack);
             return true;
         }
         return false;
     }
 
     private void redistribute() {
-        players.stream().forEach(player -> {
-            redistributeAfterCheck(player);
-        });
+        players.forEach(this::redistributeAfterCheck);
     }
 
     private void redistributeAfterCheck(Player player) {
