@@ -13,6 +13,7 @@ public class OutputView {
     private final String ANNOUNCEMENT_REVENUE = "## 최종 수익";
     private final String ANNOUNCEMENT_REVENUE_OF_PLAYER = "%s: %.0f";
     private final String ANNOUNCEMENT_REVENUE_OF_DEALER = "딜러: %.0f";
+    private final String ANNOUNCEMENT_RESULT = "%s - 결과: %d";
 
     public void requestPlayerNames() {
         System.out.println(REQUEST_PLAYER_NAMES);
@@ -45,6 +46,7 @@ public class OutputView {
         System.out.println();
         System.out.printf(ANNOUNCEMENT_DEALER_GET_CARD, DEALER_STANDARD);
         System.out.println();
+        System.out.println();
     }
 
     public void announceFinalRevenue() {
@@ -59,6 +61,11 @@ public class OutputView {
 
     public void printRevenueOfDealer(double money) {
         System.out.printf(ANNOUNCEMENT_REVENUE_OF_DEALER, money);
+        System.out.println();
+    }
+
+    public void printResult(String cardValues, int score) {
+        System.out.printf(ANNOUNCEMENT_RESULT, cardValues, score);
         System.out.println();
     }
 }

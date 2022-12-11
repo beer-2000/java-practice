@@ -59,6 +59,11 @@ public class BlackjackController {
         printCardsOfEachPlayers();
     }
 
+    private void printStatusWithScore() {
+        outputView.printResult(dealer.getCardsToPrint(), dealer.getScore());
+        printResultOfEachPlayers();
+    }
+
     private List<String> getPlayerNames() {
         List<String> playerNames = new ArrayList<>();
         players.forEach(player -> {
@@ -76,6 +81,12 @@ public class BlackjackController {
     private void printCardsOfEachPlayers() {
         players.forEach(player -> {
             outputView.printCards(player.getCardsToPrint());
+        });
+    }
+
+    private void printResultOfEachPlayers() {
+        players.forEach(player -> {
+            outputView.printResult(player.getCardsToPrint(), player.getScore());
         });
     }
 
@@ -128,7 +139,7 @@ public class BlackjackController {
     }
 
     private void printResult() {
-        printStatus();
+        printStatusWithScore();
         outputView.announceFinalRevenue();
         double dealerMoney = (-1) * players.stream()
                 .map(player -> player.getMoney())
