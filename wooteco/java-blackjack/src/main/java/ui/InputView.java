@@ -12,4 +12,10 @@ public class InputView {
         return Arrays.stream(playerNamesRaw.split(","))
                 .collect(Collectors.toList());
     }
+
+    public double readBettingMoney() {
+        Scanner scanner = new Scanner(System.in);
+        double bettingMoney = scanner.nextDouble();
+        return bettingMoney;
+    }
 }
