@@ -23,4 +23,11 @@ public class MenuRepository {
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
     }
+
+    public static Menu getMenuByNumber(int menuNumber) {
+        return menus.stream()
+                .filter(menu -> menu.isNumberOf(menuNumber))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }
