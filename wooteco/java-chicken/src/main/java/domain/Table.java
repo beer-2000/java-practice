@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Map;
 import repository.MenuRepository;
 
 public class Table {
@@ -26,5 +27,9 @@ public class Table {
 
     public boolean isNumberOf(int tableNumber) {
         return number == tableNumber;
+    }
+
+    public Map<Menu, Integer> getOrderSheet() {
+        return order.getSheet();
     }
 }

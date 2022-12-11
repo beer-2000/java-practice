@@ -25,4 +25,8 @@ public class Order {
                 .sum();
         return sumOfCount != 0;
     }
+
+    public Map<Menu, Integer> getSheet() {
+        return sheet;
+    }
 }
