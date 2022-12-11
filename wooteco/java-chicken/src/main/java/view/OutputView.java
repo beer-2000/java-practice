@@ -21,7 +21,6 @@ public class OutputView {
 
     public static void printTables(final List<Table> tables) {
         System.out.println(ANNOUNCEMENT_TABLE_LIST);
-        final int size = tables.size();
         printLine(TOP_LINE, tables);
         printTableNumbers(tables);
         printLine(BOTTOM_LINE, tables);
