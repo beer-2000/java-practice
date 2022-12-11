@@ -30,6 +30,7 @@ public class BlackjackController {
         if (!checkBlackjack()) {
             redistribute();
             checkDealerScore();
+            calculateResultOfEachPlayer();
         }
     }
 
@@ -103,5 +104,11 @@ public class BlackjackController {
             outputView.announceDealerGetCard();
             dealer.addCard(blackjack.getNewCard());
         }
+    }
+
+    private void calculateResultOfEachPlayer() {
+        players.forEach(player -> {
+            player.calculateResultWithDealerScore(dealer.getScore());
+        });
     }
 }
