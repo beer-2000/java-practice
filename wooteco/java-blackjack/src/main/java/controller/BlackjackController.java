@@ -5,6 +5,7 @@ import domain.user.Dealer;
 import domain.user.Player;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import ui.InputView;
 import ui.OutputView;
 
@@ -25,6 +26,7 @@ public class BlackjackController {
 
     public void start() {
         generatePlayers();
+        startGame();
     }
 
     private void generatePlayers() {
@@ -34,6 +36,28 @@ public class BlackjackController {
             outputView.requestBettingMoney(name);
             double bettingMoney = inputView.readBettingMoney();
             players.add(new Player(name, bettingMoney));
+        });
+    }
+
+    private void startGame() {
+        outputView.announceDistribution(getPlayerNames());
+        IntStream.range(0, 2).forEach(number -> {
+            dealer.addCard(blackjack.getNewCard());
+            addCardToEachPlayers();
+        });
+        outputView.printCards(dealer.getCardsToPrint());
+        printCardsOfEachPlayers();
+    }
+
+    private void addCardToEachPlayers() {
+        players.stream().forEach(player -> {
+            player.addCard(blackjack.getNewCard());
+        });
+    }
+
+    private void printCardsOfEachPlayers() {
+        players.stream().forEach(player -> {
+            outputView.printCards(player.getCardsToPring());
         });
     }
 }
