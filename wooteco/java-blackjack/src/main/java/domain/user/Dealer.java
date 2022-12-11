@@ -34,4 +34,8 @@ public class Dealer {
         }
         return false;
     }
+
+    public int getScore() {
+        return cards.getScoreSum();
+    }
 }
