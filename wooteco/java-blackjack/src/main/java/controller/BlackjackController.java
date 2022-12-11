@@ -32,6 +32,7 @@ public class BlackjackController {
             checkDealerScore();
             calculateResultOfEachPlayer();
         }
+        printResult();
     }
 
     private void generatePlayers() {
@@ -50,6 +51,10 @@ public class BlackjackController {
             dealer.addCard(blackjack.getNewCard());
             addCardToEachPlayers();
         });
+        printStatus();
+    }
+
+    private void printStatus() {
         outputView.printCards(dealer.getCardsToPrint());
         printCardsOfEachPlayers();
     }
@@ -109,6 +114,15 @@ public class BlackjackController {
     private void calculateResultOfEachPlayer() {
         players.forEach(player -> {
             player.calculateResultWithDealerScore(dealer.getScore());
+        });
+    }
+
+    private void printResult() {
+        printStatus();
+        outputView.announceFinalRevenue();
+        outputView.printRevenueOfDealer(dealer.getMoney());
+        players.forEach(player -> {
+            outputView.printRevenue(player.getName(), player.getMoney());
         });
     }
 }
