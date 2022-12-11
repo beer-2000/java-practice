@@ -21,6 +21,10 @@ public class Card {
         return value;
     }
 
+    public int getScore() {
+        return symbol.getScore();
+    }
+
     public boolean isAce() {
         return symbol.equals(ACE);
     }
