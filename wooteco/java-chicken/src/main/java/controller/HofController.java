@@ -34,6 +34,7 @@ public class HofController {
         Menu menu = MenuRepository.getMenuByNumber(InputView.inputMenuNumber());
         int menuCount = InputView.inputMenuCount();
         TableRepository.addOrder(table, menu, menuCount);
+        OutputView.printEmptyLine();
     }
 
     private void printTables() {

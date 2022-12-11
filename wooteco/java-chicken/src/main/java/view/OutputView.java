@@ -23,6 +23,7 @@ public class OutputView {
     }
 
     public static void printMenus(final List<Menu> menus) {
+        System.out.println();
         for (final Menu menu : menus) {
             System.out.println(menu);
         }
@@ -44,5 +45,9 @@ public class OutputView {
 
     public static void printFunctions() {
         System.out.println(ANNOUNCEMENT_FUNCTIONS);
+    }
+
+    public static void printEmptyLine() {
+        System.out.println();
     }
 }
