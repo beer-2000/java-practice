@@ -92,16 +92,26 @@ public class BlackjackController {
     }
 
     private void redistributeAfterCheck(Player player) {
+        int count = 0;
         while (player.isUnderBlackjack()) {
-            outputView.requestWhetherGetCard(player.getName());
-            String getCardCommand = inputView.readGetCardCommand();
-            boolean isGetCard = player.judgeRedistribution(getCardCommand);
+            boolean isGetCard = isGetCard(player);
             if (!isGetCard) {
                 break;
             }
             player.addCard(blackjack.getNewCard());
+            count += 1;
             outputView.printCards(player.getCardsToPrint());
         }
+        if (count == 0) {
+            outputView.printCards(player.getCardsToPrint());
+        }
+    }
+
+    private boolean isGetCard(Player player) {
+        outputView.requestWhetherGetCard(player.getName());
+        String getCardCommand = inputView.readGetCardCommand();
+        boolean isGetCard = player.judgeRedistribution(getCardCommand);
+        return isGetCard;
     }
 
     private void checkDealerScore() {
