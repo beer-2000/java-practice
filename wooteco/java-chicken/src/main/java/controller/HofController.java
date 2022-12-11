@@ -60,6 +60,7 @@ public class HofController {
                 int menuCount = InputView.inputMenuCount();
                 TableRepository.addOrder(table, menu, menuCount);
                 OutputView.printEmptyLine();
+                break;
             } catch (IllegalArgumentException e) {
                 OutputView.printErrorMessage(e.getMessage());
             }
@@ -72,13 +73,21 @@ public class HofController {
     }
 
     private void pay() {
-        printTables();
-        int tableNumber = InputView.inputTableNumber();
-        Table table = TableRepository.getTableByNumber(tableNumber);
-        OutputView.printOrderSheet(table.getOrderSheet());
-        int payType = InputView.inputPayType(tableNumber);
-        int totalPrice = table.calculateTotalPrice(payType);
-        OutputView.printTotalPrice(totalPrice);
-        table.resetOrder();
+        while (true) {
+            try {
+                printTables();
+                int tableNumber = InputView.inputTableNumber();
+                Table table = TableRepository.getTableByNumber(tableNumber);
+                OutputView.printOrderSheet(table.getOrderSheet());
+                int payType = InputView.inputPayType(tableNumber);
+                int totalPrice = table.calculateTotalPrice(payType);
+                OutputView.printTotalPrice(totalPrice);
+                table.resetOrder();
+                break;
+            } catch (IllegalArgumentException e) {
+                OutputView.printErrorMessage(e.getMessage());
+            }
+        }
+
     }
 }
