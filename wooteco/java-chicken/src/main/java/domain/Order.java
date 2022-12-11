@@ -16,4 +16,11 @@ public class Order {
         int countBeforeAdd = sheet.get(menu);
         sheet.put(menu, countBeforeAdd + menuCount);
     }
+
+    public boolean haveOrder() {
+        int sumOfCount = sheet.values().stream()
+                .mapToInt(number -> number)
+                .sum();
+        return sumOfCount != 0;
+    }
 }

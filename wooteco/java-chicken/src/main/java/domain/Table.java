@@ -19,4 +19,8 @@ public class Table {
     public void addOrder(Menu menu, int menuCount) {
         order.add(menu, menuCount);
     }
+
+    public boolean haveOrder() {
+        return order.haveOrder();
+    }
 }
