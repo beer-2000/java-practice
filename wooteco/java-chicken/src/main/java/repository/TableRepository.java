@@ -25,4 +25,11 @@ public class TableRepository {
     public static void addOrder(Table table, Menu menu, int menuCount) {
         table.addOrder(menu, menuCount);
     }
+
+    public static Table getTableByNumber(int tableNumber) {
+        return tables.stream()
+                .filter(table -> table.isNumberOf(tableNumber))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }

@@ -23,4 +23,8 @@ public class Table {
     public boolean haveOrder() {
         return order.haveOrder();
     }
+
+    public boolean isNumberOf(int tableNumber) {
+        return number == tableNumber;
+    }
 }
