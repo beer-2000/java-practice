@@ -69,7 +69,10 @@ public class Player {
             return;
         }
         int score = cards.getScoreSum();
-        if (score < dealerScore) {
+        if (score > dealerScore || dealerScore > BLACKJACK_NUMBER) {
+            return;
+        }
+        if (score < dealerScore || score > BLACKJACK_NUMBER) {
             money = (-1) * money;
             return;
         }
