@@ -28,14 +28,20 @@ public class HofController {
     }
 
     private void order() {
-        printTables();
-        Table table = TableRepository.getTableByNumber(InputView.inputTableNumber());
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
-        Menu menu = MenuRepository.getMenuByNumber(InputView.inputMenuNumber());
-        int menuCount = InputView.inputMenuCount();
-        TableRepository.addOrder(table, menu, menuCount);
-        OutputView.printEmptyLine();
+        while (true) {
+            try {
+                printTables();
+                Table table = TableRepository.getTableByNumber(InputView.inputTableNumber());
+                final List<Menu> menus = MenuRepository.menus();
+                OutputView.printMenus(menus);
+                Menu menu = MenuRepository.getMenuByNumber(InputView.inputMenuNumber());
+                int menuCount = InputView.inputMenuCount();
+                TableRepository.addOrder(table, menu, menuCount);
+                OutputView.printEmptyLine();
+            } catch (IllegalArgumentException e) {
+                OutputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void printTables() {
