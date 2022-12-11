@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ public class Order {
     private Map<Menu, Integer> sheet;
 
     public Order(List<Menu> menus) {
+        sheet = new LinkedHashMap<Menu, Integer>();
         menus.forEach(menu -> {
             sheet.put(menu, 0);
         });
