@@ -11,8 +11,8 @@ public class OutputView {
     private final String REQUEST_COMMAND_GET_CARD = "%s는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)";
     private final String ANNOUNCEMENT_DEALER_GET_CARD = "딜러는 %d이하라 한장의 카드를 더 받았습니다.";
     private final String ANNOUNCEMENT_REVENUE = "## 최종 수익";
-    private final String ANNOUNCEMENT_REVENUE_OF_PLAYER = "%s: %f";
-    private final String ANNOUNCEMENT_REVENUE_OF_DEALER = "딜러: %f";
+    private final String ANNOUNCEMENT_REVENUE_OF_PLAYER = "%s: %.0f";
+    private final String ANNOUNCEMENT_REVENUE_OF_DEALER = "딜러: %.0f";
 
     public void requestPlayerNames() {
         System.out.println(REQUEST_PLAYER_NAMES);
