@@ -1,5 +1,7 @@
 package domain;
 
+import static domain.Category.CHICKEN;
+
 public class Menu {
     private final int number;
     private final String name;
@@ -23,6 +25,10 @@ public class Menu {
 
     public int getPrice() {
         return price;
+    }
+
+    public boolean isChicken() {
+        return category.equals(CHICKEN);
     }
 
     @Override

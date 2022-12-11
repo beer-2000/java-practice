@@ -32,4 +32,8 @@ public class Table {
     public Map<Menu, Integer> getOrderSheet() {
         return order.getSheet();
     }
+
+    public int calculateTotalPrice(int payType) {
+        return order.calculateTotalPrice(payType);
+    }
 }
