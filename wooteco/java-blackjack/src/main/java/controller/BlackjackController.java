@@ -29,6 +29,7 @@ public class BlackjackController {
         startGame();
         if (!checkBlackjack()) {
             redistribute();
+            checkDealerScore();
         }
     }
 
@@ -93,7 +94,14 @@ public class BlackjackController {
                 break;
             }
             player.addCard(blackjack.getNewCard());
-            outputView.printCards(player.getCardsToPrint())
+            outputView.printCards(player.getCardsToPrint());
+        }
+    }
+
+    private void checkDealerScore() {
+        if (dealer.isUnderStandard()) {
+            outputView.announceDealerGetCard();
+            dealer.addCard(blackjack.getNewCard());
         }
     }
 }

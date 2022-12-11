@@ -53,8 +53,6 @@ public class Player {
 
     public boolean isUnderBlackjack() {
         int score = cards.getScoreSum();
-        System.out.println(name);
-        System.out.println(score);
         return score < BLACKJACK_NUMBER;
     }
 
