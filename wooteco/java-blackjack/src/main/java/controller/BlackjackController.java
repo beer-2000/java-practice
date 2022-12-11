@@ -45,7 +45,7 @@ public class BlackjackController {
             dealer.addCard(blackjack.getNewCard());
             addCardToEachPlayers();
         });
-        outputView.printCardsOfDealer(dealer.getCardsToPrint());
+        outputView.printCards(dealer.getCardsToPrint());
         printCardsOfEachPlayers();
     }
 
