@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import subway.constant.FunctionCommand;
 import subway.constant.LineCommand;
+import subway.constant.SectionCommand;
 import subway.constant.StationCommand;
 
 public class OutputView {
@@ -17,6 +18,7 @@ public class OutputView {
     private final String ANNOUNCEMENT_REGISTER_LINE = "[INFO] 지하철 노선이 등록되었습니다.";
     private final String ANNOUNCEMENT_DELETE_LINE = "[INFO] 지하철 노선이 삭제되었습니다.";
     private final String ANNOUNCEMENT_LINE_LIST = "## 노선 목록";
+    private final String ANNOUNCEMENT_SECTION_FUNCTION = "## 구간 관리 화면";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -82,6 +84,15 @@ public class OutputView {
         lineNames.forEach(name -> {
             System.out.println(String.join("", INFO_MARK, name));
         });
+        System.out.println();
+    }
+
+    public void announceSectionFunction() {
+        System.out.println(ANNOUNCEMENT_SECTION_FUNCTION);
+        Arrays.stream(SectionCommand.values())
+                .forEach(value -> {
+                    System.out.println(value.getMessage());
+                });
         System.out.println();
     }
 }

@@ -3,6 +3,7 @@ package subway.ui;
 import java.util.Scanner;
 import subway.constant.FunctionCommand;
 import subway.constant.LineCommand;
+import subway.constant.SectionCommand;
 import subway.constant.StationCommand;
 
 public class InputView {
@@ -86,6 +87,14 @@ public class InputView {
         String lineName = scanner.next();
         System.out.println();
         return lineName;
+    }
+
+    public SectionCommand readSectionFunction() {
+        System.out.println(REQUEST_COMMAND);
+        scanner = new Scanner(System.in);
+        String command = scanner.next();
+        System.out.println();
+        return SectionCommand.get(command);
     }
 
 }
