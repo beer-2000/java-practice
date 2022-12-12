@@ -75,7 +75,7 @@
 - [x] 구현
 
 ### LineCommand
-- [ ] 구현
+- [x] 구현
 
 ### SectionCommand
 - [ ] 구현
