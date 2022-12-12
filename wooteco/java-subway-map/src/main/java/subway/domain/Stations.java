@@ -16,4 +16,11 @@ public class Stations {
         stations.add(new Station("양재시민의숲역"));
         stations.add(new Station("매봉역"));
     }
+
+    public Station getStationByName(String stationName) {
+        return stations.stream()
+                .filter(station -> station.getName().equals(stationName))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 역 이름입니다."));
+    }
 }
