@@ -58,8 +58,15 @@ public class SubwayController {
     }
 
     private void registerStation() {
-        stations.register(inputView.readStationNameToRegister());
-        outputView.announceRegisterStation();
+        while (true) {
+            try {
+                stations.register(inputView.readStationNameToRegister());
+                outputView.announceRegisterStation();
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void deleteStation() {

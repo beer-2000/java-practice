@@ -32,9 +32,9 @@ public class Stations {
     }
 
     private void validateDuplication(String stationName) {
-        for (Station station: stations) {
+        for (Station station : stations) {
             if (station.getName().equals(stationName)) {
-                throw new IllegalArgumentException(ERROR_MESSAGE_EXIST_STATION_NAME)
+                throw new IllegalArgumentException(ERROR_MESSAGE_EXIST_STATION_NAME);
             }
         }
     }

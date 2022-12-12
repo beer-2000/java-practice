@@ -28,7 +28,6 @@ public class InputView {
     }
 
     public String readStationNameToRegister() {
-        System.out.println();
         System.out.println(REQUEST_REGISTER_STATION);
         scanner = new Scanner(System.in);
         String stationName = scanner.next();

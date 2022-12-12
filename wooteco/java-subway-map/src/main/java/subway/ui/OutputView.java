@@ -27,6 +27,12 @@ public class OutputView {
 
     public void announceRegisterStation() {
         System.out.println(ANNOUNCEMENT_REGISTER_STATION);
+        System.out.println();
+    }
+
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+        System.out.println();
     }
 
 }
