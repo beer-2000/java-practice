@@ -2,6 +2,7 @@ package subway.ui;
 
 import java.util.Scanner;
 import subway.constant.FunctionCommand;
+import subway.constant.LineCommand;
 import subway.constant.StationCommand;
 
 public class InputView {
@@ -42,5 +43,14 @@ public class InputView {
         String stationName = scanner.next();
         System.out.println();
         return stationName;
+    }
+
+    public LineCommand readLineFunction() {
+        System.out.println();
+        System.out.println(REQUEST_COMMAND);
+        scanner = new Scanner(System.in);
+        String command = scanner.next();
+        System.out.println();
+        return LineCommand.get(command);
     }
 }

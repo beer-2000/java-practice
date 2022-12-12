@@ -90,24 +90,36 @@ public class SubwayController {
         outputView.announceLineFunction();
         LineCommand lineCommand = inputView.readLineFunction();
         if (lineCommand.equals(LineCommand.REGISTER)) {
-            registerStation();
+            registerLine();
         }
         if (lineCommand.equals(LineCommand.DELETE)) {
-            deleteStation();
+            deleteLine();
         }
         if (lineCommand.equals(LineCommand.FIND)) {
-            findStation();
+            findLine();
         }
+    }
+
+    private void registerLine() {
+
+    }
+
+    private void deleteLine() {
+
+    }
+
+    private void findLine() {
+
+    }
+
+    private void registerLineByValues(String name, String startStationName, String endStationName) {
+        Station startStation = stations.getStationByName(startStationName);
+        Station endStation = stations.getStationByName(endStationName);
+        lines.addLine(name, startStation, endStation);
     }
 
     private void manageSection() {
 
-    }
-
-    private void registerLine(String name, String startStationName, String endStationName) {
-        Station startStation = stations.getStationByName(startStationName);
-        Station endStation = stations.getStationByName(endStationName);
-        lines.addLine(name, startStation, endStation);
     }
 
     private void initLines() {
