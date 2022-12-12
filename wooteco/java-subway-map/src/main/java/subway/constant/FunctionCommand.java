@@ -14,4 +14,8 @@ public enum FunctionCommand {
         this.command = command;
         this.message = message;
     }
+
+    public String getMessage() {
+        return message;
+    }
 }
