@@ -2,6 +2,7 @@ package subway.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Stations {
     private List<Station> stations;
@@ -42,5 +43,11 @@ public class Stations {
     public void delete(String stationName) {
         Station stationToDelete = getStationByName(stationName);
         stations.remove(stationToDelete);
+    }
+
+    public List<String> getStationNames() {
+        return stations.stream()
+                .map(Station::getName)
+                .collect(Collectors.toList());
     }
 }

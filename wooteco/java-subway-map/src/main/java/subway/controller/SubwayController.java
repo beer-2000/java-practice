@@ -27,7 +27,7 @@ public class SubwayController {
             outputView.announceMainFunction();
             functionCommand = inputView.readFunctionCommand();
             runFunction(functionCommand);
-        } while (functionCommand.equals(FunctionCommand.QUIT));
+        } while (!functionCommand.equals(FunctionCommand.QUIT));
 
     }
 
@@ -82,7 +82,7 @@ public class SubwayController {
     }
 
     private void findStation() {
-
+        outputView.printStations(stations.getStationNames());
     }
 
     private void manageLine() {

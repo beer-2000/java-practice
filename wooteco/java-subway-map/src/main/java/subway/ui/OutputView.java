@@ -1,6 +1,7 @@
 package subway.ui;
 
 import java.util.Arrays;
+import java.util.List;
 import subway.constant.FunctionCommand;
 import subway.constant.StationCommand;
 
@@ -9,6 +10,8 @@ public class OutputView {
     private final String ANNOUNCEMENT_STATION_FUNCTION = "## 역 관리 화면";
     private final String ANNOUNCEMENT_REGISTER_STATION = "[INFO] 지하철 역이 등록되었습니다.";
     private final String ANNOUNCEMENT_DELETE_STATION = "[INFO] 지하철 역이 삭제되었습니다.";
+    private final String ANNOUNCEMENT_STATION_LIST = "## 역 목록";
+    private final String INFO_MARK = "[INFO] ";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -38,6 +41,14 @@ public class OutputView {
 
     public void announceDeleteStation() {
         System.out.println(ANNOUNCEMENT_DELETE_STATION);
+        System.out.println();
+    }
+
+    public void printStations(List<String> stationNames) {
+        System.out.println(ANNOUNCEMENT_STATION_LIST);
+        stationNames.forEach(name -> {
+            System.out.println(String.join("", INFO_MARK, name));
+        });
         System.out.println();
     }
 
