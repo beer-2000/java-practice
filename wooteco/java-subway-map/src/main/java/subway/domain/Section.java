@@ -20,4 +20,12 @@ public class Section {
     public void addOrder() {
         order += 1;
     }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void minusOrder() {
+        order -= 1;
+    }
 }

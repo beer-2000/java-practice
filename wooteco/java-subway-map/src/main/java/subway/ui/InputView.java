@@ -18,6 +18,8 @@ public class InputView {
     private final String REQUEST_LINE_OF_SECTION = "## 노선을 입력하세요.";
     private final String REQUEST_STATION_OF_SECTION = "## 역이름을 입력하세요.";
     private final String REQUEST_ORDER_OF_SECTION = "## 순서를 입력하세요.";
+    private final String REQUEST_LINE_OF_SECTION_TO_DELETE = "## 삭제할 구간의 노선을 입력하세요.";
+    private final String REQUEST_STATION_OF_SECTION_TO_DELETE = "## 삭제할 구간의 역을 입력하세요.";
 
 
     public FunctionCommand readFunctionCommand() {
@@ -123,5 +125,21 @@ public class InputView {
         int order = scanner.nextInt();
         System.out.println();
         return order;
+    }
+
+    public String readLineNameOfSectionToDelete() {
+        System.out.println(REQUEST_LINE_OF_SECTION_TO_DELETE);
+        scanner = new Scanner(System.in);
+        String lineName = scanner.next();
+        System.out.println();
+        return lineName;
+    }
+
+    public String readStationNameOfSectionToDelete() {
+        System.out.println(REQUEST_STATION_OF_SECTION_TO_DELETE);
+        scanner = new Scanner(System.in);
+        String stationName = scanner.next();
+        System.out.println();
+        return stationName;
     }
 }

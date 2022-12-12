@@ -20,6 +20,7 @@ public class OutputView {
     private final String ANNOUNCEMENT_LINE_LIST = "## 노선 목록";
     private final String ANNOUNCEMENT_SECTION_FUNCTION = "## 구간 관리 화면";
     private final String ANNOUNCEMENT_REGISTER_SECTION = "[INFO] 구간이 등록되었습니다.";
+    private final String ANNOUNCEMENT_DELETE_SECTION = "[INFO] 구간이 삭제되었습니다.";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -99,6 +100,11 @@ public class OutputView {
 
     public void announceRegisterSection() {
         System.out.println(ANNOUNCEMENT_REGISTER_SECTION);
+        System.out.println();
+    }
+
+    public void announceDeleteSection() {
+        System.out.println(ANNOUNCEMENT_DELETE_SECTION);
         System.out.println();
     }
 }

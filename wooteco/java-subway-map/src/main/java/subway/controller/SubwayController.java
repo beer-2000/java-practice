@@ -171,7 +171,10 @@ public class SubwayController {
     }
 
     private void deleteSection() {
-
+        Line line = lines.getLineByName(inputView.readLineNameOfSectionToDelete());
+        Station station = stations.getStationByName(inputView.readStationNameOfSectionToDelete());
+        line.deleteSection(station);
+        outputView.announceDeleteSection();
     }
 
     private void init() {
