@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Stations {
     private List<Station> stations;
+    private final String ERROR_MESSAGE_NOT_EXIST_STATION_NAME = "[ERROR] 존재하지 않는 역 이름입니다.";
+    private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 존재하는 역 이름입니다.";
 
     public Stations() {
         this.stations = new ArrayList<>();
@@ -21,6 +23,19 @@ public class Stations {
         return stations.stream()
                 .filter(station -> station.getName().equals(stationName))
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 역 이름입니다."));
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_STATION_NAME));
+    }
+
+    public void register(String stationName) {
+        validateDuplication(stationName);
+        stations.add(new Station(stationName));
+    }
+
+    private void validateDuplication(String stationName) {
+        for (Station station: stations) {
+            if (station.getName().equals(stationName)) {
+                throw new IllegalArgumentException(ERROR_MESSAGE_EXIST_STATION_NAME)
+            }
+        }
     }
 }

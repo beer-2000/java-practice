@@ -59,6 +59,7 @@ public class SubwayController {
 
     private void registerStation() {
         stations.register(inputView.readStationNameToRegister());
+        outputView.announceRegisterStation();
     }
 
     private void deleteStation() {
