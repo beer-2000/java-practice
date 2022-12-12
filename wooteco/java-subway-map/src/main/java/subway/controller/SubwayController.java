@@ -23,6 +23,7 @@ public class SubwayController {
     public void start() {
         FunctionCommand functionCommand;
         do {
+            outputView.announceMainFunction();
             functionCommand = inputView.readFunctionCommand();
             runFunction(functionCommand);
         } while (functionCommand.equals(FunctionCommand.QUIT));
