@@ -1,5 +1,6 @@
 package subway.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Line {
@@ -8,6 +9,7 @@ public class Line {
 
     public Line(String name, Station startStation, Station endStation) {
         this.name = name;
+        this.sections = new ArrayList<>();
         sections.add(new Section(1, startStation));
         sections.add(new Section(2, endStation));
     }
