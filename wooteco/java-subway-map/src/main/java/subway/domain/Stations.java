@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 public class Stations {
     private List<Station> stations;
     private final String ERROR_MESSAGE_NOT_EXIST_STATION_NAME = "[ERROR] 존재하지 않는 역 이름입니다.";
-    private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 등록된 역 이름입니다. ";
+    private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 등록된 역 이름입니다.";
+    private final String ERROR_MESSAGE_TOO_SHORT_NAME = "[ERROR] 두 글자 이상의 역 이름을 입력해주세요.";
 
     public Stations() {
         this.stations = new ArrayList<>();
@@ -29,6 +30,7 @@ public class Stations {
 
     public void register(String stationName) {
         validateDuplication(stationName);
+        validate(stationName);
         stations.add(new Station(stationName));
     }
 
@@ -37,6 +39,12 @@ public class Stations {
             if (station.getName().equals(stationName)) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_EXIST_STATION_NAME);
             }
+        }
+    }
+
+    private void validate(String stationName) {
+        if (stationName.length() < 2) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_TOO_SHORT_NAME);
         }
     }
 
