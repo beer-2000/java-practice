@@ -38,4 +38,9 @@ public class Stations {
             }
         }
     }
+
+    public void delete(String stationName) {
+        Station stationToDelete = getStationByName(stationName);
+        stations.remove(stationToDelete);
+    }
 }

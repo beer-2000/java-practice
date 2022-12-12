@@ -70,7 +70,15 @@ public class SubwayController {
     }
 
     private void deleteStation() {
-
+        while (true) {
+            try {
+                stations.delete(inputView.readStationNameToDelete());
+                outputView.announceDeleteStation();
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void findStation() {
