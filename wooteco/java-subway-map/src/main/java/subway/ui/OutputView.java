@@ -30,6 +30,7 @@ public class OutputView {
                 .forEach(value -> {
                     System.out.println(value.getMessage());
                 });
+        System.out.println();
     }
 
     public void announceRegisterStation() {
@@ -61,6 +62,7 @@ public class OutputView {
                 .forEach(value -> {
                     System.out.println(value.getMessage());
                 });
+        System.out.println();
     }
 
     public void announceRegisterLine() {

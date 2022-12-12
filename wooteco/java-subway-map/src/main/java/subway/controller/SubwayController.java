@@ -25,11 +25,23 @@ public class SubwayController {
     public void start() {
         FunctionCommand functionCommand;
         do {
-            outputView.announceMainFunction();
-            functionCommand = inputView.readFunctionCommand();
-            runFunction(functionCommand);
+            functionCommand = getFunctionCommandAfterRun();
         } while (!functionCommand.equals(FunctionCommand.QUIT));
 
+    }
+
+    private FunctionCommand getFunctionCommandAfterRun() {
+        FunctionCommand functionCommand;
+        while (true) {
+            try {
+                outputView.announceMainFunction();
+                functionCommand = inputView.readFunctionCommand();
+                runFunction(functionCommand);
+                return functionCommand;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void runFunction(FunctionCommand functionCommand) {
@@ -45,6 +57,17 @@ public class SubwayController {
     }
 
     private void manageStation() {
+        while (true) {
+            try {
+                manegeStationContainError();
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void manegeStationContainError() {
         outputView.announceStationFunction();
         StationCommand stationCommand = inputView.readStationFunction();
         if (stationCommand.equals(StationCommand.REGISTER)) {
@@ -59,27 +82,13 @@ public class SubwayController {
     }
 
     private void registerStation() {
-        while (true) {
-            try {
-                stations.register(inputView.readStationNameToRegister());
-                outputView.announceRegisterStation();
-                break;
-            } catch (IllegalArgumentException e) {
-                outputView.printErrorMessage(e.getMessage());
-            }
-        }
+        stations.register(inputView.readStationNameToRegister());
+        outputView.announceRegisterStation();
     }
 
     private void deleteStation() {
-        while (true) {
-            try {
-                stations.delete(inputView.readStationNameToDelete());
-                outputView.announceDeleteStation();
-                break;
-            } catch (IllegalArgumentException e) {
-                outputView.printErrorMessage(e.getMessage());
-            }
-        }
+        stations.delete(inputView.readStationNameToDelete());
+        outputView.announceDeleteStation();
     }
 
     private void findStation() {
@@ -87,6 +96,16 @@ public class SubwayController {
     }
 
     private void manageLine() {
+        while (true) {
+            try {
+                manageLineContainError();
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void manageLineContainError() {
         outputView.announceLineFunction();
         LineCommand lineCommand = inputView.readLineFunction();
         if (lineCommand.equals(LineCommand.REGISTER)) {

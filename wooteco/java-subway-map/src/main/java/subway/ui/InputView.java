@@ -24,7 +24,6 @@ public class InputView {
     }
 
     public StationCommand readStationFunction() {
-        System.out.println();
         System.out.println(REQUEST_COMMAND);
         scanner = new Scanner(System.in);
         String command = scanner.next();
@@ -49,7 +48,6 @@ public class InputView {
     }
 
     public LineCommand readLineFunction() {
-        System.out.println();
         System.out.println(REQUEST_COMMAND);
         scanner = new Scanner(System.in);
         String command = scanner.next();
