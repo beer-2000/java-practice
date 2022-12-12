@@ -2,25 +2,6 @@ package view;
 
 import domain.Menu;
 import domain.Table;
-<<<<<<< HEAD
-
-import java.util.List;
-
-public class OutputView {
-    private static final String TOP_LINE = "┌ ─ ┐";
-    private static final String TABLE_FORMAT = "| %s |";
-    private static final String BOTTOM_LINE = "└ ─ ┘";
-
-    public static void printTables(final List<Table> tables) {
-        System.out.println("## 테이블 목록");
-        final int size = tables.size();
-        printLine(TOP_LINE, size);
-        printTableNumbers(tables);
-        printLine(BOTTOM_LINE, size);
-    }
-
-    public static void printMenus(final List<Menu> menus) {
-=======
 import java.util.List;
 import java.util.Map;
 
@@ -47,17 +28,11 @@ public class OutputView {
 
     public static void printMenus(final List<Menu> menus) {
         System.out.println();
->>>>>>> horsehair
         for (final Menu menu : menus) {
             System.out.println(menu);
         }
     }
 
-<<<<<<< HEAD
-    private static void printLine(final String line, final int count) {
-        for (int index = 0; index < count; index++) {
-            System.out.print(line);
-=======
     private static void printLine(final String line, final List<Table> tables) {
         for (final Table table : tables) {
             if (table.haveOrder()) {
@@ -65,7 +40,6 @@ public class OutputView {
                 continue;
             }
             System.out.printf(line, MARK_OF_NO_ORDER);
->>>>>>> horsehair
         }
         System.out.println();
     }
@@ -76,8 +50,6 @@ public class OutputView {
         }
         System.out.println();
     }
-<<<<<<< HEAD
-=======
 
     public static void printFunctions() {
         System.out.println(ANNOUNCEMENT_FUNCTIONS);
@@ -110,5 +82,4 @@ public class OutputView {
     public static void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }
->>>>>>> horsehair
 }

@@ -1,12 +1,5 @@
 package domain;
 
-<<<<<<< HEAD
-public class Table {
-    private final int number;
-
-    public Table(final int number) {
-        this.number = number;
-=======
 import java.util.Map;
 import repository.MenuRepository;
 
@@ -17,15 +10,12 @@ public class Table {
     public Table(final int number) {
         this.number = number;
         this.order = new Order(MenuRepository.menus());
->>>>>>> horsehair
     }
 
     @Override
     public String toString() {
         return Integer.toString(number);
     }
-<<<<<<< HEAD
-=======
 
     public void addOrder(Menu menu, int menuCount) {
         order.add(menu, menuCount);
@@ -50,5 +40,4 @@ public class Table {
     public void resetOrder() {
         order.reset(MenuRepository.menus());
     }
->>>>>>> horsehair
 }

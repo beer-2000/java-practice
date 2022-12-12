@@ -1,15 +1,5 @@
 package view;
 
-<<<<<<< HEAD
-import java.util.Scanner;
-
-public class InputView {
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static int inputTableNumber() {
-        System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
-=======
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -69,6 +59,5 @@ public class InputView {
         } catch (InputMismatchException e) {
             throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_PAY_TYPE);
         }
->>>>>>> horsehair
     }
 }

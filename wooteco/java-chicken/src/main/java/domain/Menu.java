@@ -1,10 +1,7 @@
 package domain;
 
-<<<<<<< HEAD
-=======
 import static domain.Category.CHICKEN;
 
->>>>>>> horsehair
 public class Menu {
     private final int number;
     private final String name;
@@ -18,8 +15,6 @@ public class Menu {
         this.price = price;
     }
 
-<<<<<<< HEAD
-=======
     public boolean isNumberOf(int menuNumber) {
         return number == menuNumber;
     }
@@ -35,8 +30,7 @@ public class Menu {
     public boolean isChicken() {
         return category.equals(CHICKEN);
     }
-
->>>>>>> horsehair
+    
     @Override
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";
