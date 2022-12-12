@@ -28,6 +28,7 @@
 ## Controller
 ### SubwayController
 - [x] 생성
+- [x] 메인 메뉴
 - [ ] 역 관리
   - [ ] 역 등록
   - [ ] 역 삭제

@@ -1,5 +1,6 @@
 package subway.controller;
 
+import subway.constant.FunctionCommand;
 import subway.domain.Lines;
 import subway.domain.Station;
 import subway.domain.Stations;
@@ -20,6 +21,35 @@ public class SubwayController {
     }
 
     public void start() {
+        FunctionCommand functionCommand;
+        do {
+            functionCommand = inputView.readFunctionCommand();
+            runFunction(functionCommand);
+        } while (functionCommand.equals(FunctionCommand.QUIT));
+
+    }
+
+    private void runFunction(FunctionCommand functionCommand) {
+        if (functionCommand.equals(FunctionCommand.STATION_MANAGEMENT)) {
+            manageStation();
+        }
+        if (functionCommand.equals(FunctionCommand.LINE_MANAGEMENT)) {
+            manageLine();
+        }
+        if (functionCommand.equals(FunctionCommand.SECTION_MANAGEMENT)) {
+            manageSection();
+        }
+    }
+
+    private void manageStation() {
+
+    }
+
+    private void manageLine() {
+
+    }
+
+    private void manageSection() {
 
     }
 
