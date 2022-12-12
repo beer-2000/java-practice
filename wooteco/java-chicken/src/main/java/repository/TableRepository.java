@@ -28,11 +28,9 @@ public class TableRepository {
     }
 
     public static Table getTableByNumber(int tableNumber) {
-        for (Table table : tables) {
-            if (table.isNumberOf(tableNumber)) {
-                return table;
-            }
-        }
-        throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_TABLE_NUMBER);
+        return tables.stream()
+                .filter(table -> table.isNumberOf(tableNumber))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_WRONG_TABLE_NUMBER));
     }
 }
