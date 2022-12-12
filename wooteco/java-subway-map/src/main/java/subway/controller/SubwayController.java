@@ -4,6 +4,7 @@ import subway.constant.FunctionCommand;
 import subway.constant.LineCommand;
 import subway.constant.SectionCommand;
 import subway.constant.StationCommand;
+import subway.domain.Line;
 import subway.domain.Lines;
 import subway.domain.Station;
 import subway.domain.Stations;
@@ -162,11 +163,15 @@ public class SubwayController {
     }
 
     private void registerSection() {
-
+        Line line = lines.getLineByName(inputView.readLineNameOfSection());
+        Station station = stations.getStationByName(inputView.readStationNameOfSection());
+        int order = inputView.readOrder();
+        line.addSection(order, station);
+        outputView.announceRegisterSection();
     }
 
     private void deleteSection() {
-        
+
     }
 
     private void initLines() {

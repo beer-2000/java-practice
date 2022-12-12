@@ -8,4 +8,16 @@ public class Section {
         this.order = order;
         this.station = station;
     }
+
+    public boolean isOf(Station station) {
+        return this.station.equals(station);
+    }
+
+    public boolean isMoreThan(int order) {
+        return this.order >= order;
+    }
+
+    public void addOrder() {
+        order += 1;
+    }
 }

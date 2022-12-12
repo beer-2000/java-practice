@@ -29,4 +29,11 @@ public class Lines {
                 .map(Line::getName)
                 .collect(Collectors.toList());
     }
+
+    public Line getLineByName(String lineName) {
+        return lines.stream()
+                .filter(line -> line.getName().equals(lineName))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_LINE_NAME));
+    }
 }

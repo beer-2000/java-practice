@@ -15,6 +15,10 @@ public class InputView {
     private final String REQUEST_START_STATION = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
     private final String REQUEST_END_STATION = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
     private final String REQUEST_DELETE_LINE = "## 삭제할 노선 이름을 입력하세요.";
+    private final String REQUEST_LINE_OF_SECTION = "## 노선을 입력하세요.";
+    private final String REQUEST_STATION_OF_SECTION = "## 역이름을 입력하세요.";
+    private final String REQUEST_ORDER_OF_SECTION = "## 순서를 입력하세요.";
+
 
     public FunctionCommand readFunctionCommand() {
         System.out.println();
@@ -97,4 +101,27 @@ public class InputView {
         return SectionCommand.get(command);
     }
 
+    public String readLineNameOfSection() {
+        System.out.println(REQUEST_LINE_OF_SECTION);
+        scanner = new Scanner(System.in);
+        String lineName = scanner.next();
+        System.out.println();
+        return lineName;
+    }
+
+    public String readStationNameOfSection() {
+        System.out.println(REQUEST_STATION_OF_SECTION);
+        scanner = new Scanner(System.in);
+        String stationName = scanner.next();
+        System.out.println();
+        return stationName;
+    }
+
+    public int readOrder() {
+        System.out.println(REQUEST_ORDER_OF_SECTION);
+        scanner = new Scanner(System.in);
+        int order = scanner.nextInt();
+        System.out.println();
+        return order;
+    }
 }
