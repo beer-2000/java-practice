@@ -1,6 +1,7 @@
 package subway.controller;
 
 import subway.domain.Lines;
+import subway.domain.Station;
 import subway.domain.Stations;
 import subway.ui.InputView;
 import subway.ui.OutputView;
@@ -19,6 +20,12 @@ public class SubwayController {
     }
 
     public void start() {
-        
+
+    }
+
+    private void registerLine(String name, String startStationName, String endStationName) {
+        Station startStation = stations.getStationByName(startStationName);
+        Station endStation = stations.getStationByName(endStationName);
+        lines.addLine(name, startStation, endStation);
     }
 }
