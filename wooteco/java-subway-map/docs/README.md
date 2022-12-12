@@ -76,6 +76,7 @@
 ### FunctionCommand
 - [x] 구현
 - [x] 메시지 반환
+- [x] 커맨드에 알맞은 값 반환
 
 ### StationCommand
 - [x] 구현
