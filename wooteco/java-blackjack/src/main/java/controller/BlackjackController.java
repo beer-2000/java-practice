@@ -142,8 +142,7 @@ public class BlackjackController {
         printStatusWithScore();
         outputView.announceFinalRevenue();
         double dealerMoney = (-1) * players.stream()
-                .map(player -> player.getMoney())
-                .mapToDouble(money -> money)
+                .mapToDouble(Player::getMoney)
                 .sum();
         outputView.printRevenueOfDealer(dealerMoney);
         players.forEach(player -> {

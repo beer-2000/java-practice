@@ -37,8 +37,8 @@ public class Cards {
     }
 
     private int getScoreSumWithoutAce() {
-        return cards.stream().map(card -> card.getScore())
-                .mapToInt(score -> score)
+        return cards.stream()
+                .mapToInt(Card::getScore)
                 .sum();
     }
 
