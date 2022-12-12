@@ -2,6 +2,7 @@ package subway.controller;
 
 import subway.constant.FunctionCommand;
 import subway.constant.LineCommand;
+import subway.constant.SectionCommand;
 import subway.constant.StationCommand;
 import subway.domain.Lines;
 import subway.domain.Station;
@@ -138,14 +139,34 @@ public class SubwayController {
         outputView.printLines(lines.getLineNames());
     }
 
-    private void registerLineByValues(String name, String startStationName, String endStationName) {
-        Station startStation = stations.getStationByName(startStationName);
-        Station endStation = stations.getStationByName(endStationName);
-        lines.addLine(name, startStation, endStation);
+    private void manageSection() {
+        while (true) {
+            try {
+                manageSectionContainError();
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
-    private void manageSection() {
+    private void manageSectionContainError() {
+        outputView.announceSectionFunction();
+        SectionCommand sectionCommand = inputView.readSectionFunction();
+        if (sectionCommand.equals(SectionCommand.REGISTER)) {
+            registerSection();
+        }
+        if (sectionCommand.equals(SectionCommand.DELETE)) {
+            deleteSection();
+        }
+    }
 
+    private void registerSection() {
+
+    }
+
+    private void deleteSection() {
+        
     }
 
     private void initLines() {
