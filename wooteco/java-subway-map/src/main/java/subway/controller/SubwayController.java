@@ -21,7 +21,7 @@ public class SubwayController {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.stations = new Stations();
-        initLines();
+        init();
     }
 
     public void start() {
@@ -174,8 +174,23 @@ public class SubwayController {
 
     }
 
-    private void initLines() {
+    private void init() {
         this.lines = new Lines();
+        initLines();
+        initSections();
+    }
+
+    private void initSections() {
+        Line lineNumber2 = lines.getLineByName("2호선");
+        Line lineNumber3 = lines.getLineByName("3호선");
+        Line lineNumberBundang = lines.getLineByName("신분당선");
+        lineNumber2.addSection(2, stations.getStationByName("강남역"));
+        lineNumber3.addSection(2, stations.getStationByName("남부터미널역"));
+        lineNumber3.addSection(3, stations.getStationByName("양재역"));
+        lineNumberBundang.addSection(2, stations.getStationByName("양재역"));
+    }
+
+    private void initLines() {
         lines.addLine("2호선",
                 stations.getStationByName("교대역"),
                 stations.getStationByName("역삼역")
