@@ -101,7 +101,11 @@ public class SubwayController {
     }
 
     private void registerLine() {
-
+        String lineName = inputView.readLineNameToRegister();
+        String startStationName = inputView.readStartStationName();
+        String endStationName = inputView.readEndStationName();
+        registerLineByValues(lineName, startStationName, endStationName);
+        outputView.announceRegisterLine();
     }
 
     private void deleteLine() {

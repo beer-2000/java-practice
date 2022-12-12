@@ -14,6 +14,7 @@ public class OutputView {
     private final String ANNOUNCEMENT_DELETE_STATION = "[INFO] 지하철 역이 삭제되었습니다.";
     private final String ANNOUNCEMENT_STATION_LIST = "## 역 목록";
     private final String INFO_MARK = "[INFO] ";
+    private final String ANNOUNCEMENT_REGISTER_LINE = "[INFO] 지하철 노선이 등록되었습니다.";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -60,5 +61,10 @@ public class OutputView {
                 .forEach(value -> {
                     System.out.println(value.getMessage());
                 });
+    }
+
+    public void announceRegisterLine() {
+        System.out.println(ANNOUNCEMENT_REGISTER_LINE);
+        System.out.println();
     }
 }
