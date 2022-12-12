@@ -28,4 +28,8 @@ public class Section {
     public void minusOrder() {
         order -= 1;
     }
+
+    public Station getStation() {
+        return station;
+    }
 }

@@ -6,6 +6,7 @@ import subway.constant.FunctionCommand;
 import subway.constant.LineCommand;
 import subway.constant.SectionCommand;
 import subway.constant.StationCommand;
+import subway.domain.LineMap;
 
 public class OutputView {
     private final String ANNOUNCEMENT_MAIN_FUNCTION = "## 메인 화면";
@@ -21,6 +22,7 @@ public class OutputView {
     private final String ANNOUNCEMENT_SECTION_FUNCTION = "## 구간 관리 화면";
     private final String ANNOUNCEMENT_REGISTER_SECTION = "[INFO] 구간이 등록되었습니다.";
     private final String ANNOUNCEMENT_DELETE_SECTION = "[INFO] 구간이 삭제되었습니다.";
+    private final String ANNOUNCEMENT_SUBWAY_MAP = "## 지하철 노선도";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -105,6 +107,21 @@ public class OutputView {
 
     public void announceDeleteSection() {
         System.out.println(ANNOUNCEMENT_DELETE_SECTION);
+        System.out.println();
+    }
+
+    public void printSubwayMap(List<LineMap> lineMaps) {
+        System.out.println(ANNOUNCEMENT_SUBWAY_MAP);
+        lineMaps.forEach(lineMap -> printLineMap(lineMap));
+    }
+
+    private void printLineMap(LineMap lineMap) {
+        System.out.println(String.join("", INFO_MARK, lineMap.getName()));
+        System.out.println(String.join("", INFO_MARK, "---"));
+        lineMap.getStations()
+                .forEach(station -> {
+                    System.out.println(String.join("", INFO_MARK, station.getName()));
+                });
         System.out.println();
     }
 }

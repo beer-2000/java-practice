@@ -2,6 +2,7 @@ package subway.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Line {
     private String name;
@@ -69,5 +70,12 @@ public class Line {
                 section.minusOrder();
             }
         });
+    }
+
+    public LineMap getLineMap() {
+        List<Station> stations = sections.stream()
+                .map(section -> section.getStation())
+                .collect(Collectors.toList());
+        return new LineMap(name, stations);
     }
 }

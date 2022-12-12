@@ -56,6 +56,9 @@ public class SubwayController {
         if (functionCommand.equals(FunctionCommand.SECTION_MANAGEMENT)) {
             manageSection();
         }
+        if (functionCommand.equals(FunctionCommand.SUBWAY_MAP)) {
+            printSubwayMap();
+        }
     }
 
     private void manageStation() {
@@ -191,6 +194,10 @@ public class SubwayController {
         lineNumber3.addSection(2, stations.getStationByName("남부터미널역"));
         lineNumber3.addSection(3, stations.getStationByName("양재역"));
         lineNumberBundang.addSection(2, stations.getStationByName("양재역"));
+    }
+
+    private void printSubwayMap() {
+        outputView.printSubwayMap(lines.getSubwayMap());
     }
 
     private void initLines() {

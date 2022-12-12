@@ -36,4 +36,10 @@ public class Lines {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_LINE_NAME));
     }
+
+    public List<LineMap> getSubwayMap() {
+        return lines.stream()
+                .map(Line::getLineMap)
+                .collect(Collectors.toList());
+    }
 }

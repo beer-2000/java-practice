@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Stations {
     private List<Station> stations;
     private final String ERROR_MESSAGE_NOT_EXIST_STATION_NAME = "[ERROR] 존재하지 않는 역 이름입니다.";
-    private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 존재하는 역 이름입니다.";
+    private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 등록된 역 이름입니다. ";
 
     public Stations() {
         this.stations = new ArrayList<>();
