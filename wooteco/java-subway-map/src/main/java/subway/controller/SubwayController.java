@@ -99,6 +99,7 @@ public class SubwayController {
         while (true) {
             try {
                 manageLineContainError();
+                break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
