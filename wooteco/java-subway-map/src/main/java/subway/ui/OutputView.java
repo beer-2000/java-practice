@@ -3,11 +3,13 @@ package subway.ui;
 import java.util.Arrays;
 import java.util.List;
 import subway.constant.FunctionCommand;
+import subway.constant.LineCommand;
 import subway.constant.StationCommand;
 
 public class OutputView {
     private final String ANNOUNCEMENT_MAIN_FUNCTION = "## 메인 화면";
     private final String ANNOUNCEMENT_STATION_FUNCTION = "## 역 관리 화면";
+    private final String ANNOUNCEMENT_LINE_FUNCTION = "## 노선 관리 화면";
     private final String ANNOUNCEMENT_REGISTER_STATION = "[INFO] 지하철 역이 등록되었습니다.";
     private final String ANNOUNCEMENT_DELETE_STATION = "[INFO] 지하철 역이 삭제되었습니다.";
     private final String ANNOUNCEMENT_STATION_LIST = "## 역 목록";
@@ -52,5 +54,11 @@ public class OutputView {
         System.out.println();
     }
 
-
+    public void announceLineFunction() {
+        System.out.println(ANNOUNCEMENT_LINE_FUNCTION);
+        Arrays.stream(LineCommand.values())
+                .forEach(value -> {
+                    System.out.println(value.getMessage());
+                });
+    }
 }
