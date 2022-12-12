@@ -27,6 +27,7 @@
 
 ## Controller
 ### SubwayController
+- [x] 생성
 - [ ] 역 관리
   - [ ] 역 등록
   - [ ] 역 삭제

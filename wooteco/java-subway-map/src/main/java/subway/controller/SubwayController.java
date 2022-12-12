@@ -16,7 +16,7 @@ public class SubwayController {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.stations = new Stations();
-        this.lines = new Lines();
+        initLines();
     }
 
     public void start() {
@@ -27,5 +27,21 @@ public class SubwayController {
         Station startStation = stations.getStationByName(startStationName);
         Station endStation = stations.getStationByName(endStationName);
         lines.addLine(name, startStation, endStation);
+    }
+
+    private void initLines() {
+        this.lines = new Lines();
+        lines.addLine("2호선",
+                stations.getStationByName("교대역"),
+                stations.getStationByName("역삼역")
+        );
+        lines.addLine("3호선",
+                stations.getStationByName("교대역"),
+                stations.getStationByName("매봉역")
+        );
+        lines.addLine("신분당선",
+                stations.getStationByName("강남역"),
+                stations.getStationByName("양재시민의숲역")
+        );
     }
 }
