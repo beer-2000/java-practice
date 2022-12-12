@@ -128,7 +128,9 @@ public class SubwayController {
     }
 
     private void deleteLine() {
-
+        String lineName = inputView.readLineNameToDelete();
+        lines.delete(lineName);
+        outputView.announceDeleteLine();
     }
 
     private void findLine() {

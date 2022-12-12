@@ -13,6 +13,7 @@ public class InputView {
     private final String REQUEST_REGISTER_LINE = "## 등록할 노선 이름을 입력하세요.";
     private final String REQUEST_START_STATION = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
     private final String REQUEST_END_STATION = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
+    private final String REQUEST_DELETE_LINE = "## 삭제할 노선 이름을 입력하세요.";
 
     public FunctionCommand readFunctionCommand() {
         System.out.println();
@@ -78,4 +79,13 @@ public class InputView {
         System.out.println();
         return endStationName;
     }
+
+    public String readLineNameToDelete() {
+        System.out.println(REQUEST_DELETE_LINE);
+        scanner = new Scanner(System.in);
+        String lineName = scanner.next();
+        System.out.println();
+        return lineName;
+    }
+
 }
