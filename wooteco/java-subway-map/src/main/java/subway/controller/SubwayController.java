@@ -1,6 +1,7 @@
 package subway.controller;
 
 import subway.constant.FunctionCommand;
+import subway.constant.LineCommand;
 import subway.constant.StationCommand;
 import subway.domain.Lines;
 import subway.domain.Station;
@@ -86,7 +87,17 @@ public class SubwayController {
     }
 
     private void manageLine() {
-
+        outputView.announceLineFunction();
+        LineCommand lineCommand = inputView.readLineFunction();
+        if (lineCommand.equals(LineCommand.REGISTER)) {
+            registerStation();
+        }
+        if (lineCommand.equals(LineCommand.DELETE)) {
+            deleteStation();
+        }
+        if (lineCommand.equals(LineCommand.FIND)) {
+            findStation();
+        }
     }
 
     private void manageSection() {
