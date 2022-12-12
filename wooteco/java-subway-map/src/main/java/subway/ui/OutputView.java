@@ -16,6 +16,7 @@ public class OutputView {
     private final String INFO_MARK = "[INFO] ";
     private final String ANNOUNCEMENT_REGISTER_LINE = "[INFO] 지하철 노선이 등록되었습니다.";
     private final String ANNOUNCEMENT_DELETE_LINE = "[INFO] 지하철 노선이 삭제되었습니다.";
+    private final String ANNOUNCEMENT_LINE_LIST = "## 노선 목록";
 
     public void announceMainFunction() {
         System.out.println(ANNOUNCEMENT_MAIN_FUNCTION);
@@ -73,6 +74,14 @@ public class OutputView {
 
     public void announceDeleteLine() {
         System.out.println(ANNOUNCEMENT_DELETE_LINE);
+        System.out.println();
+    }
+
+    public void printLines(List<String> lineNames) {
+        System.out.println(ANNOUNCEMENT_LINE_LIST);
+        lineNames.forEach(name -> {
+            System.out.println(String.join("", INFO_MARK, name));
+        });
         System.out.println();
     }
 }

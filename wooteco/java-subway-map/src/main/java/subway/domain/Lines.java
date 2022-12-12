@@ -2,6 +2,7 @@ package subway.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Lines {
     private List<Line> lines;
@@ -21,5 +22,11 @@ public class Lines {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_LINE_NAME));
         lines.remove(lineToDelete);
+    }
+
+    public List<String> getLineNames() {
+        return lines.stream()
+                .map(Line::getName)
+                .collect(Collectors.toList());
     }
 }

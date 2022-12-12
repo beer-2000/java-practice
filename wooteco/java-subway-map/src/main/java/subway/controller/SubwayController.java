@@ -122,9 +122,9 @@ public class SubwayController {
 
     private void registerLine() {
         String lineName = inputView.readLineNameToRegister();
-        String startStationName = inputView.readStartStationName();
-        String endStationName = inputView.readEndStationName();
-        registerLineByValues(lineName, startStationName, endStationName);
+        Station startStation = stations.getStationByName(inputView.readStartStationName());
+        Station endStation = stations.getStationByName(inputView.readEndStationName());
+        lines.addLine(lineName, startStation, endStation);
         outputView.announceRegisterLine();
     }
 
@@ -135,7 +135,7 @@ public class SubwayController {
     }
 
     private void findLine() {
-
+        outputView.printLines(lines.getLineNames());
     }
 
     private void registerLineByValues(String name, String startStationName, String endStationName) {
