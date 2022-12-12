@@ -9,4 +9,8 @@ public class Lines {
     public Lines() {
         lines = new ArrayList<>();
     }
+
+    public void addLine(String name, Station startStation, Station endStation) {
+        lines.add(new Line(name, startStation, endStation));
+    }
 }
