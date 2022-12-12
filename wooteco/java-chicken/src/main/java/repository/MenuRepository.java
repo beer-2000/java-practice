@@ -26,12 +26,10 @@ public class MenuRepository {
     }
 
     public static Menu getMenuByNumber(int menuNumber) {
-        for (Menu menu : menus) {
-            if (menu.isNumberOf(menuNumber)) {
-                return menu;
-            }
-        }
-        throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_MENU_NUMBER);
+        return menus.stream()
+                .filter(menu -> menu.isNumberOf(menuNumber))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_WRONG_MENU_NUMBER));
     }
 
 }
