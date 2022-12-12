@@ -13,6 +13,7 @@ public class InputView {
         System.out.println(REQUEST_COMMAND);
         scanner = new Scanner(System.in);
         String command = scanner.next();
+        System.out.println();
         return FunctionCommand.get(command);
     }
 
@@ -21,6 +22,7 @@ public class InputView {
         System.out.println(REQUEST_COMMAND);
         scanner = new Scanner(System.in);
         String command = scanner.next();
+        System.out.println();
         return StationCommand.get(command);
     }
 }

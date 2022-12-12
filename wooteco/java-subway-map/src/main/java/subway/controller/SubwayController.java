@@ -58,7 +58,7 @@ public class SubwayController {
     }
 
     private void registerStation() {
-
+        stations.register(inputView.readStationNameToRegister());
     }
 
     private void deleteStation() {
@@ -66,7 +66,7 @@ public class SubwayController {
     }
 
     private void findStation() {
-        
+
     }
 
     private void manageLine() {
