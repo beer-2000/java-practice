@@ -69,7 +69,7 @@
 - [ ] 구현
 
 ### FunctionCommand
-- [ ] 구현
+- [x] 구현
 
 ### StationCommand
 - [ ] 구현
