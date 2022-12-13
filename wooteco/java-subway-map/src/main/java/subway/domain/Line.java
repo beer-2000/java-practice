@@ -11,6 +11,7 @@ public class Line {
     private final String ERROR_MESSAGE_SAME_END_POINT = "[ERROR] 상행 종점과 하행 종점은 다른 역으로 지정되어야 합니다.";
     private final String ERROR_MESSAGE_ALREADY_EXIST_STATION = "[ERROR] 이미 노선에 존재하는 역입니다.";
     private final String ERROR_MESSAGE_NOT_EXIST_STATION = "[ERROR] 노선에 존재하지 않는 역입니다.";
+    private final String ERROR_MESSAGE_TOO_SHORT_LINE = "[ERROR] 노선이 너무 짧아 구간을 삭제할 수 없습니다.";
 
     public Line(String name, Station startStation, Station endStation) {
         if (startStation.equals(endStation)) {
@@ -49,6 +50,7 @@ public class Line {
 
     public void deleteSection(Station station) {
         validateNotExist(station);
+        checkSectionsSize();
         Section sectionToDelete = sections.stream()
                 .filter(section -> section.isOf(station))
                 .findAny()
@@ -65,6 +67,12 @@ public class Line {
             }
         }
         throw new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_STATION);
+    }
+
+    private void checkSectionsSize() {
+        if (sections.size() <= 2) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_TOO_SHORT_LINE);
+        }
     }
 
     private void downOrder(int order) {
