@@ -170,6 +170,7 @@ public class SubwayController {
         Station station = stations.getStationByName(inputView.readStationNameOfSection());
         int order = inputView.readOrder();
         line.addSection(order, station);
+        station.addLineName(line.getName());
         outputView.announceRegisterSection();
     }
 

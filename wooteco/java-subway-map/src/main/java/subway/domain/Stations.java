@@ -9,6 +9,7 @@ public class Stations {
     private final String ERROR_MESSAGE_NOT_EXIST_STATION_NAME = "[ERROR] 존재하지 않는 역 이름입니다.";
     private final String ERROR_MESSAGE_EXIST_STATION_NAME = "[ERROR] 이미 등록된 역 이름입니다.";
     private final String ERROR_MESSAGE_TOO_SHORT_NAME = "[ERROR] 두 글자 이상의 역 이름을 입력해주세요.";
+    private final String ERROR_MESSAGE_STATION_HAVE_LINE = "[ERROR] 노선에 속한 역은 삭제할 수 없습니다.";
 
     public Stations() {
         this.stations = new ArrayList<>();
@@ -50,6 +51,9 @@ public class Stations {
 
     public void delete(String stationName) {
         Station stationToDelete = getStationByName(stationName);
+        if (stationToDelete.haveLine()) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_STATION_HAVE_LINE);
+        }
         stations.remove(stationToDelete);
     }
 

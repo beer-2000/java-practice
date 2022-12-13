@@ -20,6 +20,8 @@ public class Line {
         this.sections = new ArrayList<>();
         sections.add(new Section(1, startStation));
         sections.add(new Section(2, endStation));
+        startStation.addLineName(name);
+        endStation.addLineName(name);
     }
 
     public String getName() {
