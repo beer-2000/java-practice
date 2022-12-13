@@ -1,6 +1,7 @@
 package subway.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,7 +75,8 @@ public class Line {
 
     public LineMap getLineMap() {
         List<Station> stations = sections.stream()
-                .map(section -> section.getStation())
+                .sorted(Comparator.comparing(Section::getOrder))
+                .map(Section::getStation)
                 .collect(Collectors.toList());
         return new LineMap(name, stations);
     }
