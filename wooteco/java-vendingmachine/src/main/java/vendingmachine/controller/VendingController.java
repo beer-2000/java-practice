@@ -25,6 +25,10 @@ public class VendingController {
         generateVendingMachine();
         registerProducts();
         setMoneyOfVendingMachine();
+        while (vendingMachine.canPurchase()) {
+            purchase();
+        }
+        announceChanges();
     }
 
     private void generateVendingMachine() {
@@ -56,6 +60,7 @@ public class VendingController {
         while (true) {
             try {
                 vendingMachine.setInputMoney(inputView.readInputMoney());
+                break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }

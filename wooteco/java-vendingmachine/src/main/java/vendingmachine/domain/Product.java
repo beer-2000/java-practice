@@ -10,4 +10,12 @@ public class Product {
         this.price = price;
         this.count = count;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean canPurchase(int money) {
+        return money >= price;
+    }
 }

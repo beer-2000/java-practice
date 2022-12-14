@@ -19,4 +19,13 @@ public class Products {
             );
         });
     }
+
+    public boolean canPurchaseBy(int money) {
+        for (Product product : products) {
+            if (product.canPurchase(money)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -23,4 +23,8 @@ public class VendingMachine {
     public void setInputMoney(int inputMoney) {
         this.inputMoney = inputMoney;
     }
+
+    public boolean canPurchase() {
+        return products.canPurchaseBy(inputMoney);
+    }
 }
