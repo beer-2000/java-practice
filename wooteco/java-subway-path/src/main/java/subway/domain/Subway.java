@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import subway.constant.PathCommand;
 
 public class Subway {
+    private final String ERROR_MESSAGE_SAME_STATION = "[ERROR] 출발역과 도착역은 달라야 합니다.";
 
     public Subway() {
         initStation();
@@ -13,6 +14,7 @@ public class Subway {
     }
 
     public PathResult getPathResult(PathCommand pathCommand, String startStationName, String endStationName) {
+        validateSameStationName(startStationName, endStationName);
         Station startStation = StationRepository.getStationByName(startStationName);
         Station endStation = StationRepository.getStationByName(endStationName);
         List<Station> stationsOfPath = PathGraphRepository.getStationsOfPath(
@@ -24,6 +26,12 @@ public class Subway {
         int distance = PathGraphRepository.getDistanceThrough(stationsOfPath);
         int time = PathGraphRepository.getTimeThrough(stationsOfPath);
         return new PathResult(distance, time, stationNames);
+    }
+
+    private void validateSameStationName(String startStationName, String endStationName) {
+        if (startStationName.equals(endStationName)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_SAME_STATION);
+        }
     }
 
     private void initStation() {
