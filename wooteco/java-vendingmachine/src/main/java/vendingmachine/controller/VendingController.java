@@ -24,6 +24,7 @@ public class VendingController {
     public void start() {
         generateVendingMachine();
         registerProducts();
+        setMoneyOfVendingMachine();
     }
 
     private void generateVendingMachine() {
@@ -45,6 +46,16 @@ public class VendingController {
                 List<ProductInfo> productInfos = convertToProductInfosByRaw(inputView.readProducts());
                 vendingMachine.registerProducts(productInfos);
                 break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void setMoneyOfVendingMachine() {
+        while (true) {
+            try {
+                vendingMachine.setMoney(inputView.readInputMoney());
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
