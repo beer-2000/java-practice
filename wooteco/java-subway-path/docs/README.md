@@ -17,9 +17,7 @@
 ## Controller
 ### SubwayController
 - [x] 초기 세팅
-- [ ] 역 불러오기
-- [ ] 경로 불러오기
-- [ ] 경로 가중치 합 불러오기
+- [x] 결과 출력
 ---
 
 ## Domain

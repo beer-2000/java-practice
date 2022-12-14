@@ -38,15 +38,18 @@ public class SubwayController {
     }
 
     private void startPathFunction() {
-        PathCommand pathCommand = inputView.readPathCommand();
-        if (pathCommand.equals(PathCommand.MINIMUM_DISTANCE)) {
-
-        }
-        if (pathCommand.equals(PathCommand.MINIMUM_DISTANCE)) {
-
-        }
-        if (pathCommand.equals(PathCommand.MINIMUM_DISTANCE)) {
-
+        while (true) {
+            try {
+                outputView.announcePathCommand();
+                PathCommand pathCommand = inputView.readPathCommand();
+                String startStationName = inputView.readStartStation();
+                String endStationName = inputView.readEndStation();
+                PathResult pathResult = subway.getPathResult(pathCommand, startStationName, endStationName);
+                outputView.printPathResult(pathResult);
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
         }
     }
 }
