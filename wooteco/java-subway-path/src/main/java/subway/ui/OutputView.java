@@ -12,4 +12,9 @@ public class OutputView {
                 .forEach(mainCommand -> System.out.println(mainCommand.getMessage()));
         System.out.println();
     }
+
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+        System.out.println();
+    }
 }
