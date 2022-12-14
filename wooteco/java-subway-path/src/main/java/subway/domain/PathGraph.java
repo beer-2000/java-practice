@@ -9,6 +9,7 @@ import subway.constant.PathCommand;
 public class PathGraph {
     private PathCommand pathCommand;
     private WeightedMultigraph graph;
+    private final String ERROR_MESSAGE_NOT_CONNECTED = "[ERROR] 연결되지 않은 경로입니다.";
 
     public PathGraph(PathCommand pathCommand) {
         this.pathCommand = pathCommand;
@@ -28,8 +29,12 @@ public class PathGraph {
     }
 
     public List<Station> getStationsOfPath(Station startStation, Station endStation) {
-        DijkstraShortestPath dijkstraShortestPath = new DijkstraShortestPath(graph);
-        return dijkstraShortestPath.getPath(startStation, endStation).getVertexList();
+        try {
+            DijkstraShortestPath dijkstraShortestPath = new DijkstraShortestPath(graph);
+            return dijkstraShortestPath.getPath(startStation, endStation).getVertexList();
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_NOT_CONNECTED);
+        }
     }
 
     public int getSumOfWeight(List<Station> stationsOfPath) {

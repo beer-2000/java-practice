@@ -37,4 +37,19 @@ public class JGraphtTest {
         System.out.println(shortestPath);
         assertThat(shortestPath.size()).isEqualTo(3);
     }
+
+    @Test
+    public void getDijkstraShortestPathTest() {
+        WeightedMultigraph<String, DefaultWeightedEdge> graph = new WeightedMultigraph(DefaultWeightedEdge.class);
+        graph.addVertex("v1");
+        graph.addVertex("v2");
+        graph.addVertex("v3");
+        graph.addVertex("v4");
+        graph.setEdgeWeight(graph.addEdge("v1", "v2"), 2);
+        graph.setEdgeWeight(graph.addEdge("v3", "v4"), 10);
+
+        DijkstraShortestPath dijkstraShortestPath = new DijkstraShortestPath(graph);
+        List<String> shortestPath = dijkstraShortestPath.getPath("v1", "v4").getVertexList();
+        assertThat(shortestPath.size()).isEqualTo(3);
+    }
 }
