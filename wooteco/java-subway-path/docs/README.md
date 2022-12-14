@@ -61,6 +61,10 @@
 - [x] 생성
 - [x] 값 설정
 - [x] 값 반환
+
+### PathResult (Value Object)
+- [x] 생성
+- [x] 값 반환
 ---
 
 ## Constant
