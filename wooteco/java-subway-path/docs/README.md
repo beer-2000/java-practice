@@ -58,6 +58,11 @@
 ### PathGraphRepository
 - [x] 경로 그래프 저장
 - [ ] 경로 그래프 불러오기
+
+### PathInfo (Value Object)
+- [x] 생성
+- [x] 값 설정
+- [x] 값 반환
 ---
 
 ## Constant
