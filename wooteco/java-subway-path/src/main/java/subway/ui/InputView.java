@@ -2,6 +2,7 @@ package subway.ui;
 
 import java.util.Scanner;
 import subway.constant.MainCommand;
+import subway.constant.PathCommand;
 
 public class InputView {
     private Scanner scanner;
@@ -14,5 +15,10 @@ public class InputView {
     public MainCommand readMainCommand() {
         System.out.println(REQUEST_MAIN_COMMAND);
         return MainCommand.get(scanner.nextLine());
+    }
+
+    public PathCommand readPathCommand() {
+        System.out.println(REQUEST_MAIN_COMMAND);
+        return PathCommand.get(scanner.nextLine());
     }
 }
