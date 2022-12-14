@@ -45,4 +45,8 @@ public class CoinStatus {
     public int getCount() {
         return count;
     }
+
+    public CoinInfo getInfo() {
+        return new CoinInfo(coin, count);
+    }
 }

@@ -23,6 +23,7 @@ public class VendingController {
             try {
                 int moneyOfVendingMachine = inputView.readMoneyOfVendingMachine();
                 this.vendingMachine = new VendingMachine(moneyOfVendingMachine);
+                outputView.printCoinCount(vendingMachine.getCoinCountInfo());
                 break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());

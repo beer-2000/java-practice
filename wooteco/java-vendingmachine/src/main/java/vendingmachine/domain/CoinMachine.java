@@ -23,4 +23,12 @@ public class CoinMachine {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_AT_COIN_MACHINE));
     }
+
+    public List<CoinInfo> getCoinCountInfo() {
+        List<CoinInfo> coinInfos = new ArrayList<>();
+        coinStatuses.forEach(coinStatus -> {
+            coinInfos.add(coinStatus.getInfo());
+        });
+        return coinInfos;
+    }
 }
