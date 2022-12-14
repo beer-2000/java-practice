@@ -19,4 +19,8 @@ public class VendingMachine {
     public void registerProducts(List<ProductInfo> productInfos) {
         products.addProducts(productInfos);
     }
+
+    public void setInputMoney(int inputMoney) {
+        this.inputMoney = inputMoney;
+    }
 }

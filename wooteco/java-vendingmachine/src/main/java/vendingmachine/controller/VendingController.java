@@ -55,7 +55,7 @@ public class VendingController {
     private void setMoneyOfVendingMachine() {
         while (true) {
             try {
-                vendingMachine.setMoney(inputView.readInputMoney());
+                vendingMachine.setInputMoney(inputView.readInputMoney());
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
