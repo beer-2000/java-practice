@@ -1,5 +1,7 @@
 package subway.domain;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import subway.constant.PathCommand;
 
 public class Subway {
@@ -8,6 +10,20 @@ public class Subway {
         initStation();
         initLine();
         initPathGraph();
+    }
+
+    public PathResult getPathResult(PathCommand pathCommand, String startStationName, String endStationName) {
+        Station startStation = StationRepository.getStationByName(startStationName);
+        Station endStation = StationRepository.getStationByName(endStationName);
+        List<Station> stationsOfPath = PathGraphRepository.getStationsOfPath(
+                pathCommand, startStation, endStation
+        );
+        List<String> stationNames = stationsOfPath.stream()
+                .map(station -> station.getName())
+                .collect(Collectors.toList());
+        int distance = PathGraphRepository.getDistanceThrough(stationsOfPath);
+        int time = PathGraphRepository.getTimeThrough(stationsOfPath);
+        return new PathResult(distance, time, stationNames);
     }
 
     private void initStation() {
@@ -29,13 +45,36 @@ public class Subway {
     private void initPathGraph() {
         PathGraphRepository.addPathGraph(new PathGraph(PathCommand.MINIMUM_DISTANCE));
         PathGraphRepository.addPathGraph(new PathGraph(PathCommand.MINIMUM_TIME));
+        addVertexInitOfDistance();
+        addVertexInitOfTime();
         initPathsOfDistanceFirst();
         initPathsOfDistanceSecond();
         initPathsOfTimeFirst();
         initPathsOfTimeSecond();
+
     }
 
-    private static void initPathsOfDistanceFirst() {
+    private static void addVertexInitOfDistance() {
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("교대역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("강남역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("역삼역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("남부터미널역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("양재역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("매봉역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_DISTANCE, StationRepository.getStationByName("양재시민의숲역"));
+    }
+
+    private static void addVertexInitOfTime() {
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("교대역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("강남역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("역삼역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("남부터미널역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("양재역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("매봉역"));
+        PathGraphRepository.addVertex(PathCommand.MINIMUM_TIME, StationRepository.getStationByName("양재시민의숲역"));
+    }
+
+    private void initPathsOfDistanceFirst() {
         PathInfo pathInfo = new PathInfo(PathCommand.MINIMUM_DISTANCE);
         pathInfo.set(StationRepository.getStationByName("교대역"), StationRepository.getStationByName("강남역"), 2);
         PathGraphRepository.setEdgeWeight(pathInfo);
@@ -48,7 +87,7 @@ public class Subway {
 
     }
 
-    private static void initPathsOfDistanceSecond() {
+    private void initPathsOfDistanceSecond() {
         PathInfo pathInfo = new PathInfo(PathCommand.MINIMUM_DISTANCE);
         pathInfo.set(StationRepository.getStationByName("양재역"), StationRepository.getStationByName("매봉역"), 1);
         PathGraphRepository.setEdgeWeight(pathInfo);
@@ -58,7 +97,7 @@ public class Subway {
         PathGraphRepository.setEdgeWeight(pathInfo);
     }
 
-    private static void initPathsOfTimeFirst() {
+    private void initPathsOfTimeFirst() {
         PathInfo pathInfo = new PathInfo(PathCommand.MINIMUM_TIME);
         pathInfo.set(StationRepository.getStationByName("교대역"), StationRepository.getStationByName("강남역"), 3);
         PathGraphRepository.setEdgeWeight(pathInfo);
@@ -70,7 +109,7 @@ public class Subway {
         PathGraphRepository.setEdgeWeight(pathInfo);
     }
 
-    private static void initPathsOfTimeSecond() {
+    private void initPathsOfTimeSecond() {
         PathInfo pathInfo = new PathInfo(PathCommand.MINIMUM_TIME);
         pathInfo.set(StationRepository.getStationByName("양재역"), StationRepository.getStationByName("매봉역"), 1);
         PathGraphRepository.setEdgeWeight(pathInfo);

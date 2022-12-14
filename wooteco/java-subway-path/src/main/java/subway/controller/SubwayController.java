@@ -3,6 +3,7 @@ package subway.controller;
 import java.util.Scanner;
 import subway.constant.MainCommand;
 import subway.constant.PathCommand;
+import subway.domain.PathResult;
 import subway.domain.Subway;
 import subway.ui.InputView;
 import subway.ui.OutputView;
