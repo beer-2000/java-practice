@@ -6,6 +6,7 @@ public class VendingMachine {
     private Products products;
     private CoinMachine coinMachine;
     private int inputMoney;
+    private final String ERROR_MESSAGE_NOT_ENOUGH_MONEY = "[ERROR] 금액이 부족합니다. (%s: %d원)";
 
     public VendingMachine(int moneyOfVendingMachine) {
         this.products = new Products();
@@ -26,5 +27,21 @@ public class VendingMachine {
 
     public boolean canPurchase() {
         return products.canPurchaseBy(inputMoney);
+    }
+
+    public int getInputMoney() {
+        return inputMoney;
+    }
+
+    public void purchase(String productName) {
+        int price = products.getPriceOf(productName);
+        if (inputMoney >= price) {
+            products.purchase(productName);
+            inputMoney -= price;
+            return;
+        }
+        throw new IllegalArgumentException(
+                String.format(ERROR_MESSAGE_NOT_ENOUGH_MONEY, productName, price)
+        );
     }
 }

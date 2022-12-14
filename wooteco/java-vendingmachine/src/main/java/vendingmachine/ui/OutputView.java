@@ -6,6 +6,7 @@ import vendingmachine.domain.CoinInfo;
 public class OutputView {
     private final String ANNOUNCEMENT_COIN_INFO = "자판기가 보유한 동전";
     private final String COIN_PRINT_FORMAT = "%s - %s개";
+    private final String INPUT_MONEY_PRINT_FORMAT = "투입 금액: %d원";
 
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
@@ -18,6 +19,11 @@ public class OutputView {
             System.out.printf(COIN_PRINT_FORMAT, coinInfo.getCoinName(), coinInfo.getCount());
             System.out.println();
         });
+        System.out.println();
+    }
+
+    public void announceInputMoney(int inputMoney) {
+        System.out.printf(INPUT_MONEY_PRINT_FORMAT, inputMoney);
         System.out.println();
     }
 }

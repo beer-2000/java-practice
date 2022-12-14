@@ -28,7 +28,7 @@ public class VendingController {
         while (vendingMachine.canPurchase()) {
             purchase();
         }
-        announceChanges();
+//        announceChanges();
     }
 
     private void generateVendingMachine() {
@@ -60,6 +60,18 @@ public class VendingController {
         while (true) {
             try {
                 vendingMachine.setInputMoney(inputView.readInputMoney());
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void purchase() {
+        while (true) {
+            try {
+                outputView.announceInputMoney(vendingMachine.getInputMoney());
+                vendingMachine.purchase(inputView.readProductNameToPurchase());
                 break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
