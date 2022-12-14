@@ -19,7 +19,14 @@ public class VendingController {
     }
 
     private void generateVendingMachine() {
-        int moneyOfVendingMachine = inputView.readMoneyOfVendingMachine();
-        this.vendingMachine = new VendingMachine(moneyOfVendingMachine);
+        while (true) {
+            try {
+                int moneyOfVendingMachine = inputView.readMoneyOfVendingMachine();
+                this.vendingMachine = new VendingMachine(moneyOfVendingMachine);
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 }
