@@ -44,4 +44,8 @@ public class VendingMachine {
                 String.format(ERROR_MESSAGE_NOT_ENOUGH_MONEY, productName, price)
         );
     }
+
+    public List<CoinInfo> getCoinCountInfoOfChanges() {
+        return coinMachine.getCoinCountInfoOfChanges(inputMoney);
+    }
 }

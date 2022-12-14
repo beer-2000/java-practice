@@ -28,7 +28,7 @@ public class VendingController {
         while (vendingMachine.canPurchase()) {
             purchase();
         }
-//        announceChanges();
+        announceChanges();
     }
 
     private void generateVendingMachine() {
@@ -77,6 +77,12 @@ public class VendingController {
                 outputView.printErrorMessage(e.getMessage());
             }
         }
+    }
+
+    private void announceChanges() {
+        int inputMoneyOfVendingMachine = vendingMachine.getInputMoney();
+        outputView.announceInputMoney(inputMoneyOfVendingMachine);
+        outputView.printCoinCountOfChanges(vendingMachine.getCoinCountInfoOfChanges());
     }
 
     private List<ProductInfo> convertToProductInfosByRaw(String productInfosRaw) {

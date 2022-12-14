@@ -19,6 +19,10 @@ public class CoinInfo {
         return count;
     }
 
+    public int getAmount() {
+        return coin.getAmount() * count;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
