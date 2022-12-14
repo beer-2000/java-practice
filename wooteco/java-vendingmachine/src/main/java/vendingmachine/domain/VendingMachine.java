@@ -8,10 +8,15 @@ public class VendingMachine {
     private int inputMoney;
 
     public VendingMachine(int moneyOfVendingMachine) {
+        this.products = new Products();
         this.coinMachine = new CoinMachine(moneyOfVendingMachine);
     }
 
     public List<CoinInfo> getCoinCountInfo() {
         return coinMachine.getCoinCountInfo();
+    }
+
+    public void registerProducts(List<ProductInfo> productInfos) {
+        products.addProducts(productInfos);
     }
 }
