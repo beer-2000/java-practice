@@ -8,20 +8,18 @@ import subway.ui.InputView;
 import subway.ui.OutputView;
 
 public class SubwayController {
-    private Scanner scanner;
     private InputView inputView;
     private OutputView outputView;
     private Subway subway;
 
     public SubwayController(Scanner scanner) {
-        this.scanner = scanner;
         this.inputView = new InputView(scanner);
         this.outputView = new OutputView();
         this.subway = new Subway();
     }
 
     public void start() {
-        MainCommand mainCommand = null;
+        MainCommand mainCommand = MainCommand.PATH_FIND;
         do {
             try {
                 outputView.announceMainCommand();
@@ -30,7 +28,7 @@ public class SubwayController {
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
-        } while (mainCommand.equals(MainCommand.QUIT));
+        } while (!mainCommand.equals(MainCommand.QUIT));
     }
 
     private void runMainFunction(MainCommand mainCommand) {

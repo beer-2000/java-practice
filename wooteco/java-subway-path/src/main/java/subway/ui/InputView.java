@@ -14,11 +14,15 @@ public class InputView {
 
     public MainCommand readMainCommand() {
         System.out.println(REQUEST_MAIN_COMMAND);
-        return MainCommand.get(scanner.nextLine());
+        MainCommand mainCommand = MainCommand.get(scanner.nextLine());
+        System.out.println();
+        return mainCommand;
     }
 
     public PathCommand readPathCommand() {
         System.out.println(REQUEST_MAIN_COMMAND);
-        return PathCommand.get(scanner.nextLine());
+        PathCommand pathCommand = PathCommand.get(scanner.nextLine());
+        System.out.println();
+        return pathCommand;
     }
 }
