@@ -13,4 +13,16 @@ public class PathGraph {
         WeightedMultigraph<Station, DefaultWeightedEdge> graph = new WeightedMultigraph(DefaultWeightedEdge.class);
         this.graph = graph;
     }
+
+    public void addVertex(Station station) {
+        graph.addVertex(station);
+    }
+
+    public void setEdgeWeight(Station startStation, Station endStation, int weight) {
+        graph.setEdgeWeight(startStation, endStation, weight);
+    }
+
+    public boolean isOf(PathCommand pathCommand) {
+        return this.pathCommand.equals(pathCommand);
+    }
 }

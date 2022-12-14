@@ -57,6 +57,7 @@
 
 ### PathGraphRepository
 - [x] 경로 그래프 저장
+- [x] 경로 정보 저장
 - [ ] 경로 그래프 불러오기
 
 ### PathInfo (Value Object)
