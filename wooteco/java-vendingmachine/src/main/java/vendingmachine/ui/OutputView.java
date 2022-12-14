@@ -4,7 +4,7 @@ import java.util.List;
 import vendingmachine.domain.CoinInfo;
 
 public class OutputView {
-    private final String ANNOUNCEMENT_COIN_INFO = System.lineSeparator() + "자판기가 보유한 동전";
+    private final String ANNOUNCEMENT_COIN_INFO = "자판기가 보유한 동전";
     private final String COIN_PRINT_FORMAT = "%s - %s개";
 
     public void printErrorMessage(String errorMessage) {
@@ -18,5 +18,6 @@ public class OutputView {
             System.out.printf(COIN_PRINT_FORMAT, coinInfo.getCoinName(), coinInfo.getCount());
             System.out.println();
         });
+        System.out.println();
     }
 }

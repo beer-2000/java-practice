@@ -10,7 +10,9 @@ public class InputView {
     public int readMoneyOfVendingMachine() {
         try {
             System.out.println(REQUEST_MONEY_OF_VENDING_MACHINE);
-            return Integer.parseInt(Console.readLine());
+            int money = Integer.parseInt(Console.readLine());
+            System.out.println();
+            return money;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_MESSAGE_MONEY_SHOULD_BE_NUMBER);
         }
@@ -18,7 +20,8 @@ public class InputView {
 
     public String readProducts() {
         System.out.println(REQUEST_PRODUCT_INFO);
-        return Console.readLine();
-
+        String productInfosRaw = Console.readLine();
+        System.out.println();
+        return productInfosRaw;
     }
 }

@@ -6,11 +6,19 @@ public class ProductInfo {
     private String name;
     private int price;
     private int count;
+    private final String ERROR_MESSAGE_PRICE_NOT_MULTIPLE_OF_10 = "[ERROR] 상품 가격은 10원의 배수여야 합니다.";
 
     public ProductInfo(String name, int price, int count) {
+        validatePrice(price);
         this.name = name;
         this.price = price;
         this.count = count;
+    }
+
+    private void validatePrice(int price) {
+        if (!(price % 10 == 0)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_PRICE_NOT_MULTIPLE_OF_10);
+        }
     }
 
     public String getName() {
