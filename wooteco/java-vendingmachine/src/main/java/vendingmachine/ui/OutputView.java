@@ -9,6 +9,7 @@ public class OutputView {
 
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
+        System.out.println();
     }
 
     public void printCoinCount(List<CoinInfo> coinInfos) {
