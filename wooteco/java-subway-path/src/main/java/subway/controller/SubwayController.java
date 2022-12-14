@@ -16,7 +16,11 @@ public class SubwayController {
     public SubwayController(Scanner scanner) {
         this.inputView = new InputView(scanner);
         this.outputView = new OutputView();
-        this.subway = new Subway();
+        try {
+            this.subway = new Subway();
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
+        }
     }
 
     public void start() {
