@@ -15,7 +15,7 @@ public class SubwayController {
 
     public SubwayController(Scanner scanner) {
         this.scanner = scanner;
-        this.inputView = new InputView();
+        this.inputView = new InputView(scanner);
         this.outputView = new OutputView();
         this.subway = new Subway();
     }
