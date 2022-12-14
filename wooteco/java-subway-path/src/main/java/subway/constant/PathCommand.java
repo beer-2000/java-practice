@@ -3,7 +3,7 @@ package subway.constant;
 import java.util.Arrays;
 
 public enum PathCommand {
-    MINIMUM_DISTANCE("1", "1. 최단 거"),
+    MINIMUM_DISTANCE("1", "1. 최단 거리"),
     MINIMUM_TIME("2", "2. 최소 시간"),
     QUIT("Q", "Q. 종료");
 
