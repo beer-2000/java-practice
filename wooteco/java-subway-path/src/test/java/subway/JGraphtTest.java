@@ -1,13 +1,12 @@
 package subway;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.WeightedMultigraph;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class JGraphtTest {
     @Test
@@ -22,7 +21,20 @@ public class JGraphtTest {
 
         DijkstraShortestPath dijkstraShortestPath = new DijkstraShortestPath(graph);
         List<String> shortestPath = dijkstraShortestPath.getPath("v3", "v1").getVertexList();
-
+        System.out.println((dijkstraShortestPath.getPaths("v1")));
+        System.out.println(dijkstraShortestPath.getPaths("v2").getWeight("v1"));
+        int sumOfWeight = 0;
+        for (int index = 0; index < shortestPath.size() - 1; index++) {
+            double weight = dijkstraShortestPath
+                    .getPaths(new String(shortestPath.get(index)))
+                    .getWeight(new String(shortestPath.get(index + 1)));
+            System.out.println(shortestPath.get(index));
+            sumOfWeight += weight;
+            System.out.println(weight);
+            System.out.println(sumOfWeight);
+        }
+        System.out.println(sumOfWeight);
+        System.out.println(shortestPath);
         assertThat(shortestPath.size()).isEqualTo(3);
     }
 }
