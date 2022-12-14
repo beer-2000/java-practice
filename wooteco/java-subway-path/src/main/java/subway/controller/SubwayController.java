@@ -33,11 +33,11 @@ public class SubwayController {
 
     private void runMainFunction(MainCommand mainCommand) {
         if (mainCommand.equals(MainCommand.PATH_FIND)) {
-            startPathFunction();
+            runPathFunction();
         }
     }
 
-    private void startPathFunction() {
+    private void runPathFunction() {
         while (true) {
             try {
                 outputView.announcePathCommand();
