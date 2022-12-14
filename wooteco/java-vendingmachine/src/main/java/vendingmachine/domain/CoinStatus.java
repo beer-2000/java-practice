@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 public class CoinStatus {
     private Coin coin;
     private int count;
+    private final String ERROR_MESSAGE_NOT_MULTIPLE_OF_10 = "[ERROR] 10원으로 나누어떨어지지 않습니다.";
 
     public CoinStatus(Coin coin, int money) {
         this.coin = coin;
@@ -34,6 +35,9 @@ public class CoinStatus {
     }
 
     private void generateCountOf10(Coin coin, int money) {
+        if (!(money % 10 == 0)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_NOT_MULTIPLE_OF_10);
+        }
         int amount = coin.getAmount();
         this.count = money / amount;
     }

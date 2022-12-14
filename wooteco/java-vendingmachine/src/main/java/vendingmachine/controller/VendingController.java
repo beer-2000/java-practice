@@ -16,6 +16,7 @@ public class VendingController {
 
     public void start() {
         generateVendingMachine();
+        
     }
 
     private void generateVendingMachine() {
