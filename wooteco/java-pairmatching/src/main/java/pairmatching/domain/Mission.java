@@ -24,13 +24,37 @@ public class Mission {
     public void matchPair() {
         pairInfo.clear();
         List<String> memberInfo = members.getMembersInfo();
-        savePairInfo(Randoms.shuffle(memberInfo));
+        boolean isComplete = false;
+        int shuffleCount = 0;
+        while (!(isComplete || shuffleCount >= 3)) {
+            List<String> shuffledMemberInfo = Randoms.shuffle(memberInfo);
+            shuffleCount += 1;
+            // TODO 출력 제거
+//            System.out.println("셔플 카운트: " + shuffleCount);
+            isComplete = savePairIfCan(memberInfo, shuffledMemberInfo);
+        }
+        checkShuffleCount(shuffleCount);
         matchCount += 1;
+    }
+
+    private void checkShuffleCount(int shuffleCount) {
+        if (shuffleCount >= 3) {
+            throw new IllegalArgumentException("[ERROR] 매칭에 실패했습니다.");
+        }
+    }
+
+    private boolean savePairIfCan(List<String> memberInfo, List<String> shuffledMemberInfo) {
+        if (members.canSavePair(shuffledMemberInfo)) {
+            members.savePair(shuffledMemberInfo);
+            savePairInfo(shuffledMemberInfo);
+            return true;
+        }
+        return false;
     }
 
     public List<String> getPair() {
         if (pairInfo.size() == 0) {
-            throw new IllegalArgumentException("[ERROR] 페어 매칭 정보가 없습니다.");
+            throw new IllegalArgumentException("ERROR] 매칭 이력이 없습니다.");
         }
         return pairInfo;
     }
