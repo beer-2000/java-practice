@@ -17,6 +17,14 @@ public class CourseController {
     }
 
     public void start() {
-        FunctionCommand functionCommand = FunctionCommand.
+        FunctionCommand functionCommand = FunctionCommand.PAIR_MATCHING;
+        do {
+            try {
+                functionCommand = inputView.readFunctionCommand();
+                runFunction(functionCommand);
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        } while (!functionCommand.equals(FunctionCommand.QUIT));
     }
 }

@@ -14,7 +14,7 @@
 
 ## Controller
 ### CourseController
-- [ ] 프로그램 실행
+- [x] 프로그램 실행
   - [ ] 페어 매칭
   - [ ] 페어 조회
   - [ ] 페어 초기화
