@@ -15,4 +15,8 @@ public class Level {
     public void addMissions(List<String> missionNames) {
         missionNames.forEach(name -> missions.add(new Mission(name)));
     }
+
+    public boolean isNameOf(String name) {
+        return this.name.equals(name);
+    }
 }
