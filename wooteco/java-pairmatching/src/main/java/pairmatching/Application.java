@@ -1,7 +1,10 @@
 package pairmatching;
 
+import pairmatching.controller.CourseController;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        CourseController courseController = new CourseController();
+        courseController.start();
     }
 }
