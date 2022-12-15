@@ -46,7 +46,7 @@ public class CourseController {
         boolean isComplete = false;
         while (!isComplete) {
             outputView.printCourseStatus(courses.getCourseStatus());
-            MissionInfo missionInfo = inputView.readMissionInfo();
+            MissionInfo missionInfo = getMissionInfoFromUser();
             if (courses.isMatchedAlready(missionInfo)) {
                 isComplete = checkReMatch(missionInfo);
                 continue;
@@ -68,9 +68,19 @@ public class CourseController {
 
     private void findPair() {
         outputView.printCourseStatus(courses.getCourseStatus());
-        MissionInfo missionInfo = inputView.readMissionInfo();
+        MissionInfo missionInfo = getMissionInfoFromUser();
         List<String> pairInfo = courses.getPair(missionInfo);
         outputView.printPairInfos(pairInfo);
+    }
+
+    private MissionInfo getMissionInfoFromUser() {
+        while (true) {
+            try {
+                return inputView.readMissionInfo();
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 
     private void initPair() {
