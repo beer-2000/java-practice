@@ -27,4 +27,28 @@ public class CourseController {
             }
         } while (!functionCommand.equals(FunctionCommand.QUIT));
     }
+
+    public void runFunction(FunctionCommand functionCommand) {
+        if (functionCommand.equals(FunctionCommand.PAIR_MATCHING)) {
+            matchPair();
+        }
+        if (functionCommand.equals(FunctionCommand.PAIR_FIND)) {
+            findPair();
+        }
+        if (functionCommand.equals(FunctionCommand.PAIR_INIT)) {
+            initPair();
+        }
+    }
+
+    private void matchPair() {
+
+    }
+
+    private void findPair() {
+
+    }
+
+    private void initPair() {
+        
+    }
 }
