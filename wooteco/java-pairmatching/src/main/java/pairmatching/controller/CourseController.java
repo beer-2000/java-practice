@@ -1,5 +1,6 @@
 package pairmatching.controller;
 
+import pairmatching.constant.FunctionCommand;
 import pairmatching.domain.Courses;
 import pairmatching.ui.InputView;
 import pairmatching.ui.OutputView;
@@ -16,6 +17,6 @@ public class CourseController {
     }
 
     public void start() {
-        
+        FunctionCommand functionCommand = FunctionCommand.
     }
 }
