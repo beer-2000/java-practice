@@ -1,5 +1,6 @@
 package pairmatching.controller;
 
+import java.util.List;
 import pairmatching.constant.FunctionCommand;
 import pairmatching.domain.Courses;
 import pairmatching.ui.InputView;
@@ -42,6 +43,8 @@ public class CourseController {
 
     private void matchPair() {
         outputView.printCourseStatus(courses.getCourseStatus());
+        List<String> pairInfo = courses.matchPair(inputView.readMissionInfo());
+        outputView.printPairInfos(pairInfo);
     }
 
     private void findPair() {

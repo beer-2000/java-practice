@@ -3,7 +3,7 @@
 ## UI
 ### InputView
 - [x] 기능 번호 입력
-- [ ] 과정, 레벨, 미션 입력
+- [x] 과정, 레벨, 미션 입력
 - [ ] 재매칭 여부 입력
 
 ### OutputView
@@ -68,6 +68,10 @@
 ### LevelStatus (Value Object)
 - [x] 생성
 - [x] 레벨 정보 텍스트 반환
+
+### MissionInfo (Value Object)
+- [x] 생성
+- [x] 값 반환
 ---
 
 ## Constant
