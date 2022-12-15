@@ -35,4 +35,8 @@ public class Courses {
         Level targetLevel = targetCourse.getLevelByName(missionInfo.getLevelName());
         return targetLevel.getMissionByName(missionInfo.getMissionName());
     }
+
+    public boolean isMatchedAlready(MissionInfo missionInfo) {
+        return getMissionByInfo(missionInfo).isMatchedAlready();
+    }
 }

@@ -23,6 +23,7 @@ public class OutputView {
     }
 
     public void printPairInfos(List<String> pairInfo) {
+        System.out.println("페어 매칭 결과입니다.");
         pairInfo.forEach(System.out::println);
         System.out.println();
     }

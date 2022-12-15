@@ -3,6 +3,7 @@ package pairmatching.controller;
 import java.util.List;
 import pairmatching.constant.FunctionCommand;
 import pairmatching.domain.Courses;
+import pairmatching.domain.MissionInfo;
 import pairmatching.ui.InputView;
 import pairmatching.ui.OutputView;
 
@@ -42,9 +43,27 @@ public class CourseController {
     }
 
     private void matchPair() {
-        outputView.printCourseStatus(courses.getCourseStatus());
-        List<String> pairInfo = courses.matchPair(inputView.readMissionInfo());
-        outputView.printPairInfos(pairInfo);
+        boolean isComplete = false;
+        while (!isComplete) {
+            outputView.printCourseStatus(courses.getCourseStatus());
+            MissionInfo missionInfo = inputView.readMissionInfo();
+            if (courses.isMatchedAlready(missionInfo)) {
+                isComplete = checkReMatch(missionInfo);
+                continue;
+            }
+            List<String> pairInfo = courses.matchPair(missionInfo);
+            outputView.printPairInfos(pairInfo);
+            isComplete = true;
+        }
+    }
+
+    private boolean checkReMatch(MissionInfo missionInfo) {
+        if (inputView.readReMatchCommand().equals("네")) {
+            List<String> pairInfo = courses.matchPair(missionInfo);
+            outputView.printPairInfos(pairInfo);
+            return true;
+        }
+        return false;
     }
 
     private void findPair() {

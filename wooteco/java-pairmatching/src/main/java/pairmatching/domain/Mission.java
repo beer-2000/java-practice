@@ -43,4 +43,8 @@ public class Mission {
             pairInfo.add(memberInfo.get(index) + " : " + memberInfo.get(index + 1));
         }
     }
+
+    public boolean isMatchedAlready() {
+        return matchCount != 0;
+    }
 }
