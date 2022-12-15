@@ -11,4 +11,8 @@ public class Level {
         this.name = name;
         this.missions = new ArrayList<>();
     }
+
+    public void addMissions(List<String> missionNames) {
+        missionNames.forEach(name -> missions.add(new Mission(name)));
+    }
 }
