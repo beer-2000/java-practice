@@ -30,7 +30,7 @@ public class Course {
         return levels.stream()
                 .filter(level -> level.isNameOf(name))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 레벨 이름입니다."));
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 레벨입니다."));
     }
 
     public String getName() {
@@ -41,5 +41,9 @@ public class Course {
         return levels.stream()
                 .map(Level::getLevelStatus)
                 .collect(Collectors.toList());
+    }
+
+    public boolean isNameOf(String name) {
+        return this.name.equals(name);
     }
 }

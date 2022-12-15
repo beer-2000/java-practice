@@ -20,6 +20,8 @@ public class InputView {
         System.out.println("과정, 레벨, 미션을 선택하세요.");
         System.out.println("ex) 백엔드, 레벨1, 자동차경주");
         String[] missionInfoRaw = Console.readLine().split(", ");
-        return new MissionInfo(missionInfoRaw[0], missionInfoRaw[1], missionInfoRaw[2]);
+        MissionInfo missionInfo = new MissionInfo(missionInfoRaw[0], missionInfoRaw[1], missionInfoRaw[2]);
+        System.out.println();
+        return missionInfo;
     }
 }

@@ -20,4 +20,19 @@ public class Courses {
         List<LevelStatus> levelStatuses = courses.get(0).getLevelStatus();
         return new CourseStatus(courseNames, levelStatuses);
     }
+
+    public List<String> matchPair(MissionInfo missionInfo) {
+        Mission mission = getMissionByInfo(missionInfo);
+        mission.matchPair();
+        return mission.getPair();
+    }
+
+    private Mission getMissionByInfo(MissionInfo missionInfo) {
+        Course targetCourse = courses.stream()
+                .filter(course -> course.isNameOf(missionInfo.getCourseName()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 코스입니다."));
+        Level targetLevel = targetCourse.getLevelByName(missionInfo.getLevelName());
+        return targetLevel.getMissionByName(missionInfo.getMissionName());
+    }
 }

@@ -11,4 +11,8 @@ public class Member {
         this.name = name;
         this.members = new ArrayList<>();
     }
+
+    public String getName() {
+        return name;
+    }
 }

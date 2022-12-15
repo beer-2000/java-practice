@@ -1,5 +1,6 @@
 package pairmatching.ui;
 
+import java.util.List;
 import pairmatching.domain.CourseStatus;
 
 public class OutputView {
@@ -19,5 +20,10 @@ public class OutputView {
                     System.out.println(levelStatus.getLevelInfo());
                 });
         System.out.println(SEPARATE_LINE_CHARACTERS);
+    }
+
+    public void printPairInfos(List<String> pairInfo) {
+        pairInfo.forEach(System.out::println);
+        System.out.println();
     }
 }

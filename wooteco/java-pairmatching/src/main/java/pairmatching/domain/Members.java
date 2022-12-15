@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Members {
     private List<Member> members;
@@ -18,6 +19,12 @@ public class Members {
         if (courseName.equals("프론트엔드")) {
             initMembersOfFrontend();
         }
+    }
+
+    public List<String> getMembersInfo() {
+        return members.stream()
+                .map(Member::getName)
+                .collect(Collectors.toList());
     }
 
     private void initMembersOfBackend() {

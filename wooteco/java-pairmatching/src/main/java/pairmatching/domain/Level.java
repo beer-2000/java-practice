@@ -29,4 +29,11 @@ public class Level {
                 .collect(Collectors.toList());
         return new LevelStatus(name, missionNames);
     }
+
+    public Mission getMissionByName(String missionName) {
+        return missions.stream()
+                .filter(mission -> mission.getName().equals(missionName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 미션입니다."));
+    }
 }
