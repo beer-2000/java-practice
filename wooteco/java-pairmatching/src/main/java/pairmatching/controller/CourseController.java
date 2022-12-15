@@ -67,7 +67,10 @@ public class CourseController {
     }
 
     private void findPair() {
-
+        outputView.printCourseStatus(courses.getCourseStatus());
+        MissionInfo missionInfo = inputView.readMissionInfo();
+        List<String> pairInfo = courses.getPair(missionInfo);
+        outputView.printPairInfos(pairInfo);
     }
 
     private void initPair() {

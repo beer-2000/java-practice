@@ -39,4 +39,9 @@ public class Courses {
     public boolean isMatchedAlready(MissionInfo missionInfo) {
         return getMissionByInfo(missionInfo).isMatchedAlready();
     }
+
+    public List<String> getPair(MissionInfo missionInfo) {
+        Mission mission = getMissionByInfo(missionInfo);
+        return mission.getPair();
+    }
 }

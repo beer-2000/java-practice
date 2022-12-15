@@ -29,6 +29,9 @@ public class Mission {
     }
 
     public List<String> getPair() {
+        if (pairInfo.size() == 0) {
+            throw new IllegalArgumentException("[ERROR] 페어 매칭 정보가 없습니다.");
+        }
         return pairInfo;
     }
 
