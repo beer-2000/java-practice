@@ -74,6 +74,7 @@ public class CourseController {
     }
 
     private void initPair() {
-
+        this.courses = new Courses();
+        outputView.announceInitCourses();
     }
 }

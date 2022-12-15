@@ -27,4 +27,9 @@ public class OutputView {
         pairInfo.forEach(System.out::println);
         System.out.println();
     }
+
+    public void announceInitCourses() {
+        System.out.println("초기화 되었습니다. ");
+        System.out.println();
+    }
 }
