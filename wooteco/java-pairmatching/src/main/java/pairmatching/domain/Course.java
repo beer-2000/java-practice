@@ -3,6 +3,7 @@ package pairmatching.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Course {
     private List<Level> levels;
@@ -30,5 +31,15 @@ public class Course {
                 .filter(level -> level.isNameOf(name))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 레벨 이름입니다."));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<LevelStatus> getLevelStatus() {
+        return levels.stream()
+                .map(Level::getLevelStatus)
+                .collect(Collectors.toList());
     }
 }

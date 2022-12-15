@@ -2,6 +2,7 @@ package pairmatching.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Level {
     private List<Mission> missions;
@@ -18,5 +19,12 @@ public class Level {
 
     public boolean isNameOf(String name) {
         return this.name.equals(name);
+    }
+
+    public LevelStatus getLevelStatus() {
+        List<String> missionNames = missions.stream()
+                .map(Mission::getName)
+                .collect(Collectors.toList());
+        return new LevelStatus(name, missionNames);
     }
 }

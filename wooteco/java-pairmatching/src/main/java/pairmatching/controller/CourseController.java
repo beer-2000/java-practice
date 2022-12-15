@@ -41,7 +41,7 @@ public class CourseController {
     }
 
     private void matchPair() {
-
+        outputView.printCourseStatus(courses.getCourseStatus());
     }
 
     private void findPair() {
@@ -49,6 +49,6 @@ public class CourseController {
     }
 
     private void initPair() {
-        
+
     }
 }

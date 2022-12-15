@@ -10,4 +10,8 @@ public class Mission {
         this.name = name;
         this.matchCount = 0;
     }
+
+    public String getName() {
+        return name;
+    }
 }
