@@ -16,11 +16,11 @@ public class Course {
 
     private void initLevels() {
         this.levels = new ArrayList<>();
-        levels.add(new Level("레벨1"));
-        levels.add(new Level("레벨2"));
-        levels.add(new Level("레벨3"));
-        levels.add(new Level("레벨4"));
-        levels.add(new Level("레벨5"));
+        levels.add(new Level("레벨1", name));
+        levels.add(new Level("레벨2", name));
+        levels.add(new Level("레벨3", name));
+        levels.add(new Level("레벨4", name));
+        levels.add(new Level("레벨5", name));
         getLevelByName("레벨1").addMissions(Arrays.asList("자동차경주", "로또", "숫자야구게임"));
         getLevelByName("레벨2").addMissions(Arrays.asList("장바구니", "결제", "지하철노선도"));
         getLevelByName("레벨4").addMissions(Arrays.asList("성능개선", "배포"));

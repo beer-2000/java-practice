@@ -7,14 +7,16 @@ import java.util.stream.Collectors;
 public class Level {
     private List<Mission> missions;
     private String name;
+    private String courseName;
 
-    public Level(String name) {
+    public Level(String name, String courseName) {
         this.name = name;
+        this.courseName = courseName;
         this.missions = new ArrayList<>();
     }
 
     public void addMissions(List<String> missionNames) {
-        missionNames.forEach(name -> missions.add(new Mission(name)));
+        missionNames.forEach(name -> missions.add(new Mission(name, courseName)));
     }
 
     public boolean isNameOf(String name) {

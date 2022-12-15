@@ -5,8 +5,8 @@ public class Mission {
     private String name;
     private int matchCount;
 
-    public Mission(String name) {
-        this.members = new Members();
+    public Mission(String name, String courseName) {
+        this.members = new Members(courseName);
         this.name = name;
         this.matchCount = 0;
     }
