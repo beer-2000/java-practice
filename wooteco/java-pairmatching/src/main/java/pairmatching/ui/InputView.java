@@ -10,6 +10,8 @@ public class InputView {
         System.out.println("기능을 선택하세요.");
         Arrays.stream(FunctionCommand.values())
                 .forEach(functionCommand -> System.out.println(functionCommand.getMessage()));
-        return FunctionCommand.get(Console.readLine());
+        FunctionCommand functionCommand = FunctionCommand.get(Console.readLine());
+        System.out.println();
+        return functionCommand;
     }
 }
