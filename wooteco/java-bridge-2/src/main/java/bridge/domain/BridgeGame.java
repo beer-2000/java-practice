@@ -14,8 +14,8 @@ import static bridge.domain.GameStatus.END_SUCCESS;
 public class BridgeGame {
     private int tryCount;
     private GameStatus gameStatus;
-    private BridgeReferee bridgeReferee;
-    private BridgePicture bridgePicture;
+    private final BridgeReferee bridgeReferee;
+    private final BridgePicture bridgePicture;
 
     public BridgeGame(int bridgeSize) {
         this.tryCount = 1;

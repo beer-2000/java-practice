@@ -13,4 +13,8 @@ public class BridgeReferee {
         Moving movingNow = bridge.get(location);
         return movingNow.equals(moving);
     }
+
+    public boolean isEndLocation(int location) {
+        return bridge.size() == location;
+    }
 }
