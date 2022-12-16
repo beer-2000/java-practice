@@ -9,7 +9,7 @@ public class BridgePicture {
 
     public BridgePicture() {
         this.bridge = new ArrayList<>();
-        this.isFail = true;
+        this.isFail = false;
     }
 
     public int getLocation() {
@@ -21,5 +21,9 @@ public class BridgePicture {
         if (!canCross) {
             isFail = true;
         }
+    }
+
+    public boolean isFail() {
+        return isFail;
     }
 }
