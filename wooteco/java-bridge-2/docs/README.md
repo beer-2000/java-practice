@@ -35,7 +35,7 @@
 - [ ] 재시작
 
 ### BridgeReferee
-- [ ] 현재 이동 성공 판단
+- [x] 현재 이동 성공 판단
 
 ### BridgePicture
 - [x] 생성
