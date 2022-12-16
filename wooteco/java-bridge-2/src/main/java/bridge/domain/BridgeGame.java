@@ -41,6 +41,7 @@ public class BridgeGame {
     private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);
+        // TODO 출력 지우기
         System.out.println(bridgeRaw);
         return bridgeRaw.stream()
             .map(Moving::getByCommand)
