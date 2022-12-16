@@ -62,7 +62,7 @@ public class BridgeController {
     private void checkRetry() {
         while (true) {
             try {
-                bridgeGame.retry(inputView.readGameCommand());
+//                bridgeGame.retry(inputView.readGameCommand());
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }

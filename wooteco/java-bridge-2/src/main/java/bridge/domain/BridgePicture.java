@@ -26,4 +26,8 @@ public class BridgePicture {
     public boolean isFail() {
         return isFail;
     }
+
+    public boolean isSuccess() {
+        return !isFail;
+    }
 }
