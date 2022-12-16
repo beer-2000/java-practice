@@ -44,7 +44,6 @@ public class BridgeController {
         move();
         BridgePicture bridgePicture = bridgeGame.getPicture();
         outputView.printMap(bridgePicture);
-        checkFail(bridgePicture.isFail());
         if (bridgePicture.isFail()) {
             checkRetry();
         }

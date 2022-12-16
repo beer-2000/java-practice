@@ -1,8 +1,11 @@
 package bridge.ui;
 
+import bridge.domain.GameCommand;
 import bridge.domain.Moving;
 import camp.nextstep.edu.missionutils.Console;
 
+import static bridge.domain.GameCommand.QUIT;
+import static bridge.domain.GameCommand.RETRY;
 import static bridge.domain.Moving.DOWN;
 import static bridge.domain.Moving.UP;
 
@@ -13,6 +16,7 @@ public class InputView {
     private final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
     private final String ERROR_MESSAGE_WRONG_BRIDGE_SIZE = "[ERROR] 다리의 길이는 숫자만 입력해주세요.";
     private final String REQUEST_MOVING = "이동할 칸을 선택해주세요. (위: %s, 아래: %s)";
+    private final String REQUEST_GAME_COMMAND = "게임을 다시 시도할지 여부를 입력해주세요. (재시도: %s, 종료: %s)";
 
     /**
      * 다리의 길이를 입력받는다.
@@ -40,7 +44,9 @@ public class InputView {
     /**
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
-    public String readGameCommand() {
-        return null;
+    public GameCommand readGameCommand() {
+        System.out.printf(REQUEST_GAME_COMMAND, RETRY.getCommand(), QUIT.getCommand());
+        System.out.println();
+        return GameCommand.getByCommand(Console.readLine());
     }
 }
