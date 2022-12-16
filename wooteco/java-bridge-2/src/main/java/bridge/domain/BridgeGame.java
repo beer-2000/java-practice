@@ -42,6 +42,10 @@ public class BridgeGame {
         return this.gameStatus.isOnWay();
     }
 
+    public BridgePicture getPicture() {
+        return bridgePicture;
+    }
+
     private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);
