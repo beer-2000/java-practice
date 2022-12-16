@@ -4,6 +4,7 @@ import bridge.BridgeMaker;
 import bridge.BridgeRandomNumberGenerator;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
@@ -17,7 +18,7 @@ public class BridgeGame {
     public BridgeGame(int bridgeSize) {
         this.tryCount = 1;
         this.gameStatus = GameStatus.ON_WAY;
-        this.bridgeReferee = new BridgeReferee(generateBridge(bridgeReferee));
+        this.bridgeReferee = new BridgeReferee(generateBridge(bridgeSize));
         this.bridgePicture = new BridgePicture();
     }
 
@@ -37,10 +38,11 @@ public class BridgeGame {
     public void retry() {
     }
 
-    private void generateBridge(int bridgeSize) {
+    private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);
-        bridgeRaw.stream()
-            .map()
+        return bridgeRaw.stream()
+            .map(Moving::getByCommand)
+            .collect(Collectors.toList());
     }
 }

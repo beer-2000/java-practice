@@ -27,6 +27,8 @@
 ## Domain
 
 ### BridgeGame
+- [x] 초기 설정
+  - [x] 다리 생성
 - [ ] 이동
 - [ ] 재시작
 
@@ -38,10 +40,10 @@
 - [ ] 현재 다리 현황 반환
 
 ### BridgeMaker
-- [ ] 다리 생성
+- [x] 다리 생성
 
 ### BridgeRandomNumberGenerator
-- [ ] 다리 방향을 나타내는 랜덤 숫자 생성
+- [x] 다리 방향을 나타내는 랜덤 숫자 생성
 
 ### Moving (Enum)
 - [x] 이동 방향 상수 집합 구현
