@@ -15,6 +15,6 @@ public class BridgeController {
     }
 
     public void start() {
-        
+        outputView.announceStartGame();
     }
 }
