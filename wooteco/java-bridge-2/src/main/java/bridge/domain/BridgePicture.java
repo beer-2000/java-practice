@@ -11,4 +11,8 @@ public class BridgePicture {
         this.bridge = new ArrayList<>();
         this.isFail = true;
     }
+
+    public int getLocation() {
+        return bridge.size();
+    }
 }
