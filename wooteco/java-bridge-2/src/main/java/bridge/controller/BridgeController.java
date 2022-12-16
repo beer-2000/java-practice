@@ -53,6 +53,7 @@ public class BridgeController {
         while (true) {
             try {
                 bridgeGame.move(inputView.readMoving());
+                break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
@@ -72,7 +73,7 @@ public class BridgeController {
     private void announceFinalResult() {
         BridgePicture bridgePicture = bridgeGame.getPicture();
         boolean isSuccess = bridgePicture.isSuccess();
-        int tryCount = bridgePicture.getTryCount();
-        outputView.printResult(bridgePicture, isSuccess, tryCount);
+        int tryCount = bridgeGame.getTryCount();
+//        outputView.printResult(bridgePicture, isSuccess, tryCount);
     }
 }
