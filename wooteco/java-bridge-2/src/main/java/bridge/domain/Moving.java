@@ -17,6 +17,10 @@ public enum Moving {
         this.inclusive = inclusive;
     }
 
+    public String getCommand() {
+        return command;
+    }
+
     public boolean checkCommand(String command) {
         return this.command.equals(command);
     }
