@@ -41,6 +41,7 @@ public class BridgeGame {
     private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);
+        System.out.println(bridgeRaw);
         return bridgeRaw.stream()
             .map(Moving::getByCommand)
             .collect(Collectors.toList());
