@@ -26,4 +26,9 @@ public class OutputView {
         System.out.println(ANNOUNCEMENT_START_GAME);
         System.out.println();
     }
+
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+        System.out.println();
+    }
 }
