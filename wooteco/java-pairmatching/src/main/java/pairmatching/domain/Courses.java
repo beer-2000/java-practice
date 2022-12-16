@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Courses {
-    private List<Course> courses;
+    private final List<Course> courses;
 
     public Courses() {
         this.courses = new ArrayList<>();

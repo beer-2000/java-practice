@@ -3,8 +3,8 @@ package pairmatching.domain;
 import java.util.List;
 
 public class CourseStatus {
-    private List<String> courseNames;
-    private List<LevelStatus> levelStatuses;
+    private final List<String> courseNames;
+    private final List<LevelStatus> levelStatuses;
 
     private final String SEPARATOR = " | ";
 

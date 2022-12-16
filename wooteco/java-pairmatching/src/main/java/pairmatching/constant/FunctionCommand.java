@@ -8,8 +8,8 @@ public enum FunctionCommand {
     PAIR_INIT("3", "3. 페어 초기화"),
     QUIT("Q", "Q. 종료");
 
-    private String command;
-    private String message;
+    private final String command;
+    private final String message;
     private static final String ERROR_MESSAGE_WRONG_FUNCTION_COMMAND = "[ERROR] 선택할 수 없는 기능입니다.";
 
     FunctionCommand(String command, String message) {

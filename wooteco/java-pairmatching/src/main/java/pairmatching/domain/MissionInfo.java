@@ -1,9 +1,9 @@
 package pairmatching.domain;
 
 public class MissionInfo {
-    private String courseName;
-    private String levelName;
-    private String missionName;
+    private final String courseName;
+    private final String levelName;
+    private final String missionName;
 
     public MissionInfo(String courseName, String levelName, String missionName) {
         this.courseName = courseName;

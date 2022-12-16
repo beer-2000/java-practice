@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Members {
-    private List<Member> members;
+    private final List<Member> members;
 
     public Members(String courseName) {
         this.members = new ArrayList<>();

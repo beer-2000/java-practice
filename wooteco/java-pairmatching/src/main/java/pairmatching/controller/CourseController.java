@@ -8,8 +8,8 @@ import pairmatching.ui.InputView;
 import pairmatching.ui.OutputView;
 
 public class CourseController {
-    private InputView inputView;
-    private OutputView outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
     private Courses courses;
 
     public CourseController() {

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Course {
     private List<Level> levels;
-    private String name;
+    private final String name;
 
     public Course(String name) {
         this.name = name;

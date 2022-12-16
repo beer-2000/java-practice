@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Level {
-    private List<Mission> missions;
-    private String name;
-    private String courseName;
+    private final List<Mission> missions;
+    private final String name;
+    private final String courseName;
 
     public Level(String name, String courseName) {
         this.name = name;

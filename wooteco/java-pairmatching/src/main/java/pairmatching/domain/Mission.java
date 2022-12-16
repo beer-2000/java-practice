@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mission {
-    private Members members;
-    private String name;
-    private List<String> pairInfo;
+    private final Members members;
+    private final String name;
+    private final List<String> pairInfo;
     private int matchCount;
 
     public Mission(String name, String courseName) {
