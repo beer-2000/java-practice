@@ -15,4 +15,11 @@ public class BridgePicture {
     public int getLocation() {
         return bridge.size();
     }
+
+    public void record(Moving moving, boolean canCross) {
+        bridge.add(moving);
+        if (!canCross) {
+            isFail = true;
+        }
+    }
 }
