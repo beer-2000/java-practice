@@ -38,6 +38,10 @@ public class BridgeGame {
     public void retry() {
     }
 
+    public boolean isOnWay() {
+        return this.gameStatus.isOnWay();
+    }
+
     private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);
