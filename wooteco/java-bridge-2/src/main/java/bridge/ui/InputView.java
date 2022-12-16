@@ -1,5 +1,6 @@
 package bridge.ui;
 
+import bridge.domain.Moving;
 import camp.nextstep.edu.missionutils.Console;
 
 import static bridge.domain.Moving.DOWN;
@@ -30,10 +31,10 @@ public class InputView {
     /**
      * 사용자가 이동할 칸을 입력받는다.
      */
-    public String readMoving() {
+    public Moving readMoving() {
         System.out.printf(REQUEST_MOVING, UP.getCommand(), DOWN.getCommand());
         System.out.println();
-        return Console.readLine();
+        return Moving.getByCommand(Console.readLine());
     }
 
     /**
