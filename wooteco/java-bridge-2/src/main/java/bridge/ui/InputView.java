@@ -2,12 +2,16 @@ package bridge.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static bridge.domain.Moving.DOWN;
+import static bridge.domain.Moving.UP;
+
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
 public class InputView {
     private final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
     private final String ERROR_MESSAGE_WRONG_BRIDGE_SIZE = "[ERROR] 다리의 길이는 숫자만 입력해주세요.";
+    private final String REQUEST_MOVING = "이동할 칸을 선택해주세요. (위: %s, 아래: %s)";
 
     /**
      * 다리의 길이를 입력받는다.
@@ -27,7 +31,9 @@ public class InputView {
      * 사용자가 이동할 칸을 입력받는다.
      */
     public String readMoving() {
-        return null;
+        System.out.printf(REQUEST_MOVING, UP.getCommand(), DOWN.getCommand());
+        System.out.println();
+        return Console.readLine();
     }
 
     /**
