@@ -60,6 +60,10 @@ public class BridgeGame {
         return bridgePicture;
     }
 
+    public int getTryCount() {
+        return tryCount;
+    }
+
     private List<Moving> generateBridge(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         List<String> bridgeRaw = bridgeMaker.makeBridge(bridgeSize);

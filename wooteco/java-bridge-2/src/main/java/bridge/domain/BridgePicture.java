@@ -30,4 +30,8 @@ public class BridgePicture {
     public boolean isSuccess() {
         return !isFail;
     }
+
+    public List<Moving> getBridge() {
+        return bridge;
+    }
 }
