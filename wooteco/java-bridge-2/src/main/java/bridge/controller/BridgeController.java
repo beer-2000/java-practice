@@ -24,8 +24,7 @@ public class BridgeController {
     private void createBridgeGame() {
         while (true) {
             try {
-                int bridgeSize = inputView.readBridgeSize();
-                this.bridgeGame = new BridgeGame(bridgeSize);
+                this.bridgeGame = new BridgeGame(inputView.readBridgeSize());
                 break;
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
