@@ -7,8 +7,8 @@ class Recur3 {
 
 	//--- 메서드 recur의 비재귀적 구현 ---//
 	static void recur3(int n) {
-		int[] nstk = new int[100];
-		int[] sstk = new int[100];
+		int[] nstk = new int[10];
+		int[] sstk = new int[10];
 		int ptr = -1;
 		int sw = 0;
 
