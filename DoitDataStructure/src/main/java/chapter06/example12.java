@@ -4,7 +4,7 @@
 import chapter04.IntStack;
 import java.util.Scanner;
 
-class QuickSort2Verbose {
+class example12 {
 
 	//--- 배열의 요소 a[idx1]과 a[idx2]를 교환 ---//
 	static void swap(int[] a, int idx1, int idx2) {
@@ -34,6 +34,12 @@ class QuickSort2Verbose {
 				if (pl <= pr)
 					swap(a, pl++, pr--);
 			} while (pl <= pr);
+
+			if (pr - left < right - pl) {
+				int temp;
+				temp = left;  left  = pl; pl = temp;
+				temp = right; right = pr; pr = temp;
+			}
 
 			if (left < pr) {
 				lstack.push(left);			// 왼쪽 그룹 범위의

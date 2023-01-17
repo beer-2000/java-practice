@@ -1,7 +1,7 @@
 // 연습6-12
 // 퀵 정렬(요솟수가 많은 그룹을 먼저 푸시 : 비재귀 버전)
 
-import chapter4.IntStack;
+import chapter04.IntStack;
 import java.util.Scanner;
 
 class QuickSort2X {
