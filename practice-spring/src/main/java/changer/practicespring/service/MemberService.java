@@ -5,6 +5,8 @@ import changer.practicespring.repository.MemberRepository;
 import changer.practicespring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 public class MemberService {
 
