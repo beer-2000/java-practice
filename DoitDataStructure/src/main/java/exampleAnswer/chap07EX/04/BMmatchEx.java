@@ -80,6 +80,7 @@ class BMmatchEx {
 				count++;
 			}
 			pt += skip[txt.charAt(pt)];
+
 		}
 		return -1;									// 검색 실패
 	}

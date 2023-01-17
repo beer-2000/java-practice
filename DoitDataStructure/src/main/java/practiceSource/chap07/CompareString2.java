@@ -11,6 +11,7 @@ class CompareString2 {
         System.out.print("문자열 s2 : ");  String s2 = stdIn.next();
 
         int comp = s1.compareTo(s2);
+        System.out.println(comp);
         if (comp < 0)
             System.out.println("s1 < s2 입니다.");
         else if (comp > 0)
