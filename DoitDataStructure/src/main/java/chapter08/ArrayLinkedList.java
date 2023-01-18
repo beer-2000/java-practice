@@ -1,4 +1,4 @@
-// 연결 리스트 클래스(배열 커서 버전）
+package chapter08;// 연결 리스트 클래스(배열 커서 버전）
 
 import java.util.Comparator;
 
@@ -77,6 +77,41 @@ public class ArrayLinkedList<E> {
             ptr = n[ptr].next;                        // 뒤쪽 노드 선택
         }
         return null;                                  // 검색 실패
+    }
+
+    public void purge(Comparator<? super E> c) {
+        int pointerOuter = head;
+        int pointerInner;
+        System.out.printf("outer: %d\n", pointerOuter);
+        System.out.println("n[outer] = " + n[pointerOuter].data);
+        this.dump();
+        while (n[pointerOuter].next != NULL) {
+            pointerInner = pointerOuter + 1;
+            do{
+                System.out.printf("outer: %d, inner: %d\n", pointerOuter, pointerInner);
+                this.dump();
+                if (c.compare(n[pointerInner].data, n[pointerOuter].data) == 0) {
+                    System.out.println(n[pointerInner].data + " 제거");
+                    remove(pointerInner);
+                }
+                pointerInner = n[pointerInner].next;
+            } while (n[pointerInner].next != NULL);
+            pointerOuter = n[pointerOuter].next;
+        }
+    }
+
+    //---【연습8-5】 머리부터 n개 뒤 노드의 데이터에 대한 참조를 반환 ---//
+    public E retrieve(int n) {
+        int ptr = head;
+
+        while (n >= 0 && ptr != NULL) {
+            if (n-- == 0) {
+                crnt = ptr;
+                return this.n[ptr].data;			// 검색 성공
+            }
+            ptr = this.n[ptr].next;					// 다음 노드를 선택
+        }
+        return null;
     }
 
     //--- 머리노드 삽입 ---//
