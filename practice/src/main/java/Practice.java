@@ -45,7 +45,13 @@ public class Practice {
 				System.out.println(e);
 			}
 		});
-		list3.stream().forEach(a -> checkIsOne(a));
+		list3.stream().forEach(a -> {
+			try {
+				checkIsOne(a);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		});
 
 	}
 	static void checkIsOne(int number) throws Exception{
