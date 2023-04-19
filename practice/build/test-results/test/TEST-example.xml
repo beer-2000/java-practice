@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-08T02:38:40" hostname="iujin-ui-MacBookAir.local" time="0.01">
+  <properties/>
+  <testcase name="test1()" classname="example" time="0.009"/>
+  <testcase name="test2()" classname="example" time="0.0"/>
+  <system-out><![CDATA[test1
+test2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
